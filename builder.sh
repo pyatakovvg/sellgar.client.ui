@@ -7,7 +7,7 @@ echo '------------------------------------'
 cd ./helpers || return
 
 echo ''
-echo 'Пакет "utils"'
+echo 'Пакет "Utils"'
 echo '------------------------------------'
 cd ./utils && npx yarn build
 
@@ -19,7 +19,7 @@ echo '------------------------------------'
 cd ../../packages || return
 
 echo ''
-echo 'Пакет "Default"'
+echo 'Пакет "Request"'
 echo '------------------------------------'
 cd ./request && npx yarn build
 echo ''
@@ -50,11 +50,11 @@ echo '------------------------------------'
 
 cd ../../libraries || return
 
-echo 'Виджет "kit"'
+echo 'Виджет "Kit"'
 echo '------------------------------------'
 cd ./kit && npx yarn build
 
-echo 'Виджет "store"'
+echo 'Виджет "Store"'
 echo '------------------------------------'
 cd ../store && npx yarn build
 
@@ -66,7 +66,7 @@ echo '------------------------------------'
 
 cd ../../modules || return
 
-echo 'Модуль "main"'
+echo 'Модуль "Main"'
 echo '------------------------------------'
 cd ./main && npx yarn build
 
@@ -77,7 +77,7 @@ echo '------------------------------------'
 
 cd ../../apps || return
 
-echo 'Модуль "main"'
+echo 'Модуль "Client"'
 echo '------------------------------------'
 cd ./client && npx yarn build
 
