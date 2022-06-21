@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 8080"
   },
   "dependencies": {
     "@layout/default": "0.0.1",
