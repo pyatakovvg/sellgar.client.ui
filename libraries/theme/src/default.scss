@@ -1,0 +1,59 @@
+
+$mobile:  (max-width: 600px);
+
+// FONT WEIGHT
+
+$font-weight-light: 300;
+$font-weight-medium: 500;
+$font-weight-bold: 800;
+
+// DISPLAY
+
+
+// COLORS
+
+$danger:           #B94A43 !default;
+$danger-dark:      #943B35 !default;
+$danger-light:     #CE5851 !default;
+
+$primary:          #8FADC8 !default;
+$primary-dark:     #6383A0 !default;
+$primary-light:    #AAC7E1 !default;
+
+$success:          #75863C !default;
+$success-dark:     #596827 !default;
+$success-light:    #869849 !default;
+
+$info:             #F68D3D !default;
+$info-dark:        #DA7020 !default;
+$info-light:       #F8A363 !default;
+
+$gray:             #B8BDC1 !default;
+$gray-dark:        #7E8286 !default;
+$gray-light:       #E6EAED !default;
+
+$white:            #FFFFFF !default;
+$light:            #FEFEFA !default;
+$dark:             #293138 !default;
+$black:            #000000 !default;
+
+
+// MIXINS
+
+@mixin box-shadow($direction: bottom) {
+  @if ($direction == right) {
+    box-shadow: 2px 0 12px 0 rgba(#7E8286, .32);
+  }
+  @else if ($direction == bottom) {
+    box-shadow: 0 2px 12px 0 rgba(#7E8286, .32);
+  }
+  @else if ($direction == left) {
+    box-shadow: -2px 0 12px 0 rgba(#7E8286, .32);
+  }
+  @else if ($direction == top) {
+    box-shadow: 0 -2px 12px 0 rgba(#7E8286, .32);
+  }
+  @else {
+    @error "Unknown direction #{$direction}.";
+  }
+}

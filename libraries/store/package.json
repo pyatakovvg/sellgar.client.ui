@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "name": "@library/store",
+  "version": "0.0.1",
+  "main": "lib/index.esm.js",
+  "types": "types",
+  "publishConfig": {
+    "source": "src/index.ts",
+    "main": "lib/index.js"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production microbundle build -f es",
+    "start:dev": "cross-env NODE_ENV=development microbundle watch -f es --no-compress"
+  },
+  "dependencies": {
+    "@module/main": "0.0.1",
+    "@package/dialog": "0.0.1",
+    "react-redux": "8.0.2",
+    "redux-form": "8.3.8"
+  },
+  "peerDependencies": {
+    "@reduxjs/toolkit": "1.8.2"
+  },
+  "devDependencies": {
+    "@types/react-redux": "7.1.24",
+    "@types/redux-form": "8.3.5"
+  }
+}

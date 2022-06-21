@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "name": "@package/request",
+  "version": "0.0.1",
+  "main": "lib/index.esm.js",
+  "types": "types",
+  "publishConfig": {
+    "source": "src/index.ts",
+    "main": "lib/index.js"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production microbundle build --jsx React.createElement -f es",
+    "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress"
+  },
+  "dependencies": {
+    "@helper/utils": "0.0.1",
+    "axios": "0.27.2",
+    "qs": "6.10.5"
+  },
+  "devDependencies": {
+    "@types/axios": "0.14.0",
+    "@types/node": "16.11.7",
+    "@types/qs": "6.9.7"
+  }
+}

@@ -1,0 +1,27 @@
+
+@import "./reset.css";
+
+@import "~@library/kit";
+@import "~@layout/default";
+@import "~@module/main";
+@import "~@package/dialog";
+
+
+html,
+body {
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-family: 'Nunito Sans', sans-serif;
+    overflow: hidden;
+}
+
+#__next {
+
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    height: 100%;
+    overflow: auto;
+}

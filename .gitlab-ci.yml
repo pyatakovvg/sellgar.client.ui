@@ -1,0 +1,174 @@
+variables:
+  APP_TYPE: "node"
+  # Used in unit-tests, build-app-dotnet, build-image
+  APP_PATH: code
+  # Used in build-image, security-static-scan, migrations, deploy
+  APP_IMAGE: $CI_REGISTRY_IMAGE/$APP_NAME
+  # Used in migrations, deploy
+  APP_NAME: myqand-landing
+  # Used in build-app-dotnet
+  APP_BUILD_IMAGE: gitlab.payquity.io:4567/devops/images/node:16.3.0-alpine3.13
+  # Directory that contains package.json
+  APP_BUILD_PATH: $APP_PATH/apps/qand
+  # Used in build-app-dotnet
+  APP_DOCKERFILE_DIR_PATH: $APP_PATH
+  # Dockerfile name
+  APP_DOCKERFILE_NAME: Dockerfile
+  # Used in build-app-dotnet
+  APP_CACHE_DIR: $APP_PATH/node_modules/
+  # AT Path
+  APP_AT_PATH: qand/
+  TEST_DEPLOY_RABBITMQ: "true"
+  TEST_DEPLOY_MINIO: "false"
+  TEST_DEPLOY_CLAMAV: "false"
+  TEST_DEPLOY_POSTGRESQL: "false"
+  TEST_DEPLOY_MONGODB: "false"
+  TEST_DEPLOY_VAULT: "false"
+  SKIP_AUDIT: "true"
+  DOC_FILE_PATH: "docs/README.md"
+
+include:
+  - project: 'PayQuity/CICD'
+    ref: development
+    file: 'variables.yml'
+  - project: 'PayQuity/CICD'
+    ref: development
+    file: 'stages-dotnet.yml'
+#  - project: 'PayQuity/CICD'
+#    ref: development
+#    file: 'build-app-dotnet.yml'
+  - project: 'PayQuity/CICD'
+    ref: development
+    file: 'build-image.yml'
+  - project: 'PayQuity/CICD'
+    ref: development
+    file: 'security-static-scan.yml'
+  - project: 'PayQuity/CICD'
+    ref: development
+    file: 'migrations-and-deploy.yml'
+  - project: 'PayQuity/CICD'
+    ref: development
+    file: 'security-scan.yml'
+  # - project: 'PayQuity/CICD'
+  #   ref: development
+  #   file: 'at.yml'
+  - project: 'PayQuity/CICD'
+    ref: development
+    file: 'docs.yml'
+
+# deploy:test:component:
+#   variables:
+#     APP_VALUES_FILE: helm/values.app.yaml
+#     ENV_VALUES_FILE: helm/test/values.yaml
+#     K8S_GITLAB_SECRET_NAME: ${APP_NAME}-gitlab-secret
+#   script:
+#     - kubectl --namespace ${NAMESPACE} delete secret "${K8S_GITLAB_SECRET_NAME}" || true
+#     - kubectl --namespace ${NAMESPACE} create secret docker-registry "${K8S_GITLAB_SECRET_NAME}"
+#         --docker-server="$CI_REGISTRY"
+#         --docker-username="$CI_DEPLOY_USER"
+#         --docker-password="$CI_DEPLOY_PASSWORD"
+#         --docker-email="$GITLAB_USER_EMAIL"
+#     - helm repo add payquity https://payquity.pages.payquity.io/cicd
+#     - helm upgrade ${APP_NAME}
+#         payquity/nodejs-app
+#         --install
+#         --namespace ${NAMESPACE}
+#         --wait
+#         --timeout 5m
+#         --atomic
+#         --cleanup-on-fail
+#         --set fullnameOverride=${APP_NAME}
+#         --set image.path=${CI_REGISTRY_IMAGE}/$APP_NAME
+#         --set image.tag=${CI_COMMIT_REF_SLUG}
+#         --set image.imagePullSecrets[0]=${K8S_GITLAB_SECRET_NAME}
+#         -f ${APP_VALUES_FILE}
+#         -f ${ENV_VALUES_FILE}
+
+deploy dev:
+  variables:
+    APP_VALUES_FILE: helm/values.app.yaml
+    ENV_VALUES_FILE: helm/dev/values.yaml
+    K8S_GITLAB_SECRET_NAME: ${APP_NAME}-gitlab-secret
+  script:
+    - kubectl --namespace ${NAMESPACE} delete secret "${K8S_GITLAB_SECRET_NAME}" || true
+    - kubectl --namespace ${NAMESPACE} create secret docker-registry "${K8S_GITLAB_SECRET_NAME}"
+      --docker-server="$CI_REGISTRY"
+      --docker-username="$CI_DEPLOY_USER"
+      --docker-password="$CI_DEPLOY_PASSWORD"
+      --docker-email="$GITLAB_USER_EMAIL"
+    - helm repo add payquity https://payquity.pages.payquity.io/cicd
+    - helm upgrade ${APP_NAME}
+      payquity/nodejs-app
+      --install
+      --namespace ${NAMESPACE}
+      --wait
+      --timeout 5m
+      --atomic
+      --cleanup-on-fail
+      --set fullnameOverride=dev-${APP_NAME}
+      --set image.path=${CI_REGISTRY_IMAGE}/$APP_NAME
+      --set image.tag=${CI_COMMIT_REF_SLUG}
+      --set image.imagePullSecrets[0]=${K8S_GITLAB_SECRET_NAME}
+      -f ${APP_VALUES_FILE}
+      -f ${ENV_VALUES_FILE}
+
+deploy staging:
+  variables:
+    APP_VALUES_FILE: helm/values.app.yaml
+    ENV_VALUES_FILE: helm/staging/values.yaml
+    K8S_GITLAB_SECRET_NAME: ${APP_NAME}-gitlab-secret
+  script:
+    - kubectl --namespace ${NAMESPACE} delete secret "${K8S_GITLAB_SECRET_NAME}" || true
+    - kubectl --namespace ${NAMESPACE} create secret docker-registry "${K8S_GITLAB_SECRET_NAME}"
+      --docker-server="$CI_REGISTRY"
+      --docker-username="$CI_DEPLOY_USER"
+      --docker-password="$CI_DEPLOY_PASSWORD"
+      --docker-email="$GITLAB_USER_EMAIL"
+    - helm repo add payquity https://payquity.pages.payquity.io/cicd
+    - helm upgrade ${APP_NAME}
+      payquity/nodejs-app
+      --install
+      --namespace ${NAMESPACE}
+      --wait
+      --timeout 5m
+      --atomic
+      --cleanup-on-fail
+      --set fullnameOverride=staging-${APP_NAME}
+      --set image.path=${CI_REGISTRY_IMAGE}/$APP_NAME
+      --set image.tag=${CI_COMMIT_REF_SLUG}
+      --set image.imagePullSecrets[0]=${K8S_GITLAB_SECRET_NAME}
+      -f ${APP_VALUES_FILE}
+      -f ${ENV_VALUES_FILE}
+
+deploy prod:
+  variables:
+    APP_VALUES_FILE: helm/values.app.yaml
+    ENV_VALUES_FILE: helm/prod/values.yaml
+    K8S_GITLAB_SECRET_NAME: ${APP_NAME}-gitlab-secret
+  script:
+    - kubectl --namespace ${NAMESPACE} delete secret "${K8S_GITLAB_SECRET_NAME}" || true
+    - kubectl --namespace ${NAMESPACE} create secret docker-registry "${K8S_GITLAB_SECRET_NAME}"
+      --docker-server="$CI_REGISTRY"
+      --docker-username="$CI_DEPLOY_USER"
+      --docker-password="$CI_DEPLOY_PASSWORD"
+      --docker-email="$GITLAB_USER_EMAIL"
+    - helm repo add payquity https://payquity.pages.payquity.io/cicd
+    - helm upgrade ${APP_NAME}
+      payquity/nodejs-app
+      --install
+      --namespace ${NAMESPACE}
+      --wait
+      --timeout 5m
+      --atomic
+      --cleanup-on-fail
+      --set fullnameOverride=prod-${APP_NAME}
+      --set image.path=${CI_REGISTRY_IMAGE}/$APP_NAME
+      --set image.tag=${CI_COMMIT_REF_SLUG}
+      --set image.imagePullSecrets[0]=${K8S_GITLAB_SECRET_NAME}
+      -f ${APP_VALUES_FILE}
+      -f ${ENV_VALUES_FILE}
+
+# deploy:test:at:
+#   allow_failure: true
+#   variables:
+#     AT_IMAGE: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}-at

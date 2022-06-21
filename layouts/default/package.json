@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "name": "@layout/default",
+  "version": "0.0.1",
+  "main": "lib/index.esm.js",
+  "style": "lib/index.css",
+  "types": "types",
+  "publishConfig": {
+    "source": "src/index.tsx",
+    "main": "lib/index.js"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production microbundle build --jsx React.createElement -f es",
+    "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress"
+  },
+  "dependencies": {
+    "@library/theme": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/classnames": "2.3.1",
+    "@types/node": "16.11.7",
+    "@types/react": "18.0.14",
+    "autoprefixer": "10.4.7",
+    "postcss": "8.4.14",
+    "postcss-copy": "7.1.0",
+    "postcss-import": "14.1.0",
+    "postcss-scss": "4.0.4",
+    "postcss-url": "10.1.3",
+    "rollup-plugin-postcss": "4.0.2",
+    "sass": "1.52.3"
+  },
+  "peerDependencies": {
+    "classnames": "2.3.1",
+    "prop-types": "15.8.1",
+    "react": "18.2.0",
+    "react-router-dom": "6.3.0",
+    "redux-form": "8.3.8"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "name": "@helper/utils",
+  "description": "",
+  "license": "ISC",
+  "version": "0.0.1",
+  "main": "lib/index.esm.js",
+  "types": "types",
+  "publishConfig": {
+    "source": "src/index.ts",
+    "main": "lib/index.js"
+  },
+  "author": {
+    "name": "Viktor Pyatakov",
+    "email": "viktor.pyatakov@pimpay.ru"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production microbundle build --jsx React.createElement -f es",
+    "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress"
+  },
+  "devDependencies": {
+    "@types/node": "16.11.7"
+  }
+}
