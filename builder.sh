@@ -71,6 +71,10 @@ echo 'Модуль "Main"'
 echo '------------------------------------'
 cd ./main && npx yarn build
 
+echo 'Модуль "Product"'
+echo '------------------------------------'
+cd ../product && npx yarn build
+
 echo ''
 echo '------------------------------------'
 echo '|        Сборка app client          |'

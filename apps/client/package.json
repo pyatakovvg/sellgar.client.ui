@@ -13,6 +13,7 @@
     "@library/store": "0.0.1",
     "@library/theme": "0.0.1",
     "@module/main": "0.0.1",
+    "@module/product": "0.0.1",
     "@package/dialog": "0.0.1",
     "@reduxjs/toolkit": "1.8.2",
     "classnames": "2.3.1",

@@ -2,6 +2,7 @@
 import { Text } from '@library/kit';
 
 import React from 'react';
+import Link from 'next/link';
 import getConfig from 'next/config';
 
 import Image from './Image';
@@ -15,7 +16,7 @@ const process = config['publicRuntimeConfig'];
 
 
 interface IProps {
-  uuid: string;
+  externalId: string;
   gallery: Array<any>;
   title: string;
   brand: any;
@@ -23,22 +24,24 @@ interface IProps {
 }
 
 
-function Product({ gallery, title, brand, modes }: IProps): JSX.Element {
+function Product({ externalId, gallery, title, brand, modes }: IProps): JSX.Element {
   return (
-    <div className={styles['wrapper']}>
-      <div className={styles['brand']}>
-        <Text type={'description'}>{ brand?.['name'] ?? '---' }</Text>
-      </div>
-      <div className={styles['image']}>
-        <Image src={ !! gallery.length ? process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + gallery[0]['uuid'] + '?size=small' : null} />
-      </div>
-      <div className={styles['content']}>
-        <Text>{ title || '---' }</Text>
-      </div>
-      <div className={styles['modes']}>
-        <Modes modes={modes} />
-      </div>
-    </div>
+    <Link href={'/products/' + externalId}>
+      <a className={styles['wrapper']}>
+        <div className={styles['brand']}>
+          <Text type={'description'}>{ brand?.['name'] ?? '---' }</Text>
+        </div>
+        <div className={styles['image']}>
+          <Image src={ !! gallery.length ? process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + gallery[0]['uuid'] + '?size=small' : null} />
+        </div>
+        <div className={styles['content']}>
+          <Text>{ title || '---' }</Text>
+        </div>
+        <div className={styles['modes']}>
+          <Modes modes={modes} />
+        </div>
+      </a>
+    </Link>
   );
 }
 
