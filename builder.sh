@@ -32,12 +32,6 @@ echo '------------------------------------'
 cd ../numeral && npx yarn build
 
 
-echo '------------------------------------'
-echo '|        Сборка layouts            |'
-echo '------------------------------------'
-
-cd ../../layouts || return
-
 echo ''
 echo 'Пакет "Default"'
 echo '------------------------------------'
@@ -57,6 +51,13 @@ cd ./kit && npx yarn build
 echo 'Виджет "Store"'
 echo '------------------------------------'
 cd ../store && npx yarn build
+
+
+echo '------------------------------------'
+echo '|        Сборка layouts            |'
+echo '------------------------------------'
+
+cd ../../layouts || return
 
 
 echo ''
