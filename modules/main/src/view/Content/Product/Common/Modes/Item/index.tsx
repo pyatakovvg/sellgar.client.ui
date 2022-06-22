@@ -1,4 +1,6 @@
 
+import { Text } from "@library/kit";
+
 import React from 'react';
 
 import cn from 'classnames';
@@ -15,13 +17,18 @@ interface IProps {
 
 
 function ModeItem({ isActive, value, onChange }: IProps): JSX.Element {
-  const wrapperClassName = React.useMemo(() => cn(styles['wrapper'], {
+  const markerClassName = React.useMemo(() => cn(styles['marker'], {
     [styles['is-active']]: isActive,
   }), [isActive]);
 
   return (
-    <div className={wrapperClassName} onClick={onChange}>
-      { value }
+    <div className={styles['wrapper']} onClick={onChange}>
+      <div className={styles['control']}>
+        <span className={markerClassName} />
+      </div>
+      <div className={styles['content']}>
+        <Text>{ value }</Text>
+      </div>
     </div>
   );
 }

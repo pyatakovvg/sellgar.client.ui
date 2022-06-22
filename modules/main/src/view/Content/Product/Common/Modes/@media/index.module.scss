@@ -4,8 +4,7 @@
 
 .wrapper {
 
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  flex: 1 0;
-  padding: 40px 0;
+  flex: 0 0 auto;
 }

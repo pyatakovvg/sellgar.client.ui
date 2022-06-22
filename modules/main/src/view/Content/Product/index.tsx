@@ -1,12 +1,10 @@
 
-import { Text } from '@library/kit';
-
 import React from 'react';
-import Link from 'next/link';
 import getConfig from 'next/config';
 
 import Image from './Image';
-import Modes from './Modes';
+import Common from './Common';
+import Controls from './Controls';
 
 import styles from './@media/index.module.scss';
 
@@ -19,29 +17,33 @@ interface IProps {
   externalId: string;
   gallery: Array<any>;
   title: string;
+  category: any;
   brand: any;
   modes: Array<any>;
 }
 
 
-function Product({ externalId, gallery, title, brand, modes }: IProps): JSX.Element {
+function Product({ externalId, gallery, ...props }: IProps): JSX.Element {
+  const [active, setActive] = React.useState(() => props['modes'].find(item => item['isTarget']));
+
+  function handleChange(item: any) {
+    setActive(item);
+  }
+
   return (
-    <Link href={'/products/' + externalId}>
-      <a className={styles['wrapper']}>
-        <div className={styles['brand']}>
-          <Text type={'description'}>{ brand?.['name'] ?? '---' }</Text>
-        </div>
+    <div className={styles['wrapper']}>
+      <div className={styles['content']}>
         <div className={styles['image']}>
-          <Image src={ !! gallery.length ? process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + gallery[0]['uuid'] + '?size=small' : null} />
+          <Image externalId={externalId} src={ !! gallery.length ? process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + gallery[0]['uuid'] + '?size=small' : null} />
         </div>
-        <div className={styles['content']}>
-          <Text>{ title || '---' }</Text>
+        <div className={styles['common']}>
+          <Common item={active} externalId={externalId} {...props} onChange={handleChange} />
         </div>
-        <div className={styles['modes']}>
-          <Modes modes={modes} />
-        </div>
-      </a>
-    </Link>
+      </div>
+      <div className={styles['controls']}>
+        <Controls item={active} {...props} />
+      </div>
+    </div>
   );
 }
 

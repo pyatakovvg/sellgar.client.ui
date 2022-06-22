@@ -12,16 +12,13 @@ interface IProps {
 
 
 function Content({ data }: IProps): JSX.Element {
-  console.log(data)
   return (
     <section className={styles['wrapper']}>
-      <section className={styles['content']}>
-        {data.map((product) => (
-          <div key={product['uuid']} className={styles['item']}>
-            <Product key={product['uuid']} {...product} />
-          </div>
-        ))}
-      </section>
+      {data.map((product) => (
+        <div key={product['uuid']} className={styles['item']}>
+          <Product key={product['uuid']} {...product} />
+        </div>
+      ))}
     </section>
   );
 }

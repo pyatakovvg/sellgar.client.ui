@@ -28,7 +28,6 @@ module.exports = (ctx) => ({
       url: 'copy',
       useHash: true,
     }),
-
     autoprefixer(['last 2 versions', 'iOS >= 8']),
   ],
 });

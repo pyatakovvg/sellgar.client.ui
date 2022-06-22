@@ -1,25 +1,28 @@
 
+import { Text } from '@library/kit';
+
 import React from 'react';
+
+import Img from './Img';
 
 import styles from './@media/index.module.scss';
 
 
 interface IProps {
   src: string | null;
+  externalId: string;
 }
 
 
-function Image({ src }: IProps): JSX.Element {
-  const [isError, setError] = React.useState(false);
-
+function Image({ src, externalId }: IProps): JSX.Element {
   return (
     <div className={styles['wrapper']}>
-      { !! src && (
-        <img className={styles['image']} src={src} alt={''} onError={() => setError(true)} />
-      )}
-      {( ! src || isError) && (
-        <span className={styles['empty']} />
-      )}
+      <div className={styles['content']}>
+        <Img src={src} />
+      </div>
+      <div className={styles['description']}>
+        <Text type={'description'}>#{ externalId }</Text>
+      </div>
     </div>
   );
 }

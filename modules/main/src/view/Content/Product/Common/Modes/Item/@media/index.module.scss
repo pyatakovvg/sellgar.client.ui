@@ -1,0 +1,46 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: inline-flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+
+  & + & {
+
+    margin: 12px 0 0;
+  }
+}
+
+.control {
+
+  display: block;
+}
+
+.content {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  margin: 0 0 0 8px;
+}
+
+.marker {
+
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 3px solid $gray-light;
+  background: $gray;
+  border-radius: 50%;
+}
+
+.is-active {
+
+  background: $info;
+}
