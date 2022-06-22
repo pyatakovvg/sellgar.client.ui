@@ -1,0 +1,26 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: block;
+  border-radius: 8px;
+  border: 1px solid $gray-light;
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+
+  & + & {
+
+    margin: 4px 0 0;
+  }
+}
+
+.is-active {
+
+  background: $primary-light;
+  border-color: $primary-light;
+  cursor: default;
+}

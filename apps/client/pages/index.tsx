@@ -1,28 +1,33 @@
 
-import Module from '@module/main';
+import Module, { getProducts } from '@module/main';
 import Layout from '@layout/default';
 
 import React from 'react';
 import Head from 'next/head';
 
 
-export default function Main() {
-  // React.useEffect(() => {
-  //   window.env = env;
-  // }, []);
+interface IProps {
+  data: Array<any>;
+}
 
+
+export default function Main(props: IProps): JSX.Element {
   return (
     <Layout>
       <Head>
         <title>MyQand: Landing</title>
       </Head>
-      <Module />
+      <Module {...props} />
     </Layout>
   );
 }
 
 export async function getServerSideProps() {
+  const result = await getProducts();
+
   return {
-    props: {}
+    props: {
+      data: result['data'],
+    },
   };
 }

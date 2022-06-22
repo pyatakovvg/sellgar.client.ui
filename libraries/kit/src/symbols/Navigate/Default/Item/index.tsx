@@ -1,5 +1,6 @@
 
 import React from 'react';
+import NavLink from 'next/link';
 
 // import cn from 'classnames';
 import styles from './default.module.scss';

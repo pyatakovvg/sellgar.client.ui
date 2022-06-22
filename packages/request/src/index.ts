@@ -1,30 +1,10 @@
 
-import { Events } from '@helper/utils';
-
 import qs from "qs";
 import axios from "axios";
 
 
-interface IConfig {
-  baseUrl: string;
-}
-
-
-let requestConfig: IConfig = {
-  baseUrl: '',
-};
-
 const defaultOptions = {};
 
-
-export const events = new Events();
-
-export function config(config: IConfig) {
-  requestConfig = {
-    ...requestConfig,
-    ...config,
-  };
-}
 
 export default async function(options: object) {
   try {
@@ -34,7 +14,6 @@ export default async function(options: object) {
     };
 
     const instance = axios.create({
-      baseURL: requestConfig['baseUrl'],
       timeout: 24000,
       withCredentials: true,
     });
@@ -51,12 +30,10 @@ export default async function(options: object) {
     return data;
   }
   catch(error) {
-
+console.log(123, error)
     if (axios.isCancel(error)) {
       return { success: true, data: null };
     }
-
-    events.emit('error', error);
 
     throw new Error('error');
   }

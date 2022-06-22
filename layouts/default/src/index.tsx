@@ -1,7 +1,10 @@
 
 import React from 'react';
 
-import styles from './default.module.scss';
+import Header from './Header';
+import Footer from './Footer';
+
+import styles from './@media/index.module.scss';
 
 
 interface IProps {
@@ -11,11 +14,25 @@ interface IProps {
 
 function DefaultLayout({ children }: IProps): JSX.Element {
   return (
-    <div className={styles['wrapper']}>
-      <div className={styles['content']}>
-        { children }
-      </div>
-    </div>
+    <section className={styles['wrapper']}>
+      <header className={styles['header']}>
+        <div className={styles['container']}>
+          <Header />
+        </div>
+      </header>
+      <section className={styles['content']}>
+        <div className={styles['container']}>
+          <div className={styles['module']}>
+            { children }
+          </div>
+        </div>
+      </section>
+      <footer className={styles['footer']}>
+        <div className={styles['container']}>
+          <Footer />
+        </div>
+      </footer>
+    </section>
   );
 }
 

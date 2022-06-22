@@ -2,7 +2,9 @@
 @import "~@library/theme";
 
 
-.wrapper {
+.container {
 
   display: block;
+  margin: 0 auto;
+  width: 900px;
 }

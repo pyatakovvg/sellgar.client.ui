@@ -2,7 +2,7 @@
   "private": true,
   "name": "@package/numeral",
   "version": "0.0.1",
-  "main": "src/index.js",
+  "main": "lib/index.esm.js",
   "types": "types",
   "publishConfig": {
     "source": "src/index.ts",
