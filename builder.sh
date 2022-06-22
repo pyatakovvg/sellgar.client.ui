@@ -33,11 +33,6 @@ cd ../numeral && npx yarn build
 
 
 echo ''
-echo 'Пакет "Default"'
-echo '------------------------------------'
-cd ./default && npx yarn build
-
-echo ''
 echo '------------------------------------'
 echo '|        Сборка libraries          |'
 echo '------------------------------------'
@@ -58,6 +53,11 @@ echo '|        Сборка layouts            |'
 echo '------------------------------------'
 
 cd ../../layouts || return
+
+echo ''
+echo 'Пакет "Default"'
+echo '------------------------------------'
+cd ./default && npx yarn build
 
 
 echo ''
