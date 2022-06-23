@@ -10,13 +10,12 @@ import styles from './@media/index.module.scss';
 interface IProps {
   isActive: boolean;
   value: string;
-  price: number;
-  currency: any;
+  vendor: string;
   onChange(): void;
 }
 
 
-function ModeItem({ isActive, value, onChange }: IProps): JSX.Element {
+function ModeItem({ isActive, value, vendor, onChange }: IProps): JSX.Element {
   const markerClassName = React.useMemo(() => cn(styles['marker'], {
     [styles['is-active']]: isActive,
   }), [isActive]);
@@ -28,6 +27,7 @@ function ModeItem({ isActive, value, onChange }: IProps): JSX.Element {
       </div>
       <div className={styles['content']}>
         <Text>{ value }</Text>
+        <Text type={'description'}>&nbsp;&nbsp;[{ vendor }]</Text>
       </div>
     </div>
   );
