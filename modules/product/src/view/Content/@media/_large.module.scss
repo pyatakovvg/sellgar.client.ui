@@ -6,20 +6,3 @@
 
   display: block;
 }
-
-.content {
-
-  display: flex;
-  flex-direction: row;
-  flex: 1 0;
-  flex-wrap: wrap;
-  margin: -8px;
-}
-
-.item {
-
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 25%;
-  padding: 8px;
-}

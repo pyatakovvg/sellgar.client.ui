@@ -1,10 +1,15 @@
 
 @import "./reset.css";
 
+
 @import "~@library/kit";
+
 @import "~@layout/default";
-@import "~@module/main";
+
 @import "~@package/dialog";
+
+@import "~@module/main";
+@import "~@module/product";
 
 
 html,

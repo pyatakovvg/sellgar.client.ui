@@ -10,8 +10,8 @@
     "main": "lib/index.js"
   },
   "scripts": {
-    "build": "cross-env NODE_ENV=production microbundle build --jsx React.createElement -f es",
-    "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress"
+    "build": "cross-env NODE_ENV=production microbundle build --jsx React.createElement -f es --no-sourcemap --css-modules default_[local]__[hash:base64:12]",
+    "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress --no-sourcemap --css-modules default_[local]__[hash:base64:12]"
   },
   "dependencies": {
     "@library/theme": "0.0.1",

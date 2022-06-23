@@ -14,6 +14,9 @@ interface IProps {
 function Main({ data }: IProps): JSX.Element {
   return (
     <section className={styles['wrapper']}>
+      <aside className={styles['helpers']}>
+        <p>hello</p>
+      </aside>
       <section className={styles['content']}>
         <Content data={data} />
       </section>
