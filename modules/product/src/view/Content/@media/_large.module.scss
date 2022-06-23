@@ -5,4 +5,8 @@
 .wrapper {
 
   display: block;
+  background: $white;
+  padding: 16px;
+  border-radius: 8px;
+  @include box-shadow('bottom');
 }

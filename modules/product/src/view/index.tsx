@@ -1,6 +1,7 @@
 
 import React from 'react';
 
+import Helper from './Helper';
 import Content from './Content';
 
 import styles from './@media/index.module.scss';
@@ -15,7 +16,7 @@ function Main({ data }: IProps): JSX.Element {
   return (
     <section className={styles['wrapper']}>
       <aside className={styles['helpers']}>
-        <p>hello</p>
+        <Helper data={data} />
       </aside>
       <section className={styles['content']}>
         <Content data={data} />
