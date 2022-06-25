@@ -48,6 +48,18 @@ echo '------------------------------------'
 cd ../store && npx yarn build
 
 
+echo ''
+echo '------------------------------------'
+echo '|        Сборка widgets          |'
+echo '------------------------------------'
+
+cd ../../widgets || return
+
+echo 'Виджет "bucket"'
+echo '------------------------------------'
+cd ./bucket && npx yarn build
+
+
 echo '------------------------------------'
 echo '|        Сборка layouts            |'
 echo '------------------------------------'
@@ -74,6 +86,10 @@ cd ./main && npx yarn build
 echo 'Модуль "Product"'
 echo '------------------------------------'
 cd ../product && npx yarn build
+
+echo 'Модуль "Checkout"'
+echo '------------------------------------'
+cd ../checkout && npx yarn build
 
 echo ''
 echo '------------------------------------'

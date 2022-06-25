@@ -7,6 +7,7 @@
     "modules/*",
     "helpers/*",
     "layouts/*",
+    "widgets/*",
     "apps/*"
   ],
   "npmClient": "yarn",

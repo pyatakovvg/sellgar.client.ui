@@ -19,6 +19,7 @@
     "modules/*",
     "helpers/*",
     "layouts/*",
+    "widgets/*",
     "apps/*"
   ]
 }

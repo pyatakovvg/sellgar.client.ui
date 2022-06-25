@@ -108,6 +108,8 @@ function DefaultSelect({ mode, value, options, optionKey, optionValue, placehold
             className={styles['shadow']}
             value={value}
             options={options}
+            optionKey={optionKey}
+            optionValue={optionValue}
             onClick={handleChange}
           />
         </div>

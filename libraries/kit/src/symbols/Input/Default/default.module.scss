@@ -18,9 +18,10 @@
 
   position: relative;
   display: block;
-  padding: 9px 11px;
+  padding: 13px 14px;
   font-size: 14px;
   font-family: inherit;
+  font-weight: $font-weight-medium;
   border: none;
   background: transparent;
   width: 100%;
@@ -49,9 +50,13 @@
   bottom: 0;
   left: 0;
   display: block;
-  padding: 9px 11px;
+  padding: 16px 14px;
   font-size: 14px;
+  font-weight: $font-weight-light;
   color: $gray-dark;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   z-index: 0;
 }
 
@@ -59,11 +64,11 @@
 
   &--default {
 
-    border-color: $gray-light;
+    border-color: $gray;
 
     &:hover,
     &.in-focus {
-      border-color: $gray-dark;
+      border-color: $dark;
     }
   }
 

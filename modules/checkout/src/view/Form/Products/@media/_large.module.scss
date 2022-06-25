@@ -1,0 +1,38 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+}
+
+.brand {
+
+  display: block;
+  text-align: center;
+}
+
+.image {
+
+  display: block;
+  text-align: center;
+  margin: 8px 0 0;
+}
+
+.content {
+
+  display: block;
+  text-align: center;
+  margin: 8px 0 0;
+}
+
+.modes {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  margin: 16px 0 0;
+}

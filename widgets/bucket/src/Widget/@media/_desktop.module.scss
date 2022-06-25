@@ -1,0 +1,23 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  position: relative;
+  display: block;
+}
+
+.control {
+
+  display: block;
+}
+
+.content {
+
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: flex;
+  flex: 1 0;
+}

@@ -1,6 +1,8 @@
 
 import React, { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 
+import Error from './Error';
 import Loader from './Loader';
 
 import styles from './default.module.scss';
@@ -86,11 +88,13 @@ function MyImage({ src }: { src: string }): JSX.Element {
 function Default({ src }: IProps): JSX.Element | null {
   return (
     <div className={styles['wrapper']}>
-      <Suspense fallback={<Loader />}>
-        <div className={styles['image']}>
-          <MyImage src={src} />
-        </div>
-      </Suspense>
+      <ErrorBoundary FallbackComponent={Error}>
+        <Suspense fallback={<Loader />}>
+          <div className={styles['image']}>
+            <MyImage src={src} />
+          </div>
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }

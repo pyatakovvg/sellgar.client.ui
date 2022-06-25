@@ -13,7 +13,7 @@ interface IProps {
   value: boolean;
   children?: JSX.Element | string;
   disabled?: boolean;
-  onCheck(value: boolean): void;
+  onChange(value: boolean): void;
 }
 
 

@@ -15,11 +15,11 @@
     "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress --no-sourcemap --css-modules kit_[local]__[hash:base64:12]"
   },
   "dependencies": {
-    "@library/theme": "0.0.1"
+    "@library/theme": "0.0.1",
+    "react-error-boundary": "3.1.4"
   },
   "peerDependencies": {
     "classnames": "2.3.1",
-    "flickity": "3.0.0",
     "next": "12.1.6",
     "prop-types": "15.8.1",
     "react": "18.2.0",

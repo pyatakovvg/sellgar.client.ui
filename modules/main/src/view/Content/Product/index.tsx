@@ -9,10 +9,6 @@ import Controls from './Controls';
 import styles from './@media/index.module.scss';
 
 
-const config = getConfig();
-const process = config['publicRuntimeConfig'];
-
-
 interface IProps {
   externalId: string;
   gallery: Array<any>;
@@ -21,6 +17,10 @@ interface IProps {
   brand: any;
   modes: Array<any>;
 }
+
+
+const config = getConfig();
+const process = config['publicRuntimeConfig'];
 
 
 function Product({ externalId, gallery, ...props }: IProps): JSX.Element {

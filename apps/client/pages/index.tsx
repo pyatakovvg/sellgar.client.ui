@@ -1,6 +1,6 @@
 
-import Module, { getProducts } from '@module/main';
 import Layout from '@layout/default';
+import Module, { getProducts } from '@module/main';
 
 import React from 'react';
 import Head from 'next/head';

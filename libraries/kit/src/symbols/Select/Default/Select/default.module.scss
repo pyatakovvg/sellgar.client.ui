@@ -29,10 +29,11 @@
 
   position: relative;
   display: block;
-  padding: 12px 11px;
+  padding: 13px 14px;
   font-size: 14px;
-  height: 37px;
+  height: 45px;
   font-family: inherit;
+  font-weight: $font-weight-medium;
   border: none;
   background: transparent;
   width: 100%;
@@ -53,8 +54,9 @@
   bottom: 0;
   left: 0;
   display: block;
-  padding: 12px 11px;
+  padding: 16px 28px 16px 14px;
   font-size: 14px;
+  font-weight: $font-weight-light;
   color: $gray-dark;
   z-index: 0;
   text-overflow: ellipsis;
@@ -99,7 +101,7 @@
 
   color: $gray;
   background: $gray-light;
-  border-color: $gray-light;
+  border-color: $dark;
   cursor: default;
 }
 
@@ -107,11 +109,11 @@
 
   &--default {
 
-    border-color: $gray-light;
+    border-color: $gray;
 
     &:hover,
     &.in-focus {
-      border-color: $gray-dark;
+      border-color: $dark;
     }
   }
 

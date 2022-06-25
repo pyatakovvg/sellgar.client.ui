@@ -8,7 +8,7 @@ import type { AppProps } from 'next/app';
 import '../styles/global.css'
 
 
-export default function App({ Component, pageProps }: AppProps): JSX.Element {
+function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <Provider store={store}>
       <Component {...pageProps} />
@@ -16,3 +16,5 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
     </Provider>
   );
 }
+
+export default App;

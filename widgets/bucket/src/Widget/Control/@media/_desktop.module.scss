@@ -1,0 +1,32 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  align-items: center;
+  border: 1px solid $gray-light;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.logo {
+
+  display: block;
+}
+
+.content {
+
+  display: block;
+  margin: 0 0 0 8px;
+}
+
+.icon {
+
+  color: $dark;
+  font-size: 18px;
+}

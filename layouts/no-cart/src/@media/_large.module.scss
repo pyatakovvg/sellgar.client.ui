@@ -1,0 +1,44 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  background: $gray-light;
+}
+
+.header {
+
+  display: block;
+  background: $white;
+  box-shadow: 0 4px 16px 0 rgba($black, .1);
+}
+
+.content {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+}
+
+.module {
+
+  display: block;
+  width: 100%;
+}
+
+.footer {
+
+  display: block;
+  background: $black;
+}
+
+.container {
+  
+  display: block;
+  margin: 0 auto;
+  width: 1200px;
+}

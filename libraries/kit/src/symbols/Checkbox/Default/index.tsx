@@ -5,16 +5,19 @@ import cn from 'classnames';
 import styles from './default.module.scss';
 
 
+type TMode = 'default' | 'primary' | 'danger' | 'success';
+
 interface IProps {
   className?: string;
   value: boolean;
+  mode?: TMode;
   children?: JSX.Element | string;
   disabled?: boolean;
-  onCheck(value: boolean): void;
+  onChange(value: boolean): void;
 }
 
 
-function DefaultCheckbox({ className, value, children, disabled, onCheck }: IProps): JSX.Element | null {
+function DefaultCheckbox({ className, value, children, disabled, onChange }: IProps): JSX.Element | null {
   const wrapperClassName = React.useMemo(() => cn(styles['wrapper'], {
     [styles['checked']]: value,
     [styles['disabled']]: disabled,
@@ -24,7 +27,7 @@ function DefaultCheckbox({ className, value, children, disabled, onCheck }: IPro
     if (disabled) {
       return void 0;
     }
-    onCheck( ! value);
+    onChange( ! value);
   }
 
   return (

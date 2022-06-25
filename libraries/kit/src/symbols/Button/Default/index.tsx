@@ -9,12 +9,12 @@ type TType = 'submit' | 'button' | 'reset';
 type TMode = 'primary' | 'danger' | 'success';
 
 interface IProps {
-  className?: string,
-  type?: TType,
-  mode?: TMode,
-  children?: string,
-  disabled?: boolean,
-  onClick?(event: React.MouseEvent<HTMLButtonElement>): void,
+  className?: string;
+  type?: TType;
+  mode?: TMode;
+  children?: string | number | null;
+  disabled?: boolean;
+  onClick?(event: React.MouseEvent<HTMLButtonElement>): void;
 }
 
 

@@ -12,7 +12,7 @@ interface IProps {
 }
 
 
-function Main({ data }: IProps): JSX.Element {
+function Main({ data }: IProps) {
   return (
     <section className={styles['wrapper']}>
       <aside className={styles['aside']}>

@@ -9,11 +9,11 @@ interface IProps {
   className?: string;
   value: boolean;
   disabled?: boolean;
-  onCheck(value: boolean): void;
+  onChange(value: boolean): void;
 }
 
 
-function SwitchCheckbox({ className, value, disabled, onCheck }: IProps): JSX.Element | null {
+function SwitchCheckbox({ className, value, disabled, onChange }: IProps): JSX.Element | null {
   const contentClassName = React.useMemo(() => cn(styles['content'], {
     [styles['checked']]: value,
     [styles['disabled']]: disabled,
@@ -23,7 +23,7 @@ function SwitchCheckbox({ className, value, disabled, onCheck }: IProps): JSX.El
     if (disabled) {
       return void 0;
     }
-    onCheck( ! value);
+    onChange( ! value);
   }
 
   return (

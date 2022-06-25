@@ -15,7 +15,7 @@ interface IProps {
   className?: string,
   type?: TType,
   mode?: TMode,
-  children?: string,
+  children?: string | number | null,
   disabled?: boolean,
   onClick?(event: React.MouseEvent<HTMLButtonElement>): void,
 }
