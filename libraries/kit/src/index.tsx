@@ -6,6 +6,7 @@ export { default as Input } from './symbols/Input';
 export { default as Image } from './symbols/Image';
 export { default as Button } from './symbols/Button';
 export { default as Select } from './symbols/Select';
+export { default as Gallery } from './symbols/Gallery';
 export { default as Spinner } from './symbols/Spinner';
 export { default as Checkbox } from './symbols/Checkbox';
 export { default as Textarea } from './symbols/Textarea';
