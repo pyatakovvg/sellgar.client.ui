@@ -1,6 +1,6 @@
 
 import { Logotype } from '@library/kit';
-import { Widget as BucketWidget } from '@widget/bucket';
+// import { Widget as BucketWidget } from '@widget/bucket';
 
 import React from 'react';
 import Link from 'next/link';
@@ -19,7 +19,7 @@ function Header(): JSX.Element {
         </Link>
       </div>
       <div className={styles['content']}>
-        <BucketWidget />
+        {/*<BucketWidget />*/}
       </div>
     </section>
   );
