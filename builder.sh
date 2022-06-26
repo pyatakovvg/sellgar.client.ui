@@ -87,16 +87,16 @@ echo 'Модуль "Checkout"'
 echo '------------------------------------'
 cd ../checkout && npx yarn build
 
+
 echo ''
 echo '------------------------------------'
 echo '|        Сборка app client          |'
 echo '------------------------------------'
 
 
-
 echo 'Виджет "Store"'
 echo '------------------------------------'
-cd ../store && npx yarn build
+cd ../../libraries/store && npx yarn build
 
 cd ../../apps || return
 
