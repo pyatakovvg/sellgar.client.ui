@@ -13,7 +13,7 @@ cd ./utils && npx yarn build
 
 
 echo '------------------------------------'
-echo '|        Сборка packages            |'
+echo '|        Сборка packages           |'
 echo '------------------------------------'
 
 cd ../../packages || return
@@ -46,7 +46,7 @@ cd ./kit && npx yarn build
 
 echo ''
 echo '------------------------------------'
-echo '|        Сборка widgets          |'
+echo '|        Сборка widgets            |'
 echo '------------------------------------'
 
 cd ../../widgets || return
@@ -67,10 +67,15 @@ echo 'Пакет "Default"'
 echo '------------------------------------'
 cd ./default && npx yarn build
 
+echo ''
+echo 'Пакет "No-cart"'
+echo '------------------------------------'
+cd ../no-cart && npx yarn build
+
 
 echo ''
 echo '------------------------------------'
-echo '|        Сборка modules          |'
+echo '|        Сборка modules            |'
 echo '------------------------------------'
 
 cd ../../modules || return
@@ -90,7 +95,7 @@ cd ../checkout && npx yarn build
 
 echo ''
 echo '------------------------------------'
-echo '|        Сборка app client          |'
+echo '|        Сборка app client         |'
 echo '------------------------------------'
 
 

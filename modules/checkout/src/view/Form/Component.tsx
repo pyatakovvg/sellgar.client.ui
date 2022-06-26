@@ -16,7 +16,7 @@ interface IProps {
 }
 
 
-function Content({ delivery, payments, handleSubmit }: IProps) {
+function Content({ delivery, payments, handleSubmit }: any): JSX.Element {
   return (
     <form className={styles['wrapper']} onSubmit={handleSubmit}>
       <div className={styles['content']}>
