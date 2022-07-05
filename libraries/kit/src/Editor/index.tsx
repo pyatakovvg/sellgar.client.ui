@@ -16,6 +16,7 @@ function EditorHTML({ value }: IProps) {
       StarterKit,
     ],
     content: value,
+    editable: false,
   });
 
   return (
