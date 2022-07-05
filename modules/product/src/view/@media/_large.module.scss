@@ -7,12 +7,18 @@
   display: flex;
   flex-direction: column;
   flex: 1 0;
-  padding: 24px 0 88px;
+  padding: 16px 0 88px;
 }
 
-.helpers {
+.breadcrumbs {
 
   display: block;
+}
+
+.title {
+
+  display: block;
+  margin: 24px 0 0;
 }
 
 .content {
@@ -20,5 +26,23 @@
   display: flex;
   flex-direction: column;
   flex: 1 0;
-  margin: 16px 0 0;
+  margin: 24px 0 0;
+}
+
+.description {
+
+  display: block;
+  margin: 24px 0 0;
+}
+
+.attributes {
+
+  display: block;
+  margin: 24px 0 0;
+}
+
+.comments {
+
+  display: block;
+  margin: 24px 0 0;
 }

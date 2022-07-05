@@ -1,5 +1,6 @@
 
 import { createSlice, Slice } from '@reduxjs/toolkit';
+import type { Draft, PayloadAction } from '@reduxjs/toolkit';
 
 
 interface IState {
@@ -27,18 +28,18 @@ const slice: Slice = createSlice({
       state['data'] = null;
     },
 
-    changeOpenAction(state: IState, { payload }) {
-      console.log(123, payload)
+    changeOpenAction(state: IState, { payload }: PayloadAction<typeof initialState['isOpen']>) {
       state['isOpen'] = payload;
     },
 
-    getBucketRequest(state: IState) {
+    getBucketRequest(state: Draft<typeof initialState>) {
       state['inProcess'] = true;
     },
-    getBucketFailRequest(state: IState) {
+    getBucketFailRequest(state: Draft<typeof initialState>) {
       state['inProcess'] = false;
     },
-    getBucketSuccessRequest(state: IState) {
+    getBucketSuccessRequest(state: Draft<typeof initialState>, { payload }: PayloadAction<typeof initialState['data']>) {
+      state['data'] = payload;
       state['inProcess'] = false;
     },
   },
@@ -54,9 +55,9 @@ export const {
   getBucketSuccessRequest,
 } = slice['actions'];
 
-export const selectData = (state: any) => state[REDUCER_NAME]['data'];
-export const selectIsOpen = (state: any) => state[REDUCER_NAME]['isOpen'];
-export const selectInProcess = (state: any) => state[REDUCER_NAME]['inProcess'];
+export const selectData = <T>(state: any): T => state[REDUCER_NAME]['data'];
+export const selectIsOpen = <T>(state: any): T => state[REDUCER_NAME]['isOpen'];
+export const selectInProcess = <T>(state: any): T => state[REDUCER_NAME]['inProcess'];
 
 export const name = slice['name'];
 export const reducer = slice['reducer'];

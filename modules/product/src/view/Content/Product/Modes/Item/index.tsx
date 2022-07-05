@@ -1,4 +1,6 @@
 
+import { Text } from "@library/kit";
+
 import React from 'react';
 
 import cn from 'classnames';
@@ -6,22 +8,30 @@ import styles from './@media/index.module.scss';
 
 
 interface IProps {
-  isActive: boolean;
+  isOne?: boolean;
+  isActive?: boolean;
   value: string;
-  price: number;
-  currency: any;
-  onChange(): void;
+  vendor: string;
+  onChange?(): void;
 }
 
 
-function ModeItem({ isActive, value, onChange }: IProps): JSX.Element {
-  const wrapperClassName = React.useMemo(() => cn(styles['wrapper'], {
+function ModeItem({ isOne, isActive, value, vendor, onChange }: IProps): JSX.Element {
+  const markerClassName = React.useMemo(() => cn(styles['marker'], {
     [styles['is-active']]: isActive,
   }), [isActive]);
 
   return (
-    <div className={wrapperClassName} onClick={onChange}>
-      { value }
+    <div className={styles['wrapper']} onClick={onChange}>
+      { ! isOne && (
+        <div className={styles['control']}>
+          <span className={markerClassName} />
+        </div>
+      )}
+      <div className={styles['content']}>
+        <Text>{ value }</Text>
+        <Text type={'description'}>&nbsp;&nbsp;[{ vendor }]</Text>
+      </div>
     </div>
   );
 }

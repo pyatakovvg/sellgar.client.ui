@@ -1,0 +1,30 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+
+  & + & {
+
+    margin: 24px 0 0;
+  }
+}
+
+.content {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  border-bottom: 1px dotted $gray;
+}
+
+.value {
+
+  display: block;
+  width: 180px;
+  margin: 0 0 0 8px;
+}

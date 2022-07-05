@@ -1,19 +1,15 @@
 
-// import request from '@package/request';
+import request from '@package/request';
 
 import { Dispatch } from 'redux';
-// import getConfig from 'next/config';
 
 import {
   changeOpenAction,
 
   getBucketRequest,
   getBucketFailRequest,
-  // getBucketSuccessRequest,
+  getBucketSuccessRequest,
 } from './slice';
-
-// const config = getConfig();
-// const process = config['publicRuntimeConfig'];
 
 
 export function changeOpen(status: boolean): any {
@@ -22,19 +18,20 @@ export function changeOpen(status: boolean): any {
   }
 }
 
-export function getBucket() {
+export function getBucket(url: string): any {
   return async function(dispatch: Dispatch): Promise<void> {
     try {
       dispatch(getBucketRequest(null));
 
-      // const result = await request({
-      //   url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/bucket',
-      //   method: 'get',
-      // });
+      const result = await request({
+        url,
+        method: 'get',
+      });
 
-      // dispatch(getBucketSuccessRequest(result['data']));
+      dispatch(getBucketSuccessRequest(result['data']));
     }
     catch(error) {
+      console.log(error)
       dispatch(getBucketFailRequest(null));
     }
   }

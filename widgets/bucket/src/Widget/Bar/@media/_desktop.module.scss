@@ -4,11 +4,19 @@
 
 .wrapper {
 
+  display: block;
+  padding: 8px 0 0;
+}
+
+.content {
+
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex: 1 0;
-  padding: 16px;
   background: $white;
   border-radius: 8px;
+  padding: 16px;
+  width: 600px;
+  border: 1px solid $gray-light;
   @include box-shadow('bottom');
 }

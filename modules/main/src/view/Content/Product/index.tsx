@@ -7,6 +7,7 @@ import Common from './Common';
 import Controls from './Controls';
 
 import styles from './@media/index.module.scss';
+import Link from "next/link";
 
 
 interface IProps {
@@ -42,6 +43,11 @@ function Product({ externalId, gallery, ...props }: IProps): JSX.Element {
       </div>
       <div className={styles['controls']}>
         <Controls item={active} {...props} />
+        <div className={styles['more']}>
+          <Link href={'/products/' + externalId}>
+            <a className={styles['more']}>подробнее...</a>
+          </Link>
+        </div>
       </div>
     </div>
   );

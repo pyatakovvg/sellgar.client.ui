@@ -24,7 +24,11 @@ function Common({ externalId, item, brand, title, modes, onChange }: IProps): JS
     <div className={styles['wrapper']}>
       <div className={styles['content']}>
         <div className={styles['title']}>
-          <Text type={'strong'}>{ title }</Text>
+          <Link href={'/products/' + externalId}>
+            <a className={styles['link']}>
+              <Text type={'strong'}>{ title }</Text>
+            </a>
+          </Link>
         </div>
         <div className={styles['brand']}>
           <Text type={'description'}>{ brand?.['name'] ?? '---' }</Text>
@@ -32,11 +36,6 @@ function Common({ externalId, item, brand, title, modes, onChange }: IProps): JS
       </div>
       <div className={styles['controls']}>
         <Modes item={item} modes={modes} onChange={onChange} />
-      </div>
-      <div className={styles['more']}>
-        <Link href={'/products/' + externalId}>
-          <a className={styles['link']}>подробнее...</a>
-        </Link>
       </div>
     </div>
   );

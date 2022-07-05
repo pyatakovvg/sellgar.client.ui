@@ -1,18 +1,28 @@
 
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import Filter from './Filter';
 import Content from './Content';
+
+import { getProductsRequestSuccessAction } from '../index';
 
 import styles from './@media/index.module.scss';
 
 
 interface IProps {
   data: Array<any>;
+  meta: any;
 }
 
 
-function Main({ data }: IProps) {
+function Main({ data, meta }: IProps) {
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(getProductsRequestSuccessAction({ data, meta }));
+  }, []);
+
   return (
     <section className={styles['wrapper']}>
       <aside className={styles['aside']}>

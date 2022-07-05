@@ -1,0 +1,24 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: block;
+  background: $white;
+  padding: 16px 16px 48px;
+  border-radius: 8px;
+  @include box-shadow('bottom');
+}
+
+.header {
+
+  display: block;
+}
+
+.content {
+
+  display: block;
+  margin: 32px 0 0;
+  column-count: 2;
+}

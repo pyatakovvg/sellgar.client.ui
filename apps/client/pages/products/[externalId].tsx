@@ -29,7 +29,8 @@ export async function getServerSideProps(req: NextApiRequest) {
 
   return {
     props: {
-      data: result['data'],
+      data: result['data']['product'],
+      comments: result['data']['comments'],
     },
   };
 }

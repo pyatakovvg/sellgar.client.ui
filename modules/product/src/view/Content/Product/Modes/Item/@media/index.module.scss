@@ -4,23 +4,43 @@
 
 .wrapper {
 
-  display: block;
-  border-radius: 8px;
-  border: 1px solid $gray-light;
-  padding: 8px;
-  text-align: center;
+  display: inline-flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  align-items: center;
   cursor: pointer;
   overflow: hidden;
 
   & + & {
 
-    margin: 4px 0 0;
+    margin: 12px 0 0;
   }
+}
+
+.control {
+
+  display: block;
+  margin: 0 8px 0 0;
+}
+
+.content {
+
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+}
+
+.marker {
+
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 3px solid $gray-light;
+  background: $gray;
+  border-radius: 50%;
 }
 
 .is-active {
 
-  background: $primary-light;
-  border-color: $primary-light;
-  cursor: default;
+  background: $info;
 }

@@ -13,7 +13,7 @@ interface IProps {
 }
 
 
-function Main({ delivery, payments }: IProps): JSX.Element {
+function Checkout({ delivery, payments }: IProps): JSX.Element {
   return (
     <section className={styles['wrapper']}>
       <section className={styles['content']}>
@@ -23,4 +23,4 @@ function Main({ delivery, payments }: IProps): JSX.Element {
   );
 }
 
-export default Main;
+export default Checkout;

@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Control from './Control';
-import Content from './Content';
+import Bar from './Bar';
 
 import { selectIsOpen } from '../store/slice';
 import { changeOpen } from '../store/commands';
@@ -11,7 +11,7 @@ import { changeOpen } from '../store/commands';
 import styles from './@media/index.module.scss';
 
 
-function Widget() {
+function Widget({ url, onCheckout }: any) {
   const dispatch = useDispatch();
   const isOpen = useSelector(selectIsOpen);
 
@@ -26,7 +26,7 @@ function Widget() {
       </div>
       <div className={styles['content']}>
         {isOpen && (
-          <Content />
+          <Bar url={url} onCheckout={onCheckout} />
         )}
       </div>
     </div>

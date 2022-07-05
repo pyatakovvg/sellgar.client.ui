@@ -17,7 +17,7 @@ export default function Main(props: IProps): JSX.Element {
   return (
     <Layout>
       <Head>
-        <title>Оформление заказа</title>
+        <title>Sellgar - Оформление заказа</title>
       </Head>
       <Module {...props} />
     </Layout>

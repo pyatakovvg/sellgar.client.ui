@@ -15,7 +15,7 @@
   "dependencies": {
     "@helper/utils": "0.0.1",
     "axios": "0.27.2",
-    "qs": "6.10.5"
+    "qs": "6.11.0"
   },
   "devDependencies": {
     "@types/axios": "0.14.0",

@@ -13,10 +13,11 @@
   display: flex;
   flex-direction: column;
   flex: 1 0;
-  background: $white;
-  border-radius: 8px;
-  padding: 8px;
-  width: 600px;
-  border: 1px solid $gray-light;
-  @include box-shadow('bottom');
+}
+
+.controls {
+
+  display: block;
+  margin: 16px 0 0;
+  text-align: right;
 }

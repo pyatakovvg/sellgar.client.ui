@@ -13,3 +13,10 @@ export async function getProduct(externalId: string) {
     method: 'get',
   })
 }
+
+export async function getComments(externalId: string) {
+  return await request({
+    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/products/' + externalId + '/comments',
+    method: 'get',
+  })
+}

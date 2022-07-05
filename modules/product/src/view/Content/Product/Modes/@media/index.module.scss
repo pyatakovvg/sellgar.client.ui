@@ -9,11 +9,34 @@
   flex: 1 0;
 }
 
+.bucket {
+
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+.price {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+}
+
+.amount {
+
+  display: block;
+  font-size: 22px;
+  font-weight: $font-weight-medium;
+}
+
 .content {
 
   display: flex;
   flex-direction: column;
   flex: 1 0;
+  margin: 32px 0 0;
 }
 
 .controls {

@@ -15,7 +15,9 @@
 
 .gallery {
 
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
   width: 500px;
   height: 500px;
   background: $gray-light;
@@ -26,5 +28,5 @@
   display: flex;
   flex-direction: column;
   flex: 1 0;
-  margin: 0 0 0 32px;
+  margin: 24px 0 0 88px;
 }

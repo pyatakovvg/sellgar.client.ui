@@ -8,7 +8,7 @@ function Document(): JSX.Element {
   return (
     <Html>
       <Head>
-        <Script title={'fontawesome'} src="https://kit.fontawesome.com/7bd9075b89.js" crossOrigin="anonymous"></Script>
+        <Script src="https://kit.fontawesome.com/7bd9075b89.js" crossOrigin="anonymous" />
         <style>@import url(https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap);</style>
       </Head>
       <body>
