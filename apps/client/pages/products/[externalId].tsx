@@ -9,6 +9,7 @@ import { NextApiRequest } from 'next';
 
 interface IProps {
   data: Array<any>;
+  comments: any;
 }
 
 

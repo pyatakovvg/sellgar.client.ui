@@ -13,7 +13,7 @@ const store = configureStore({
     [bucketReducerName]: bucketReducer,
     [mainModuleReducerName]: mainModuleReducer,
   },
-});
+}) as any;
 
 export type TAction = typeof store.dispatch
 export type TRootState = ReturnType<typeof store.getState>;
