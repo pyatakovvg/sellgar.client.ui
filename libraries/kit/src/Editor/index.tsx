@@ -3,6 +3,7 @@ import React from "react";
 import StarterKit from '@tiptap/starter-kit';
 import { useEditor, EditorContent } from '@tiptap/react';
 
+import styles from './default.module.scss';
 
 
 interface IProps {
@@ -15,12 +16,17 @@ function EditorHTML({ value }: IProps) {
     extensions: [
       StarterKit,
     ],
+    editorProps: {
+      attributes: {
+        class: styles['content'],
+      },
+    },
     content: value,
     editable: false,
   });
 
   return (
-    <EditorContent editor={editor} />
+    <EditorContent className={styles['wrapper']} editor={editor} />
   );
 }
 

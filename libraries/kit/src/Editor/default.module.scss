@@ -1,0 +1,38 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: block;
+}
+
+.content {
+
+  display: block;
+
+  h1 {
+
+    color: $dark;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 24px;
+
+    & + p {
+
+      margin: 24px 0 0;
+    }
+  }
+
+  p {
+
+    color: $dark;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+
+    & + p {
+
+      margin: 16px 0 0;
+    }
+  }
+}
