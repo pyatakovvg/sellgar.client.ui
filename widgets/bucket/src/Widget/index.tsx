@@ -13,7 +13,7 @@ import styles from './@media/index.module.scss';
 
 function Widget({ url, onCheckout }: any) {
   const dispatch = useDispatch();
-  const isOpen = useSelector(selectIsOpen);
+  const isOpen = useSelector(selectIsOpen) as boolean;
 
   async function handleOpen() {
     dispatch(changeOpen( ! isOpen));
