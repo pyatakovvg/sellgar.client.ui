@@ -1,5 +1,5 @@
 
-import { Header } from '@library/kit';
+import { Header, Editor } from '@library/kit';
 
 import React from 'react';
 
@@ -16,7 +16,9 @@ function Description({ description }: IProps): JSX.Element {
       <div className={styles['header']}>
         <Header level={3}>Описание</Header>
       </div>
-      <div className={styles['content']} dangerouslySetInnerHTML={{ __html: '<div>' + description + '</div>' }} />
+      <div className={styles['content']}>
+        <Editor value={description} />
+      </div>
     </section>
   );
 }
