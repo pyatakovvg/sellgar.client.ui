@@ -16,7 +16,7 @@ function Description({ description }: IProps): JSX.Element {
       <div className={styles['header']}>
         <Header level={3}>Описание</Header>
       </div>
-      <div className={styles['content']} dangerouslySetInnerHTML={{ __html: description }} />
+      <div className={styles['content']} dangerouslySetInnerHTML={{ __html: '<div>' + description + '</div>' }} />
     </section>
   );
 }
