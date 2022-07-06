@@ -10,16 +10,15 @@ import styles from './@media/index.module.scss';
 
 
 interface IProps {
-  url: string;
   onCheckout(): void;
 }
 
 
-function Bar({ url, onCheckout }: IProps) {
+function Bar({ onCheckout }: IProps) {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(getBucket(url));
+    dispatch(getBucket());
   }, []);
 
   return (

@@ -17,12 +17,8 @@ interface IProps {
 }
 
 
-function Main({ data, meta, env }: IProps) {
+function Main({ data, meta }: IProps) {
   const dispatch = useDispatch();
-
-  React.useEffect(()  => {
-    window['env'] = env;
-  }, [env]);
 
   React.useEffect(() => {
     dispatch(getProductsRequestSuccessAction({ data, meta }));

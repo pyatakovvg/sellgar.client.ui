@@ -36,4 +36,4 @@ function DefaultLayout({ children }: IProps): JSX.Element {
   );
 }
 
-export default DefaultLayout;
+export default React.memo(DefaultLayout);

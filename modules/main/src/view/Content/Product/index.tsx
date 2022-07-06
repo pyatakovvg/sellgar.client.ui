@@ -71,7 +71,7 @@ function Product({ externalId, gallery, ...props }: IProps): JSX.Element {
   }
 
   function handleToBucket() {
-    dispatch(addToCart(window.env['GATEWAY_SERVICE_API'] + '/api/v1/checkouts', {
+    dispatch(addToCart({
       products: updateProducts(bucket?.['products'] ?? [], {
         productUuid: props['uuid'],
         gallery,

@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Product from './Product';
 
 import { selectData } from '../../../store/slice';
-import { destroyCart } from '../../../store/commands';
+import { destroyCart, changeOpen } from '../../../store/commands';
 
 import styles from './@media/index.module.scss';
 
@@ -19,6 +19,7 @@ function Content({ onCheckout }: any) {
 
   function handleDestroy() {
     dispatch(destroyCart());
+    dispatch(changeOpen(false));
   }
 
   if ( ! bucket) {

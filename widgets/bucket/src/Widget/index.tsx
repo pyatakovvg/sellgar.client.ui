@@ -6,17 +6,33 @@ import Control from './Control';
 import Bar from './Bar';
 
 import { selectIsOpen } from '../store/slice';
-import { changeOpen, getBucket } from '../store/commands';
+import { changeOpen } from '../store/commands';
 
 import styles from './@media/index.module.scss';
 
 
-function Widget({ url, onCheckout }: any) {
+function Widget({ onCheckout }: any) {
   const dispatch = useDispatch();
+  const wrapperRef = React.useRef(null);
   const isOpen = useSelector(selectIsOpen) as boolean;
 
   React.useEffect(() => {
-    dispatch(getBucket(url));
+    function handleClose(event: MouseEvent) {
+      const target: any = event['target'];
+      const wrapperElement: any = wrapperRef['current'];
+
+      if ( ! wrapperElement) {
+        return void 0;
+      }
+
+      if ( ! wrapperElement.contains(target)) {
+        dispatch(changeOpen(false));
+      }
+    }
+    document.addEventListener('click', handleClose);
+    return () => {
+      document.removeEventListener('click', handleClose);
+    };
   }, []);
 
   async function handleOpen() {
@@ -24,13 +40,13 @@ function Widget({ url, onCheckout }: any) {
   }
 
   return (
-    <div className={styles['wrapper']}>
+    <div className={styles['wrapper']} ref={wrapperRef}>
       <div className={styles['control']}>
         <Control onClick={() => handleOpen()} />
       </div>
       <div className={styles['content']}>
         {isOpen && (
-          <Bar url={url} onCheckout={onCheckout} />
+          <Bar onCheckout={onCheckout} />
         )}
       </div>
     </div>

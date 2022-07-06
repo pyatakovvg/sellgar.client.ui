@@ -20,26 +20,19 @@ import {
 } from './slice';
 
 
-export async function getBucketRequest(url: string) {
-  return await request({
-    url,
-    method: 'get',
-  });
-}
-
 export function changeOpen(status: boolean): any {
   return function(dispatch: Dispatch): void {
     dispatch(changeOpenAction(status));
   }
 }
 
-export function getBucket(url: string): any {
+export function getBucket(): any {
   return async function(dispatch: Dispatch): Promise<void> {
     try {
       dispatch(getBucketRequestAction(null));
 
       const result = await request({
-        url,
+        url: window.env['GATEWAY_SERVICE_API'] + '/api/v1/checkouts',
         method: 'get',
       });
 
@@ -52,13 +45,13 @@ export function getBucket(url: string): any {
   }
 }
 
-export function addToCart(url: string, data: any): any {
+export function addToCart(data: any): any {
   return async function(dispatch: Dispatch): Promise<void> {
     try {
       dispatch(updateBucketRequestAction(null));
 
       const result = await request({
-        url,
+        url: window.env['GATEWAY_SERVICE_API'] + '/api/v1/checkouts',
         method: 'post',
         data,
       });

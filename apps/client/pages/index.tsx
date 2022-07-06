@@ -1,9 +1,11 @@
 
 import Layout from '@layout/default';
+import {getBucket} from '@widget/bucket';
 import Module, { getProductsRequest } from '@module/main';
 
 import React from 'react';
 import Head from 'next/head';
+import { useDispatch } from 'react-redux';
 
 
 interface IProps {
@@ -14,6 +16,13 @@ interface IProps {
 
 
 export default function Main(props: IProps): JSX.Element {
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    window.env = props['env'];
+    dispatch(getBucket());
+  }, []);
+
   return (
     <Layout>
       <Head>
