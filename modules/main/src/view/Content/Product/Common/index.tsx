@@ -1,5 +1,5 @@
 
-import { Text } from '@library/kit';
+import { Text, Header } from '@library/kit';
 
 import React from 'react';
 import Link from 'next/link';
@@ -26,7 +26,7 @@ function Common({ externalId, item, brand, title, modes, onChange }: IProps): JS
         <div className={styles['title']}>
           <Link href={'/products/' + externalId}>
             <a className={styles['link']}>
-              <Text type={'strong'}>{ title }</Text>
+              <Header level={4}>{ title }</Header>
             </a>
           </Link>
         </div>

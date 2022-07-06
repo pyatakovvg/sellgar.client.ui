@@ -1,20 +1,33 @@
 
-import { Button, Header } from '@library/kit';
 import numeral from '@package/numeral';
+import { Button, Header, Text } from '@library/kit';
 
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Product from './Product';
 
 import { selectData } from '../../../store/slice';
+import { destroyCart } from '../../../store/commands';
 
-// import cn from 'classnames';
 import styles from './@media/index.module.scss';
 
 
 function Content({ onCheckout }: any) {
+  const dispatch = useDispatch();
   const bucket = useSelector(selectData) as any;
+
+  function handleDestroy() {
+    dispatch(destroyCart());
+  }
+
+  if ( ! bucket) {
+    return (
+      <div className={styles['wrapper']}>
+        <Text>В корзине нет товаров</Text>
+      </div>
+    );
+  }
 
   return (
     <div className={styles['wrapper']}>
@@ -30,7 +43,7 @@ function Content({ onCheckout }: any) {
           <Header level={4}>Сумма: { numeral(bucket['price']).format() } { bucket['currency']['displayName'] }</Header>
         </div>
         <div className={styles['buttons']}>
-          <Button form={'context'} mode={'danger'}>Очистить</Button>
+          <Button form={'context'} mode={'danger'} onClick={handleDestroy}>Очистить</Button>
           <Button mode={'success'} onClick={onCheckout}>Оформить</Button>
         </div>
       </div>

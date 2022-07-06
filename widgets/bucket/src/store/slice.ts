@@ -43,6 +43,28 @@ const slice: Slice = createSlice({
       state['data'] = payload;
       state['inProcess'] = false;
     },
+
+    updateBucketRequestAction(state: Draft<typeof initialState>) {
+      state['inProcess'] = true;
+    },
+    updateBucketFailRequestAction(state: Draft<typeof initialState>) {
+      state['inProcess'] = false;
+    },
+    updateBucketSuccessRequestAction(state: Draft<typeof initialState>, { payload }: PayloadAction<typeof initialState['data']>) {
+      state['data'] = payload;
+      state['inProcess'] = false;
+    },
+
+    destroyBucketRequestAction(state: Draft<typeof initialState>) {
+      state['inProcess'] = true;
+    },
+    destroyBucketFailRequestAction(state: Draft<typeof initialState>) {
+      state['inProcess'] = false;
+    },
+    destroyBucketSuccessRequestAction(state: Draft<typeof initialState>) {
+      state['data'] = null;
+      state['inProcess'] = false;
+    },
   },
 });
 
@@ -54,6 +76,14 @@ export const {
   getBucketRequestAction,
   getBucketFailRequestAction,
   getBucketSuccessRequestAction,
+
+  updateBucketRequestAction,
+  updateBucketFailRequestAction,
+  updateBucketSuccessRequestAction,
+
+  destroyBucketRequestAction,
+  destroyBucketFailRequestAction,
+  destroyBucketSuccessRequestAction,
 } = slice['actions'];
 
 export const selectData = <T>(state: any): T => state[REDUCER_NAME]['data'];

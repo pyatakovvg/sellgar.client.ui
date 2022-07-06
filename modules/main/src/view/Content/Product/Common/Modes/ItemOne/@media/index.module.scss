@@ -1,0 +1,35 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: inline-flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  align-items: center;
+  overflow: hidden;
+}
+
+.control {
+
+  display: block;
+}
+
+.content {
+
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+}
+
+.bucket {
+
+  display: block;
+  margin: 0 0 0 24px;
+}
+
+.info {
+
+  color: $info-dark;
+}

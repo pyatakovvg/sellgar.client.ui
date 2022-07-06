@@ -9,6 +9,14 @@ import {
   getBucketRequestAction,
   getBucketFailRequestAction,
   getBucketSuccessRequestAction,
+
+  updateBucketRequestAction,
+  updateBucketFailRequestAction,
+  updateBucketSuccessRequestAction,
+
+  destroyBucketRequestAction,
+  destroyBucketFailRequestAction,
+  destroyBucketSuccessRequestAction,
 } from './slice';
 
 
@@ -47,7 +55,7 @@ export function getBucket(url: string): any {
 export function addToCart(url: string, data: any): any {
   return async function(dispatch: Dispatch): Promise<void> {
     try {
-      dispatch(getBucketRequestAction(null));
+      dispatch(updateBucketRequestAction(null));
 
       const result = await request({
         url,
@@ -55,11 +63,28 @@ export function addToCart(url: string, data: any): any {
         data,
       });
 
-      dispatch(getBucketSuccessRequestAction(result['data']));
+      dispatch(updateBucketSuccessRequestAction(result['data']));
     }
     catch(error) {
-      console.log(error)
-      dispatch(getBucketFailRequestAction(null));
+      dispatch(updateBucketFailRequestAction(null));
+    }
+  }
+}
+
+export function destroyCart(): any {
+  return async function(dispatch: Dispatch): Promise<void> {
+    try {
+      dispatch(destroyBucketRequestAction(null));
+
+      const result = await request({
+        url: window.env['GATEWAY_SERVICE_API'] + '/api/v1/checkouts',
+        method: 'delete',
+      });
+
+      dispatch(destroyBucketSuccessRequestAction(result['data']));
+    }
+    catch(error) {
+      dispatch(destroyBucketFailRequestAction(null));
     }
   }
 }
