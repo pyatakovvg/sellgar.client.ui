@@ -16,21 +16,21 @@ function Helper({ data }: IProps): JSX.Element {
   return (
     <section className={styles['wrapper']}>
       <div className={styles['item']}>
-        <Link href={'/?group=' + data?.['group']?.['name']}>
+        <Link href={'/?group=' + data?.['group']?.['code']}>
           <a className={styles['link']}>
             <Text>{ data?.['group']?.['name'] }</Text>
           </a>
         </Link>
       </div>
       <div className={styles['item']}>
-        <Link href={'/?category=' + data?.['category']?.['name']}>
+        <Link href={'/?category=' + data?.['category']?.['code']}>
           <a className={styles['link']}>
             <Text>{ data?.['category']?.['name'] }</Text>
           </a>
         </Link>
       </div>
       <div className={styles['item']}>
-        <Link href={'/?brand=' + data?.['brand']?.['name']}>
+        <Link href={'/?brand=' + data?.['brand']?.['code']}>
           <a className={styles['link']}>
             <Text>{ data?.['brand']?.['name'] }</Text>
           </a>

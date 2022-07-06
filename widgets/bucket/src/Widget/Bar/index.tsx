@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import Content from './Content';
 
 import { getBucket } from '../../store/commands';
-import { resetStateAction } from '../../store/slice';
 
 import styles from './@media/index.module.scss';
 
@@ -21,9 +20,6 @@ function Bar({ url, onCheckout }: IProps) {
 
   React.useEffect(() => {
     dispatch(getBucket(url));
-    return () => {
-      dispatch(resetStateAction(null));
-    };
   }, []);
 
   return (

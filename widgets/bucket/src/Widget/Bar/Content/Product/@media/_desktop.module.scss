@@ -1,0 +1,40 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  align-items: center;
+}
+
+.line {
+
+  display: block;
+
+  & + & {
+
+    margin: 4px 0 0;
+  }
+}
+
+.image {
+
+  display: block;
+}
+
+.common {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  margin: 0 0 0 16px;
+}
+
+.price {
+
+  display: block;
+  text-align: right;
+}

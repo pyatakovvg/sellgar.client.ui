@@ -1,19 +1,24 @@
 
+import { addToCart, selectData } from '@widget/bucket';
+
 import React from 'react';
+import Link from "next/link";
 import getConfig from 'next/config';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Image from './Image';
 import Common from './Common';
 import Controls from './Controls';
 
 import styles from './@media/index.module.scss';
-import Link from "next/link";
 
 
 interface IProps {
+  uuid: string;
   externalId: string;
   gallery: Array<any>;
   title: string;
+  originName: string;
   category: any;
   brand: any;
   modes: Array<any>;
@@ -24,11 +29,57 @@ const config = getConfig();
 const process = config['publicRuntimeConfig'];
 
 
+function updateProducts(before: Array<any>, product: any) {
+  const current = [...before];
+  const hasProduct = current.some((item) => item['productUuid'] === product['productUuid'] && item['modeUuid'] === product['uuid']);
+  if ( ! hasProduct) {
+    current.push({
+      productUuid: product['productUuid'],
+      imageUuid: product?.['gallery']?.[0]?.['uuid'] ?? null,
+      modeUuid: product['uuid'],
+      title: product['title'],
+      originName: product['originName'] || null,
+      vendor: product['vendor'],
+      value: product['value'],
+      count: 1,
+      price: product['price'],
+      currencyCode: product['currency']['code'],
+    });
+  }
+  else {
+    return current.map((item) => {
+      if (item['productUuid'] === product['productUuid'] && item['modeUuid'] === product['uuid']) {
+        return {
+          ...item,
+          count: item['count'] + 1,
+        };
+      }
+      return item;
+    });
+  }
+  return current;
+}
+
+
 function Product({ externalId, gallery, ...props }: IProps): JSX.Element {
+  const dispatch = useDispatch();
+  const bucket = useSelector(selectData) as any;
   const [active, setActive] = React.useState(() => props['modes'].find(item => item['isTarget']));
 
   function handleChange(item: any) {
     setActive(item);
+  }
+
+  function handleToBucket() {
+    dispatch(addToCart(window.env['GATEWAY_SERVICE_API'] + '/api/v1/checkouts', {
+      products: updateProducts(bucket?.['products'] ?? [], {
+        productUuid: props['uuid'],
+        gallery,
+        title: props['title'],
+        originName: props['originName'],
+        ...active,
+      }),
+    }));
   }
 
   return (
@@ -42,7 +93,7 @@ function Product({ externalId, gallery, ...props }: IProps): JSX.Element {
         </div>
       </div>
       <div className={styles['controls']}>
-        <Controls item={active} {...props} />
+        <Controls item={active} {...props} onAddToBucket={handleToBucket} />
         <div className={styles['more']}>
           <Link href={'/products/' + externalId}>
             <a className={styles['more']}>подробнее...</a>

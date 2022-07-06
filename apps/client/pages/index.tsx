@@ -9,6 +9,7 @@ import Head from 'next/head';
 interface IProps {
   data: Array<any>;
   meta: any;
+  env: any;
 }
 
 
@@ -30,6 +31,9 @@ export async function getServerSideProps() {
     props: {
       data: result['data'],
       meta: result['meta'],
+      env: {
+        GATEWAY_SERVICE_API: process.env['GATEWAY_SERVICE_API'],
+      },
     },
   };
 }

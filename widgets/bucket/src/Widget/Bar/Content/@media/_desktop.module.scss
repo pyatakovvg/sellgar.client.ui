@@ -15,9 +15,35 @@
   flex: 1 0;
 }
 
-.controls {
+.item {
 
   display: block;
+
+  & + & {
+
+    margin: 8px 0 0;
+  }
+}
+
+.controls {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
   margin: 16px 0 0;
-  text-align: right;
+  border-top: 1px solid $gray-light;
+  padding: 16px 0 0;
+  align-items: center;
+}
+
+.price {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+}
+
+.buttons {
+
+  display: block;
 }

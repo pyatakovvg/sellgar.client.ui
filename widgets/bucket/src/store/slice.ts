@@ -26,19 +26,20 @@ const slice: Slice = createSlice({
     resetStateAction(state) {
       state['isOpen'] = false;
       state['data'] = null;
+      state['inProcess'] = false;
     },
 
     changeOpenAction(state: IState, { payload }: PayloadAction<typeof initialState['isOpen']>) {
       state['isOpen'] = payload;
     },
 
-    getBucketRequest(state: Draft<typeof initialState>) {
+    getBucketRequestAction(state: Draft<typeof initialState>) {
       state['inProcess'] = true;
     },
-    getBucketFailRequest(state: Draft<typeof initialState>) {
+    getBucketFailRequestAction(state: Draft<typeof initialState>) {
       state['inProcess'] = false;
     },
-    getBucketSuccessRequest(state: Draft<typeof initialState>, { payload }: PayloadAction<typeof initialState['data']>) {
+    getBucketSuccessRequestAction(state: Draft<typeof initialState>, { payload }: PayloadAction<typeof initialState['data']>) {
       state['data'] = payload;
       state['inProcess'] = false;
     },
@@ -50,9 +51,9 @@ export const {
 
   changeOpenAction,
 
-  getBucketRequest,
-  getBucketFailRequest,
-  getBucketSuccessRequest,
+  getBucketRequestAction,
+  getBucketFailRequestAction,
+  getBucketSuccessRequestAction,
 } = slice['actions'];
 
 export const selectData = <T>(state: any): T => state[REDUCER_NAME]['data'];

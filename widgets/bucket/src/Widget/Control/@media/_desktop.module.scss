@@ -4,6 +4,7 @@
 
 .wrapper {
 
+  position: relative;
   display: flex;
   flex-direction: row;
   flex: 1 0;
@@ -20,14 +21,29 @@
   display: block;
 }
 
-.content {
-
-  display: block;
-  margin: 0 0 0 8px;
-}
-
 .icon {
 
   color: $white;
   font-size: 18px;
+}
+
+.count {
+
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 3px 0 0;
+  border-radius: 50%;
+  background: $info;
+  font-size: 13px;
+  font-weight: $font-weight-bold;
+  color: $white;
+  @include box-shadow('bottom');
 }

@@ -13,11 +13,16 @@ import styles from './@media/index.module.scss';
 interface IProps {
   data: Array<any>;
   meta: any;
+  env: any;
 }
 
 
-function Main({ data, meta }: IProps) {
+function Main({ data, meta, env }: IProps) {
   const dispatch = useDispatch();
+
+  React.useEffect(()  => {
+    window['env'] = env;
+  }, [env]);
 
   React.useEffect(() => {
     dispatch(getProductsRequestSuccessAction({ data, meta }));

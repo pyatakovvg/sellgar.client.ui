@@ -6,11 +6,18 @@ import { Dispatch } from 'redux';
 import {
   changeOpenAction,
 
-  getBucketRequest,
-  getBucketFailRequest,
-  getBucketSuccessRequest,
+  getBucketRequestAction,
+  getBucketFailRequestAction,
+  getBucketSuccessRequestAction,
 } from './slice';
 
+
+export async function getBucketRequest(url: string) {
+  return await request({
+    url,
+    method: 'get',
+  });
+}
 
 export function changeOpen(status: boolean): any {
   return function(dispatch: Dispatch): void {
@@ -21,18 +28,38 @@ export function changeOpen(status: boolean): any {
 export function getBucket(url: string): any {
   return async function(dispatch: Dispatch): Promise<void> {
     try {
-      dispatch(getBucketRequest(null));
+      dispatch(getBucketRequestAction(null));
 
       const result = await request({
         url,
         method: 'get',
       });
 
-      dispatch(getBucketSuccessRequest(result['data']));
+      dispatch(getBucketSuccessRequestAction(result['data']));
     }
     catch(error) {
       console.log(error)
-      dispatch(getBucketFailRequest(null));
+      dispatch(getBucketFailRequestAction(null));
+    }
+  }
+}
+
+export function addToCart(url: string, data: any): any {
+  return async function(dispatch: Dispatch): Promise<void> {
+    try {
+      dispatch(getBucketRequestAction(null));
+
+      const result = await request({
+        url,
+        method: 'post',
+        data,
+      });
+
+      dispatch(getBucketSuccessRequestAction(result['data']));
+    }
+    catch(error) {
+      console.log(error)
+      dispatch(getBucketFailRequestAction(null));
     }
   }
 }

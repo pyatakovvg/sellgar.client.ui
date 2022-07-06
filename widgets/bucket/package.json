@@ -14,9 +14,11 @@
     "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress --no-sourcemap --css-modules bucket_[local]__[hash:base64:12]"
   },
   "dependencies": {
+    "@library/kit": "0.0.1",
     "@library/store": "0.0.1",
     "@library/theme": "0.0.1",
-    "@package/request": "0.0.1"
+    "@package/request": "0.0.1",
+    "@package/numeral": "0.0.1"
   },
   "devDependencies": {
     "@types/classnames": "2.3.1",

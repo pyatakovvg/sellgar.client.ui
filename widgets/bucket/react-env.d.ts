@@ -6,6 +6,10 @@ declare namespace NodeJS {
   }
 }
 
+interface Window {
+  env: any;
+}
+
 declare module '*.avif' {
   const src: string;
   export default src;

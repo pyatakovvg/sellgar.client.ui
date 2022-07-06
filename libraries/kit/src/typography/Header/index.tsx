@@ -14,7 +14,7 @@ type TLevel = 1 | 2 | 3 | 4 | 5 | 6;
 interface IProps {
   level?: TLevel;
   className?: string;
-  children: JSX.Element | string;
+  children: any;
 }
 
 
