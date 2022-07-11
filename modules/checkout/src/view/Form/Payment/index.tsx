@@ -1,7 +1,9 @@
 
-import { Header, RadioField, Radio } from '@library/kit';
+import { Header, RadioField, Radio, Text } from '@library/kit';
 
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { getFormValues } from 'redux-form';
 
 import Item from './Item';
 
@@ -14,6 +16,12 @@ interface IProps {
 
 
 function Payment({ data }: IProps): JSX.Element {
+  const values = useSelector(getFormValues('checkout')) as any;
+
+  const payment = React.useMemo(() => {
+    return data.find((item) => item['code'] === values['paymentCode']);
+  }, [values['paymentCode']]);
+
   return (
     <div className={styles['wrapper']}>
       <div className={styles['header']}>
@@ -32,7 +40,7 @@ function Payment({ data }: IProps): JSX.Element {
           </RadioField>
         </div>
         <div className={styles['description']}>
-
+          <Text>{ payment['description'] }</Text>
         </div>
       </div>
     </div>
