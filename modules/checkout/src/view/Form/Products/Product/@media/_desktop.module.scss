@@ -8,6 +8,10 @@
   flex-direction: row;
   flex: 1 0;
   align-items: center;
+  background: $white;
+  padding: 16px;
+  border-radius: 8px;
+  @include box-shadow('bottom');
 }
 
 .line {
@@ -16,7 +20,7 @@
 
   & + & {
 
-    margin: 4px 0 0;
+    margin: 8px 0 0;
   }
 }
 

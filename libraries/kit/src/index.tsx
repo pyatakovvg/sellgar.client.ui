@@ -12,11 +12,14 @@ export { default as Gallery } from './symbols/Gallery';
 export { default as Spinner } from './symbols/Spinner';
 export { default as Checkbox } from './symbols/Checkbox';
 export { default as Textarea } from './symbols/Textarea';
+export { default as Radio } from './symbols/Radio';
+export { Wrapper as RadioContainer } from './symbols/Radio';
 
 export { default as InputField } from './fields/Input';
 export { default as SelectField } from './fields/Select';
 export { default as TextareaField } from './fields/Textarea';
-export { default as CheckboxField } from './fields/CheckBoxField';
+export { default as RadioField } from './fields/Radiobox';
+export { default as CheckboxField } from './fields/Checkbox';
 
 export { default as Text } from './typography/Text';
 export { default as Label } from './typography/Label';

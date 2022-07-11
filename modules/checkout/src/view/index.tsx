@@ -13,11 +13,20 @@ interface IProps {
 }
 
 
-function Checkout({ delivery, payments }: IProps): JSX.Element {
+function Checkout({ delivery, payments, data }: IProps): JSX.Element {
   return (
     <section className={styles['wrapper']}>
       <section className={styles['content']}>
-        <Form delivery={delivery} payments={payments} onSubmit={() => {}} />
+        <Form
+          initialValues={{
+            deliveryCode: delivery[0]['code'],
+            paymentCode: payments[0]['code'],
+          }}
+          data={data}
+          delivery={delivery}
+          payments={payments}
+          onSubmit={(data: any) => console.log(data)}
+        />
       </section>
     </section>
   );

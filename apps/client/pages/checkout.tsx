@@ -10,10 +10,15 @@ interface IProps {
   data: any;
   delivery: Array<any>;
   payments: Array<any>;
+  env: any;
 }
 
 
 export default function Main(props: IProps): JSX.Element {
+  React.useEffect(() => {
+    window.env = props['env'];
+  }, []);
+
   return (
     <Layout>
       <Head>
@@ -24,8 +29,8 @@ export default function Main(props: IProps): JSX.Element {
   );
 }
 
-export async function getServerSideProps() {
-  const checkout = await getCheckout();
+export async function getServerSideProps({ req }: any) {
+  const checkout = await getCheckout({ headers: req['headers'] });
   const delivery = await getDelivery();
   const payments = await getPayments();
 

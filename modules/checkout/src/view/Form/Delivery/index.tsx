@@ -1,7 +1,9 @@
 
-import { Header, Button } from '@library/kit';
+import { Header, RadioField, Radio } from '@library/kit';
 
 import React from 'react';
+
+import Item from './Item';
 
 import styles from './@media/index.module.scss';
 
@@ -18,9 +20,20 @@ function Delivery({ data }: IProps): JSX.Element {
         <Header level={3}>Способ получения</Header>
       </div>
       <div className={styles['content']}>
-        {data.map((item) => (
-          <Button key={item['code']}>{ item['displayName'] }</Button>
-        ))}
+        <div className={styles['controls']}>
+          <RadioField name={'deliveryCode'}>
+            {data.map((item) => (
+              <div key={item['code']} className={styles['item']}>
+                <Radio type={'empty'} value={item['code']}>
+                  <Item>{ item['displayName'] }</Item>
+                </Radio>
+              </div>
+            ))}
+          </RadioField>
+        </div>
+        <div className={styles['description']}>
+
+        </div>
       </div>
     </div>
   );

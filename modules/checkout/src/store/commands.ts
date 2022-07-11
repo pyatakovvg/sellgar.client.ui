@@ -7,10 +7,11 @@ const config = getConfig();
 const process = config['publicRuntimeConfig'];
 
 
-export async function getCheckout() {
+export async function getCheckout(props: any) {
   return await request({
     url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/checkouts',
     method: 'get',
+    headers: props['headers'],
   })
 }
 

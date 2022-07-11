@@ -9,7 +9,7 @@ interface IProps extends WrappedFieldInputProps {
   mode?: 'default' | 'primary' | 'danger';
   label?: string;
   error: string | null;
-  children: JSX.Element;
+  children: any;
   options?: Array<any>;
   [key: string]: any;
 }

@@ -1,0 +1,26 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: block;
+  background: $gray-light;
+  padding: 12px 16px 11px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 150ms, box-shadow 150ms;
+
+  &:hover {
+
+    background: $white;
+  }
+}
+
+.is-active {
+
+  background: $white;
+  cursor: default;
+  @include box-shadow('bottom');
+}

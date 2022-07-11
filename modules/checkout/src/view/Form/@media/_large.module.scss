@@ -17,12 +17,29 @@
   flex: 1 0;
 }
 
+.controls {
+
+  display: block;
+  margin: 48px 0 0;
+}
+
+.buttons {
+
+  display: block;
+}
+
+.description {
+
+  display: block;
+  margin: 24px 0 0;
+}
+
 .block {
 
   display: block;
 
   & + & {
 
-    margin: 40px 0 0;
+    margin: 48px 0 0;
   }
 }

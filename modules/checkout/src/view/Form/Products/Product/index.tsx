@@ -1,8 +1,9 @@
 
+import { Header, Text } from '@library/kit';
 import numeral from '@package/numeral';
-import { Text, Image } from '@library/kit';
 
 import React from 'react';
+import Image from 'next/image';
 
 import styles from './@media/index.module.scss';
 
@@ -11,11 +12,11 @@ function Product({ title, value, vendor, price, currency, count, imageUuid }: an
   return (
     <div className={styles['wrapper']}>
       <div className={styles['gallery']}>
-        <Image src={window.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + imageUuid + '?size=small'} />
+        <Image width={124} height={124} src={'/api/v1/images/' + imageUuid + '?size=small'} />
       </div>
       <div className={styles['common']}>
         <div className={styles['line']}>
-          <Text type={'strong'}>{ title }</Text>
+          <Header level={4}>{ title }</Header>
         </div>
         <div className={styles['line']}>
           <Text>{ value }</Text>

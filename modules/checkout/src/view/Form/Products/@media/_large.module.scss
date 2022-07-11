@@ -9,30 +9,31 @@
   flex: 1 0;
 }
 
-.brand {
+.header {
 
   display: block;
-  text-align: center;
-}
-
-.image {
-
-  display: block;
-  text-align: center;
-  margin: 8px 0 0;
 }
 
 .content {
 
   display: block;
-  text-align: center;
-  margin: 8px 0 0;
+  margin: 16px 0 0;
 }
 
-.modes {
+.container {
+
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
 
   display: flex;
   flex-direction: column;
   flex: 1 0;
-  margin: 16px 0 0;
+
+  & + & {
+
+    margin: 8px 0 0;
+  }
 }
