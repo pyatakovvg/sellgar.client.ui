@@ -1,6 +1,6 @@
 
 import qs from "qs";
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
 
 const defaultOptions = {};
@@ -18,7 +18,7 @@ export default async function(options: object) {
       withCredentials: true,
     });
 
-    instance.interceptors.request.use(function (config) {
+    instance.interceptors.request.use(function (config: AxiosRequestConfig) {
       config.paramsSerializer = (params) => {
         return qs.stringify(params, { arrayFormat: 'repeat' })
       }
@@ -30,11 +30,11 @@ export default async function(options: object) {
     return data;
   }
   catch(error: any) {
-console.log(123, error?.['data'] ?? error['message'])
+    console.log(error['data'])
     if (axios.isCancel(error)) {
       return { success: true, data: null };
     }
 
-    throw new Error('error');
+    throw new Error(error);
   }
 }
