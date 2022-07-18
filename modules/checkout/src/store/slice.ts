@@ -28,10 +28,15 @@ const slice = createSlice({
       state['data'] = payload;
     },
 
-    getDeliveryRequest() {},
-    getDeliveryFailRequest() {},
-    getDeliverySuccessRequest(state, { payload }) {
-      state['delivery'] = payload;
+    updateCheckoutRequest(state) {
+      state['inProcess'] = true;
+    },
+    updateCheckoutFailRequest(state) {
+      state['inProcess'] = false;
+    },
+    updateCheckoutSuccessRequest(state, { payload }) {
+      state['data'] = payload;
+      state['inProcess'] = false;
     },
   },
 });
@@ -39,6 +44,11 @@ const slice = createSlice({
 export const {
   resetStateAction,
 
+  getCheckoutSuccessRequest,
+
+  updateCheckoutRequest,
+  updateCheckoutFailRequest,
+  updateCheckoutSuccessRequest,
 } = slice['actions'];
 
 export const selectData = (state: any) => state[REDUCER_NAME]['data'];

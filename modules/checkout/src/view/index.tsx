@@ -1,7 +1,12 @@
 
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Form from './Form';
+import Empty from './Empty';
+
+import { updateCart } from '../store/commands';
+import { getCheckoutSuccessRequest, selectData } from '../store/slice';
 
 import styles from './@media/index.module.scss';
 
@@ -13,7 +18,26 @@ interface IProps {
 }
 
 
-function Checkout({ delivery, payments, data }: IProps): JSX.Element {
+function Checkout({ delivery, payments, data }: IProps) {
+  const dispatch = useDispatch();
+  const checkout = useSelector(selectData) as any;
+
+  React.useEffect(() => {
+    dispatch(getCheckoutSuccessRequest(data));
+  }, []);
+
+  function handleSubmit(data: any) {
+    dispatch(updateCart({
+      ...data,
+    }));
+  }
+
+  if ( ! checkout || ! checkout['products'].length) {
+    return (
+      <Empty />
+    );
+  }
+
   return (
     <section className={styles['wrapper']}>
       <section className={styles['content']}>
@@ -25,7 +49,7 @@ function Checkout({ delivery, payments, data }: IProps): JSX.Element {
           data={data}
           delivery={delivery}
           payments={payments}
-          onSubmit={(data: any) => console.log(data)}
+          onSubmit={handleSubmit}
         />
       </section>
     </section>

@@ -4,14 +4,15 @@
 
 .wrapper {
 
-  display: block;
-}
-
-.content {
-
   display: flex;
   flex-direction: column;
   flex: 1 0;
+  background: $white;
+  border-radius: 8px;
+  padding: 16px;
+  width: 700px;
+  border: 1px solid $gray-light;
+  box-shadow: 0 6px 10px 0 rgba($dark, .2);
 }
 
 .item {

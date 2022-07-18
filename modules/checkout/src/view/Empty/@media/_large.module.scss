@@ -1,0 +1,64 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  padding: 24px 0 88px;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+
+  display: flex;
+  flex-direction: column;
+  flex: 0 0;
+  width: 700px;
+  background: $white;
+  border-radius: 8px;
+  padding: 80px 120px;
+  @include box-shadow('bottom');
+}
+
+.promo {
+
+  display: block;
+  text-align: center;
+}
+
+.icon {
+
+  display: inline-block;
+  font-size: 48px;
+  color: $gray;
+}
+
+.header {
+
+  display: block;
+  text-align: center;
+  margin: 48px 0 0;
+}
+
+.description {
+
+  display: block;
+  text-align: center;
+  margin: 24px 0 0;
+}
+
+.controls {
+
+  display: block;
+  text-align: center;
+  margin: 24px 0 0;
+}
+
+.link {
+
+  color: $primary-dark;
+}

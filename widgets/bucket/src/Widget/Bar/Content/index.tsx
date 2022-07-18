@@ -1,8 +1,9 @@
 
 import numeral from '@package/numeral';
-import { Button, Header, Text } from '@library/kit';
+import { Button, Header } from '@library/kit';
 
 import React from 'react';
+import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Product from './Product';
@@ -13,7 +14,8 @@ import { destroyCart, changeOpen } from '../../../store/commands';
 import styles from './@media/index.module.scss';
 
 
-function Content({ onCheckout }: any) {
+function Content() {
+  const router = useRouter();
   const dispatch = useDispatch();
   const bucket = useSelector(selectData) as any;
 
@@ -22,12 +24,9 @@ function Content({ onCheckout }: any) {
     dispatch(changeOpen(false));
   }
 
-  if ( ! bucket) {
-    return (
-      <div className={styles['wrapper']}>
-        <Text>В корзине нет товаров</Text>
-      </div>
-    );
+  async function handleCheckout() {
+    dispatch(changeOpen(false));
+    await router.push('/checkout');
   }
 
   return (
@@ -45,7 +44,7 @@ function Content({ onCheckout }: any) {
         </div>
         <div className={styles['buttons']}>
           <Button form={'context'} mode={'danger'} onClick={handleDestroy}>Очистить</Button>
-          <Button mode={'success'} onClick={onCheckout}>Оформить</Button>
+          <Button mode={'success'} onClick={handleCheckout}>Оформить</Button>
         </div>
       </div>
     </div>

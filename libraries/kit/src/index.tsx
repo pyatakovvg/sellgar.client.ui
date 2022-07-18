@@ -6,13 +6,14 @@ export { default as Editor } from './Editor';
 export { default as List } from './symbols/List';
 export { default as Input } from './symbols/Input';
 export { default as Image } from './symbols/Image';
+export { default as Count } from './symbols/Count';
+export { default as Radio } from './symbols/Radio';
 export { default as Button } from './symbols/Button';
 export { default as Select } from './symbols/Select';
 export { default as Gallery } from './symbols/Gallery';
 export { default as Spinner } from './symbols/Spinner';
 export { default as Checkbox } from './symbols/Checkbox';
 export { default as Textarea } from './symbols/Textarea';
-export { default as Radio } from './symbols/Radio';
 export { Wrapper as RadioContainer } from './symbols/Radio';
 
 export { default as InputField } from './fields/Input';

@@ -27,8 +27,8 @@
 .image {
 
   display: block;
-  width: 96px;
-  height: 96px;
+  width: 124px;
+  height: 124px;
 }
 
 .common {
@@ -39,8 +39,41 @@
   margin: 0 0 0 16px;
 }
 
+.controls {
+
+  display: block;
+  margin: 0 0 0 32px;
+}
+
+.counter {
+
+  display: block;
+}
+
+.destroy {
+
+  display: block;
+  margin: 8px 0 0;
+  text-align: center;
+}
+
+.remove {
+
+  display: inline-block;
+  font-size: 12px;
+  font-weight: $font-weight-medium;
+  color: $danger;
+  cursor: pointer;
+
+  &:hover {
+
+    text-decoration: underline;
+  }
+}
+
 .price {
 
   display: block;
   text-align: right;
+  width: 200px;
 }

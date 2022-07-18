@@ -8,7 +8,7 @@ interface IProps {
   data: Array<any>;
 }
 
-function Comments({ data }: IProps): JSX.Element | null {
+function Comments({ data }: IProps) {
 
   if ( ! data.length) {
     return null;

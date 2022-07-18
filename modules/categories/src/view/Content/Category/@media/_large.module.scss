@@ -1,0 +1,21 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  padding: 24px;
+  border-radius: 8px;
+  background: $white;
+  text-decoration: none;
+  @include box-shadow('bottom');
+}
+
+.content {
+
+  display: block;
+  text-align: center;
+}

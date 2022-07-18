@@ -1,7 +1,7 @@
 
 import Layout from '@layout/default';
 import {getBucket} from '@widget/bucket';
-import Module, { getProductsRequest } from '@module/main';
+import Module, { getProductsRequest } from '@module/products';
 
 import React from 'react';
 import Head from 'next/head';
@@ -26,7 +26,7 @@ export default function Main(props: IProps): JSX.Element {
   return (
     <Layout>
       <Head>
-        <title>Sellgar - Витрина</title>
+        <title>Sellgar - интернет магазин</title>
       </Head>
       <Module {...props} />
     </Layout>
@@ -34,7 +34,7 @@ export default function Main(props: IProps): JSX.Element {
 }
 
 export async function getServerSideProps() {
-  const result = await getProductsRequest();
+  const result = await getProductsRequest({});
 
   return {
     props: {

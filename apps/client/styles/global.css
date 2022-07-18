@@ -12,8 +12,11 @@
 @import "~@widget/bucket";
 
 @import "~@module/main";
+@import "~@module/groups";
 @import "~@module/product";
+@import "~@module/products";
 @import "~@module/checkout";
+@import "~@module/categories";
 
 
 html,

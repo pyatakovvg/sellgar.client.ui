@@ -84,6 +84,18 @@ echo 'Модуль "Main"'
 echo '------------------------------------'
 cd ./main && npx yarn build
 
+echo 'Модуль "Groups"'
+echo '------------------------------------'
+cd ./groups && npx yarn build
+
+echo 'Модуль "Categories"'
+echo '------------------------------------'
+cd ./categories && npx yarn build
+
+echo 'Модуль "Products"'
+echo '------------------------------------'
+cd ./products && npx yarn build
+
 echo 'Модуль "Product"'
 echo '------------------------------------'
 cd ../product && npx yarn build

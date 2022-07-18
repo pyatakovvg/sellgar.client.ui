@@ -11,7 +11,7 @@ import { changeOpen } from '../store/commands';
 import styles from './@media/index.module.scss';
 
 
-function Widget({ onCheckout }: any) {
+function Widget() {
   const dispatch = useDispatch();
   const wrapperRef = React.useRef(null);
   const isOpen = useSelector(selectIsOpen) as boolean;
@@ -35,7 +35,7 @@ function Widget({ onCheckout }: any) {
     };
   }, []);
 
-  async function handleOpen() {
+  function handleOpen() {
     dispatch(changeOpen( ! isOpen));
   }
 
@@ -46,7 +46,7 @@ function Widget({ onCheckout }: any) {
       </div>
       <div className={styles['content']}>
         {isOpen && (
-          <Bar onCheckout={onCheckout} />
+          <Bar />
         )}
       </div>
     </div>

@@ -18,7 +18,7 @@ function Customer({  }: IProps): JSX.Element {
       <div className={styles['content']}>
         <div className={styles['fields']}>
           <div className={styles['field']}>
-            <InputField name={'phone'} placeholder={'Номер телефона'} />
+            <InputField type={'phone'} name={'phone'} placeholder={'Номер телефона'} />
           </div>
           <div className={styles['field']}>
             <InputField name={'email'} placeholder={'Email (необязательно)'} />

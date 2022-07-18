@@ -14,7 +14,8 @@ interface IProps {
 }
 
 
-export default function Main(props: IProps): JSX.Element {
+export default function Checkout(props: IProps): JSX.Element {
+
   React.useEffect(() => {
     window.env = props['env'];
   }, []);
@@ -39,6 +40,9 @@ export async function getServerSideProps({ req }: any) {
       data: checkout['data'],
       delivery: delivery['data'],
       payments: payments['data'],
+      env: {
+        GATEWAY_SERVICE_API: process.env['GATEWAY_SERVICE_API'],
+      },
     },
   };
 }

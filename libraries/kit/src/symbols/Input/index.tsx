@@ -3,9 +3,10 @@ import React from 'react';
 
 import DefaultInput from './Default';
 import SearchInput from './Search';
+import PhoneInput from './Phone';
 
 
-type TType = 'text' | 'password' | 'email' | 'search';
+type TType = 'text' | 'password' | 'email' | 'phone' | 'search';
 type TMode = 'default' | 'primary' | 'danger' | 'success';
 
 interface IProps {
@@ -25,6 +26,7 @@ interface IProps {
 
 function Factory({ type, ...rest }: IProps): JSX.Element | null {
   switch(type) {
+    case 'phone': return <PhoneInput {...rest} />;
     case 'search': return <SearchInput {...rest} />;
     case 'email': return <DefaultInput type={'email'} {...rest} />;
     case 'password': return <DefaultInput type={'password'} {...rest} />;

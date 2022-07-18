@@ -4,6 +4,7 @@ import { Text } from '@library/kit';
 import React from 'react';
 import Link from 'next/link';
 
+import cn from 'classnames';
 import styles from './@media/index.module.scss';
 
 
@@ -16,28 +17,28 @@ function Helper({ data }: IProps): JSX.Element {
   return (
     <section className={styles['wrapper']}>
       <div className={styles['item']}>
-        <Link href={'/?group=' + data?.['group']?.['code']}>
+        <Link href={'/'}>
+          <a className={styles['link']}>
+            <span className={cn(styles['home'], 'fa-solid fa-house')} />
+          </a>
+        </Link>
+      </div>
+      <div className={styles['item']}>
+        <Link href={'/catalog/' + data?.['group']?.['code']}>
           <a className={styles['link']}>
             <Text>{ data?.['group']?.['name'] }</Text>
           </a>
         </Link>
       </div>
       <div className={styles['item']}>
-        <Link href={'/?category=' + data?.['category']?.['code']}>
+        <Link href={'/catalog/' + data?.['group']?.['code'] + '/' + data?.['category']?.['code']}>
           <a className={styles['link']}>
             <Text>{ data?.['category']?.['name'] }</Text>
           </a>
         </Link>
       </div>
       <div className={styles['item']}>
-        <Link href={'/?brand=' + data?.['brand']?.['code']}>
-          <a className={styles['link']}>
-            <Text>{ data?.['brand']?.['name'] }</Text>
-          </a>
-        </Link>
-      </div>
-      <div className={styles['item']}>
-        <Text>{ data?.['title'] }</Text>
+        <Text className={styles['name']}>{ data?.['title'] }</Text>
       </div>
     </section>
   );

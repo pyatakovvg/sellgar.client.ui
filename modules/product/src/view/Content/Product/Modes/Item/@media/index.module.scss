@@ -44,3 +44,20 @@
 
   background: $info;
 }
+
+.bucket {
+
+  display: block;
+  margin: 0 0 0 24px;
+}
+
+.info {
+
+  color: $info-dark;
+  text-decoration: none;
+
+  &:hover {
+
+    text-decoration: underline;
+  }
+}

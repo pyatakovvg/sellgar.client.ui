@@ -19,7 +19,6 @@ interface IProps {
 
 
 function Main({ data, comments }: IProps): JSX.Element {
-  console.log(comments)
   return (
     <section className={styles['wrapper']}>
       <aside className={styles['breadcrumbs']}>

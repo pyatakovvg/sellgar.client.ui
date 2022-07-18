@@ -20,7 +20,7 @@
   }
 }
 
-.image {
+.gallery {
 
   display: block;
   width: 96px;
@@ -35,8 +35,16 @@
   margin: 0 0 0 16px;
 }
 
+.controls {
+
+  display: block;
+  margin: 0 0 0 24px;
+}
+
 .price {
 
   display: block;
+  width: 120px;
   text-align: right;
+  margin: 0 0 0 24px;
 }

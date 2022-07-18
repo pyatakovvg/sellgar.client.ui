@@ -5,18 +5,23 @@ import numeral from '@package/numeral';
 import React from 'react';
 
 import Item from './Item';
+import ItemOne from './ItemOne';
 
 import styles from './@media/index.module.scss';
 
 
 interface IProps {
   modes: Array<any>;
-  onChange(data: any): void;
+  onToCart(item: any): void;
 }
 
 
-function Modes({ modes }: IProps): JSX.Element {
+function Modes({ modes, onToCart }: IProps): JSX.Element {
   const [active, setActive] = React.useState(() => modes.find(item => item['isTarget']));
+
+  function handleToBucket() {
+    onToCart(active);
+  }
 
   return (
     <div className={styles['wrapper']}>
@@ -25,7 +30,7 @@ function Modes({ modes }: IProps): JSX.Element {
           <div className={styles['amount']}>{ numeral(active['price']).format() } { active['currency']['displayName'] }</div>
         </div>
         <div className={styles['button']}>
-          <Button>Купить</Button>
+          <Button onClick={handleToBucket}>Купить</Button>
         </div>
       </div>
       <div className={styles['content']}>
@@ -35,7 +40,7 @@ function Modes({ modes }: IProps): JSX.Element {
           )
         ))}
         {(modes.length === 1) &&  (
-          <Item {...active} isOne>{ active['value'] }</Item>
+          <ItemOne {...active}>{ active['value'] }</ItemOne>
         )}
       </div>
     </div>

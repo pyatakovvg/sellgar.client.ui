@@ -1,10 +1,13 @@
 
 import request from '@package/request';
 
-import getConfig from 'next/config';
+import { Dispatch } from "redux";
 
-const config = getConfig();
-const process = config['publicRuntimeConfig'];
+import {
+  updateCheckoutRequest,
+  updateCheckoutFailRequest,
+  updateCheckoutSuccessRequest,
+} from "./slice";
 
 
 export async function getCheckout(props: any) {
@@ -27,4 +30,24 @@ export async function getPayments() {
     url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/payments',
     method: 'get',
   })
+}
+
+export function updateCart(data: any): any {
+  return async function(dispatch: Dispatch): Promise<void> {
+    try {
+      dispatch(updateCheckoutRequest());
+
+      const result = await request({
+        url: window.env['GATEWAY_SERVICE_API'] + '/api/v1/checkouts',
+        method: 'post',
+        data,
+      });
+
+      dispatch(updateCheckoutSuccessRequest(result['data']));
+    }
+    catch(error) {
+      console.log(error)
+      dispatch(updateCheckoutFailRequest());
+    }
+  }
 }
