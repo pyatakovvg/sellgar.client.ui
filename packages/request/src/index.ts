@@ -29,8 +29,8 @@ export default async function(options: object) {
 
     return data;
   }
-  catch(error) {
-console.log(123, error)
+  catch(error: any) {
+console.log(123, error?.['data'] ?? error['message'])
     if (axios.isCancel(error)) {
       return { success: true, data: null };
     }
