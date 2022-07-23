@@ -27,10 +27,6 @@
 .filter {
 
   display: block;
-  background: $white;
-  padding: 24px;
-  border-radius: 8px;
-  @include box-shadow('bottom');
 }
 
 .list {

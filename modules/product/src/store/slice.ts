@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 
-const REDUCER_NAME = 'module/main';
+const REDUCER_NAME = 'module/product';
 
 
 const initialState = {

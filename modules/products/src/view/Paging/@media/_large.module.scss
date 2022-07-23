@@ -6,7 +6,8 @@
 
   display: block;
   background: $white;
-  padding: 24px;
+  padding: 16px 24px;
   border-radius: 8px;
+  text-align: center;
   @include box-shadow('bottom');
 }

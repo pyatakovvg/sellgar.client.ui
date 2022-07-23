@@ -37,7 +37,7 @@ function Product({ externalId, productUuid, modeUuid, title, value, vendor, pric
   return (
     <div className={styles['wrapper']}>
       <div className={styles['gallery']}>
-        <Image src={window.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + imageUuid + '?size=small'} />
+        <Image src={window.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + imageUuid + '?size=thumb'} />
       </div>
       <div className={styles['common']}>
         <div className={styles['line']}>

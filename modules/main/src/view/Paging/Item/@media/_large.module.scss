@@ -1,0 +1,36 @@
+
+@import "~@library/theme";
+
+
+.link {
+
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1 0;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid $gray-light;
+  border-radius: 6px;
+  color: $dark;
+  text-decoration: none;
+
+  & + & {
+
+    margin: 0 0 0 8px;
+  }
+}
+
+.title {
+
+  display: block;
+  font-size: 14px;
+}
+
+.is-active {
+
+  background: $primary-dark;
+  color: $white;
+  border-color: $primary-dark;
+}

@@ -4,6 +4,7 @@ declare namespace NodeJS {
     readonly NODE_ENV: 'development' | 'production' | 'test';
     readonly PUBLIC_URL: string;
     readonly GATEWAY_SERVICE_API: string;
+    readonly TAKE_PRODUCTS: number;
   }
 }
 

@@ -1,0 +1,93 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  position: relative;
+  display: block;
+}
+
+.category {
+
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: none;
+  width: 280px;
+  padding: 8px 0;
+  background: $white;
+  border-radius: 0 8px 8px 8px;
+  @include box-shadow('bottom');
+
+  &:before {
+
+    position: absolute;
+    top: 0;
+    right: 100%;
+    display: block;
+    width: 0;
+    height: 0;
+    content: '';
+    border: 3px solid transparent;
+    border-top-color: $white;
+    border-right-color: $white;
+  }
+}
+
+.link {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  text-decoration: none;
+  padding: 16px;
+  align-items: center;
+}
+
+.content {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  font-size: 14px;
+  font-weight: $font-weight-bold;
+  color: $dark;
+}
+
+.count {
+
+  display: block;
+  margin: 0 0 0 16px;
+  font-size: 10px;
+  font-weight: $font-weight-bold;
+  color: $primary-dark;
+}
+
+.control {
+
+  display: block;
+  margin: 0 0 0 16px;
+}
+
+.icon {
+
+  color: $dark;
+  font-size: 14px;
+}
+
+.wrapper:hover {
+
+  color: $info;
+  background: rgba($gray-light, .4);
+}
+
+.wrapper:hover .category {
+
+  display: block;
+}
+
+.wrapper:hover .content {
+
+  color: $info-dark;
+}
