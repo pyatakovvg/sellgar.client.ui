@@ -25,7 +25,7 @@ function getUpdatedQuery(query: Array<any>, value: string) {
 }
 
 
-function Item({ value, unitName }: any) {
+function AttributeValue({ value, unitName }: any) {
   const router = useRouter();
   const query = getQuery(router['query']['brand']);
 
@@ -43,10 +43,9 @@ function Item({ value, unitName }: any) {
           <Checkbox value={query.some((item: string) => item === value)} onChange={() => handleSelect(value)} />
         </div>
         <span className={styles['content']}>{ value } { unitName || '' }</span>
-        {/*<span className={styles['count']}>{ productsCount } тов.</span>*/}
       </div>
     </div>
   );
 }
 
-export default Item;
+export default AttributeValue;

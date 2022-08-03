@@ -22,11 +22,11 @@ function Paging({ meta }: any) {
   const array: Array<any> = Array(pages).fill(0, 0, pages);
 
   return (
-    <section className={styles['wrapper']}>
+    <div className={styles['wrapper']}>
       {array.map((page, index: number) => (
         <Item key={index} page={index + 1} />
       ))}
-    </section>
+    </div>
   );
 }
 

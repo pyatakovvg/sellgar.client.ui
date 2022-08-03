@@ -6,7 +6,7 @@ import Values from './Values';
 import styles from './@media/index.module.scss';
 
 
-function Item({ values, name }: any) {
+function Attribute({ values, name }: any) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['link']}>
@@ -19,4 +19,4 @@ function Item({ values, name }: any) {
   );
 }
 
-export default Item;
+export default Attribute;

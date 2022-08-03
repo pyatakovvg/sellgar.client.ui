@@ -1,6 +1,7 @@
 
 import React from 'react';
 
+import Price from './Price';
 import Brands from './Brands';
 import Attributes from './Attributes';
 
@@ -12,6 +13,9 @@ function Navigate({ brands, attributes }: any) {
     <menu className={styles['wrapper']}>
       <div className={styles['block']}>
         <Brands brands={brands} />
+      </div>
+      <div className={styles['block']}>
+        <Price />
       </div>
       <div className={styles['block']}>
         <Attributes attributes={attributes} />
