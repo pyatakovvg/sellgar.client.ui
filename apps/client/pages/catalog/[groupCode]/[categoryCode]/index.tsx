@@ -1,7 +1,7 @@
 
 import Layout from '@layout/default';
 import {getBucket} from '@widget/bucket';
-import Module, { getBrandsRequest, getProductsRequest } from '@module/products';
+import Module, { getCategoryRequest, getBrandsRequest, getAttributesRequest, getProductsRequest } from '@module/products';
 
 import React from 'react';
 import Head from 'next/head';
@@ -9,7 +9,9 @@ import { useDispatch } from 'react-redux';
 
 
 interface IProps {
+  category: any;
   brands: Array<any>;
+  attributes: Array<any>;
   data: Array<any>;
   meta: any;
   env: any;
@@ -38,9 +40,17 @@ export async function getServerSideProps(props: any) {
   const query = props['query'];
   const params = props['params'];
 
+  const category = await getCategoryRequest({
+    categoryCode: params['categoryCode'],
+  });
   const brands = await getBrandsRequest({
     groupCode: params['groupCode'],
     categoryCode: params['categoryCode'],
+  });
+  const attributes = await getAttributesRequest({
+    groupCode: params['groupCode'],
+    categoryCode: params['categoryCode'],
+    brandCode: query?.['brand'] || undefined,
   });
   const result = await getProductsRequest({
     brandCode: query?.['brand'] || undefined,
@@ -52,7 +62,9 @@ export async function getServerSideProps(props: any) {
 
   return {
     props: {
+      category: category['data'][0],
       brands: brands['data'],
+      attributes: attributes['data'],
       data: result['data'],
       meta: result['meta'],
       env: {

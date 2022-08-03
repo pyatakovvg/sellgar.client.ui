@@ -14,6 +14,14 @@ const config = getConfig();
 const process = config['publicRuntimeConfig'];
 
 
+export async function getCategoryRequest(params: any) {
+  return await request({
+    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/categories',
+    method: 'get',
+    params,
+  })
+}
+
 export async function getProductsRequest(params: any) {
   return await request({
     url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/products',
@@ -25,6 +33,14 @@ export async function getProductsRequest(params: any) {
 export async function getBrandsRequest(params: any) {
   return await request({
     url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/products/brands',
+    method: 'get',
+    params,
+  });
+}
+
+export async function getAttributesRequest(params: any) {
+  return await request({
+    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/products/attributes',
     method: 'get',
     params,
   })

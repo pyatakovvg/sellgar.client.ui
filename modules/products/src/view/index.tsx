@@ -1,4 +1,7 @@
 
+import { Header } from '@library/kit';
+import { nounDeclension } from '@helper/utils';
+
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -13,14 +16,16 @@ import styles from './@media/index.module.scss';
 
 
 interface IProps {
+  category: any;
   brands: Array<any>;
+  attributes: Array<any>;
   data: Array<any>;
   meta: any;
   env: any;
 }
 
 
-function Products({ brands, data, meta }: IProps) {
+function Products({ category, brands, attributes, data, meta }: IProps) {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -29,20 +34,25 @@ function Products({ brands, data, meta }: IProps) {
 
   return (
     <section className={styles['wrapper']}>
-      <aside className={styles['aside']}>
-        <Menu brands={brands} />
-      </aside>
-      <section className={styles['content']}>
-        <div className={styles['filter']}>
-          <Filter meta={meta} />
-        </div>
-        <div className={styles['list']}>
-          <Content data={data} />
-        </div>
-        <div className={styles['paging']}>
-          <Paging meta={meta} />
-        </div>
-      </section>
+      <div className={styles['header']}>
+        <Header level={2}>{ category['name'] } { meta['totalRows'] } { nounDeclension(meta['totalRows'], ['товар', 'товара', 'товаров']) }</Header>
+      </div>
+      <div className={styles['content']}>
+        <aside className={styles['aside']}>
+          <Menu brands={brands} attributes={attributes} />
+        </aside>
+        <section className={styles['container']}>
+          <div className={styles['filter']}>
+            <Filter />
+          </div>
+          <div className={styles['list']}>
+            <Content data={data} />
+          </div>
+          <div className={styles['paging']}>
+            <Paging meta={meta} />
+          </div>
+        </section>
+      </div>
     </section>
   );
 }

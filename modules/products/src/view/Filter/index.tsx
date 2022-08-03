@@ -1,18 +1,18 @@
 
-import { Text } from '@library/kit';
-
 import React from 'react';
+
+import Sort from './Sort';
 
 import styles from './@media/index.module.scss';
 
 
-function Filter({ meta }: any) {
-  const rows = meta['totalRows'];
-
+function Filter() {
   return (
-    <section className={styles['wrapper']}>
-      <Text type={'strong'}>Найдено { rows } товаров</Text>
-    </section>
+    <div className={styles['wrapper']}>
+      <div className={styles['block']}>
+        <Sort />
+      </div>
+    </div>
   );
 }
 

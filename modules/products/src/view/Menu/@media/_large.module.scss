@@ -5,13 +5,14 @@
 .wrapper {
 
   display: block;
-  background: $white;
-  border-radius: 8px;
-  padding: 8px 0 16px;
-  @include box-shadow('bottom');
 }
 
-.item {
+.block {
 
   display: block;
+
+  & + & {
+
+    margin: 16px 0 0;
+  }
 }

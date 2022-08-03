@@ -14,7 +14,6 @@
   flex-direction: row;
   flex: 1 0;
   text-decoration: none;
-  padding: 8px 16px;
   align-items: center;
 }
 
@@ -31,7 +30,6 @@
   font-size: 14px;
   font-weight: $font-weight-bold;
   color: $dark;
-  margin: 0 0 0 8px;
 }
 
 .count {
@@ -41,4 +39,10 @@
   font-size: 10px;
   font-weight: $font-weight-bold;
   color: $primary-dark;
+}
+
+.values {
+
+  display: block;
+  margin: 16px 0 0;
 }
