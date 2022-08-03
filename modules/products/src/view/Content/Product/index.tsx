@@ -89,7 +89,10 @@ function Product({ externalId, gallery, ...props }: IProps): JSX.Element {
     <div className={styles['wrapper']}>
       <div className={styles['content']}>
         <div className={styles['image']}>
-          <Image externalId={externalId} src={ !! gallery.length ? process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + gallery[0]['uuid'] + '?size=small' : null} />
+          <Image
+            externalId={externalId}
+            srcs={ gallery.map((src) => process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + src['uuid'] + '?size=small')}
+          />
         </div>
         <div className={styles['common']}>
           <Common item={active} externalId={externalId} {...props} onChange={handleChange} />

@@ -14,9 +14,10 @@
     "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress --no-sourcemap --css-modules default_[local]__[hash:base64:12]"
   },
   "dependencies": {
+    "@library/kit": "0.0.1",
     "@library/theme": "0.0.1",
     "@widget/bucket": "0.0.1",
-    "next": "12.2.0",
+    "next": "12.2.3",
     "react-redux": "8.0.2"
   },
   "devDependencies": {

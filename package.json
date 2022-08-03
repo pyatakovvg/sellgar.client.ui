@@ -1,5 +1,5 @@
 {
-  "name": "my_qand",
+  "name": "store.client",
   "private": true,
   "scripts": {
     "audit": "npx improved-yarn-audit --min-severity moderate --ignore-dev-deps"

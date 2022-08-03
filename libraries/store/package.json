@@ -13,17 +13,17 @@
     "start:dev": "cross-env NODE_ENV=development microbundle watch -f es --no-compress"
   },
   "dependencies": {
-    "@module/products": "0.0.1",
+    "@module/categories": "0.0.1",
     "@module/checkout": "0.0.1",
     "@module/groups": "0.0.1",
-    "@module/categories": "0.0.1",
     "@module/main": "0.0.1",
     "@module/product": "0.0.1",
+    "@module/products": "0.0.1",
     "@package/dialog": "0.0.1",
     "@widget/bucket": "0.0.1",
+    "next": "12.2.3",
     "react-redux": "8.0.2",
-    "redux-form": "8.3.8",
-    "next": "12.2.0"
+    "redux-form": "8.3.8"
   },
   "peerDependencies": {
     "@reduxjs/toolkit": "1.8.3"
