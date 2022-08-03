@@ -24,6 +24,13 @@ function Helper({ data }: IProps): JSX.Element {
         </Link>
       </div>
       <div className={styles['item']}>
+        <Link href={'/catalog'}>
+          <a className={styles['link']}>
+            <Text>Каталог</Text>
+          </a>
+        </Link>
+      </div>
+      <div className={styles['item']}>
         <Link href={'/catalog/' + data?.['group']?.['code']}>
           <a className={styles['link']}>
             <Text>{ data?.['group']?.['name'] }</Text>

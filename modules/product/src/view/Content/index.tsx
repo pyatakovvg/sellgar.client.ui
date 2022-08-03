@@ -1,11 +1,11 @@
 
-import { Gallery } from '@library/kit';
 import { addToCart, selectData } from '@widget/bucket';
 
 import React from 'react';
 import getConfig from 'next/config';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import Image from './Image';
 import Product from './Product';
 
 import styles from './@media/index.module.scss';
@@ -14,23 +14,11 @@ import styles from './@media/index.module.scss';
 const config = getConfig();
 const process = config['publicRuntimeConfig'];
 
+
 interface IProps {
   data: any;
 }
 
-
-function useGallerySrc(data: Array<any>) {
-  const [src, setSrc] = React.useState<Array<string>>([]);
-
-  React.useEffect(() => {
-    const map = data.map((item) => {
-      return process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + item['uuid'] + '?size=middle'
-    });
-    setSrc(map);
-  }, [data]);
-
-  return src;
-}
 
 function updateProducts(before: Array<any>, product: any) {
   const current = [...before];
@@ -68,7 +56,6 @@ function updateProducts(before: Array<any>, product: any) {
 function Content({ data }: IProps): JSX.Element {
   const dispatch = useDispatch();
   const bucket = useSelector(selectData) as any;
-  const src = useGallerySrc(data?.['gallery'] ?? []);
 
   function handleToBucket(item: any) {
     dispatch(addToCart({
@@ -86,7 +73,9 @@ function Content({ data }: IProps): JSX.Element {
   return (
     <section className={styles['wrapper']}>
       <div className={styles['gallery']}>
-        <Gallery src={src} />
+        <Image
+          srcs={ data['gallery'].map((src: any) => process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + src['uuid']) }
+        />
       </div>
       <div className={styles['content']}>
         <Product {...data} onToCart={handleToBucket} />

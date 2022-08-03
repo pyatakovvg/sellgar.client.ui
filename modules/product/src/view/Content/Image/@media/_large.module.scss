@@ -1,0 +1,97 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+}
+
+.content {
+
+  position: relative;
+  display: block;
+  width: 500px;
+  height: 500px;
+  margin: 0 0 0 24px;
+}
+
+.description {
+
+  display: block;
+  margin: 4px 0 0;
+  text-align: center;
+}
+
+.image {
+
+  display: none;
+  z-index: 10;
+}
+
+.is-active {
+
+  display: block;
+}
+
+.left,
+.right {
+
+  position: absolute;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: $info-light;
+  background: rgba($gray-light, .4);
+  margin: -24px 0 0;
+  z-index: 20;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba($gray-light, .8);
+  }
+}
+
+.left {
+
+  left: -12px;
+}
+
+.right {
+
+  right: -12px;
+}
+
+.thumbs {
+
+  display: block;
+}
+
+.thumb {
+
+  display: block;
+  font-size: 0;
+  border: 1px solid $gray-light;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+
+  & + & {
+
+    margin: 8px 0 0;
+  }
+
+  &.is-active {
+
+    border-color: $info;
+  }
+}
