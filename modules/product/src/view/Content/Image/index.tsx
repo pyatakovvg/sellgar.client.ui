@@ -46,7 +46,7 @@ function Image({ srcs }: IProps): JSX.Element {
             <div key={index} className={cn(styles['thumb'], {[styles['is-active']]: index === active })} onClick={() => setActive(index)}>
               <Img
                 alt={''}
-                src={src + '?size=thumb'}
+                src={src + '?size=64x64'}
                 layout="fixed"
                 width={64}
                 height={64}
@@ -62,7 +62,7 @@ function Image({ srcs }: IProps): JSX.Element {
           <div key={index} className={cn(styles['image'], { [styles['is-active']]: index === active })}>
             <Img
               alt={''}
-              src={src + '?size=large'}
+              src={src + '?size=500x500'}
               layout="fixed"
               width={500}
               height={500}

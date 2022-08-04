@@ -43,7 +43,7 @@ function Product({ externalId, productUuid, modeUuid, title, value, vendor, pric
   return (
     <div className={styles['wrapper']}>
       <div className={styles['gallery']}>
-        <Image width={124} height={124}  src={'/api/v1/images/' + imageUuid + '?size=small'} />
+        <Image width={124} height={124}  src={'/api/v1/images/' + imageUuid + '?size=124x124'} />
       </div>
       <div className={styles['common']}>
         <div className={styles['line']}>

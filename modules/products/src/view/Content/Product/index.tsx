@@ -91,7 +91,7 @@ function Product({ externalId, gallery, ...props }: IProps): JSX.Element {
         <div className={styles['image']}>
           <Image
             externalId={externalId}
-            srcs={ gallery.map((src) => process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + src['uuid'] + '?size=small')}
+            srcs={ gallery.map((src) => process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + src['uuid'] + '?size=124x124')}
           />
         </div>
         <div className={styles['common']}>
