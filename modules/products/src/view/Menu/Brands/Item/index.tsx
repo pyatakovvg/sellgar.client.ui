@@ -30,9 +30,16 @@ function Item({ code, name, productsCount }: any) {
   const query = getQuery(router['query']['brand']);
 
   async function handleSelect(code: string) {
+    const newQuery: any = { ...router['query'] };
+    delete newQuery['groupCode'];
+    delete newQuery['categoryCode'];
+
     await router.push({
       pathname: '/catalog/' + router['query']['groupCode'] + '/' + router['query']['categoryCode'],
-      query: { brand: getUpdatedQuery(query, code) },
+      query: {
+        ...newQuery,
+        brand: getUpdatedQuery(query, code)
+      },
     });
   }
 

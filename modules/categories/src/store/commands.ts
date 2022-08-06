@@ -24,7 +24,7 @@ export async function getGroupRequest(params: any) {
 
 export async function getCategoriesRequest(params: any) {
   return await request({
-    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/categories',
+    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/products/categories',
     method: 'get',
     params,
   })

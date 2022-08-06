@@ -23,7 +23,7 @@ function Category({ code, name, productsCount }: IProps) {
     <Link href={'/catalog/' + router['query']['groupCode'] + '/' + code}>
       <a className={styles['wrapper']}>
         <div className={styles['content']}>
-          <Text type={'strong'}>{ name } { productsCount }</Text>
+          <Text type={'strong'}>{ name } { productsCount } шт.</Text>
         </div>
       </a>
     </Link>

@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import styles from './@media/index.module.scss';
 
 
-function getQuery(query: any) {
+function normalizeQuery(query: any) {
   if ( ! query) {
     return [];
   }
@@ -25,14 +25,21 @@ function getUpdatedQuery(query: Array<any>, value: string) {
 }
 
 
-function AttributeValue({ value, unitName }: any) {
+function AttributeValue({ code, value, unitName }: any) {
   const router = useRouter();
-  const query = getQuery(router['query']['brand']);
+  const query = router['query'];
 
-  async function handleSelect(code: string) {
+  async function handleSelect(value: string) {
+    const newQuery: any = { ...query };
+    delete newQuery['groupCode'];
+    delete newQuery['categoryCode'];
+
     await router.push({
       pathname: '/catalog/' + router['query']['groupCode'] + '/' + router['query']['categoryCode'],
-      query: { ['attr[' + code + ']']: getUpdatedQuery(query, code) },
+      query: {
+        ...newQuery,
+        ['attr[' + code + ']']: getUpdatedQuery(normalizeQuery(query['attr[' + code + ']']), value),
+      },
     });
   }
 
@@ -40,7 +47,7 @@ function AttributeValue({ value, unitName }: any) {
     <div className={styles['wrapper']}>
       <div className={styles['link']}>
         <div className={styles['control']}>
-          <Checkbox value={query.some((item: string) => item === value)} onChange={() => handleSelect(value)} />
+          <Checkbox value={normalizeQuery(query['attr[' + code + ']']).some((item) => item === value)} onChange={() => handleSelect(value)} />
         </div>
         <span className={styles['content']}>{ value } { unitName || '' }</span>
       </div>

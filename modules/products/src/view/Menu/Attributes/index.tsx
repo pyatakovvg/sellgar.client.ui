@@ -11,7 +11,7 @@ function Attributes({ attributes }: any) {
     <div className={styles['wrapper']}>
       {attributes.map((item: any) => {
         return (
-          <div key={item['uuid']} className={styles['item']}>
+          <div key={item['code']} className={styles['item']}>
             <Item {...item} />
           </div>
         );

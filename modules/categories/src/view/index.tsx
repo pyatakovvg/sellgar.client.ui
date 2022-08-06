@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 import Content from './Content';
 
-import { getCategoriesRequestSuccessAction } from '../index';
+import { getCategoriesRequestSuccessAction } from '../store/slice';
 
 import styles from './@media/index.module.scss';
 

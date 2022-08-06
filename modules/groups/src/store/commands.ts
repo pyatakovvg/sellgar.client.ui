@@ -16,7 +16,7 @@ const process = config['publicRuntimeConfig'];
 
 export async function getGroupsRequest() {
   return await request({
-    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/groups',
+    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/products/groups',
     method: 'get',
   })
 }

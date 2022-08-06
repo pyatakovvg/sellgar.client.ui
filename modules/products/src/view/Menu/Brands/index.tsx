@@ -17,7 +17,7 @@ function Brands({ brands }: any) {
       <div className={styles['content']}>
         {brands.map((item: any) => {
           return (
-            <div key={item['uuid']} className={styles['item']}>
+            <div key={item['code']} className={styles['item']}>
               <Item {...item} />
             </div>
           );

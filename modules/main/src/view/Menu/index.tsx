@@ -11,7 +11,7 @@ function Navigate({ groups }: any) {
     <menu className={styles['wrapper']}>
       {groups.map((item: any) => {
         return (
-          <div key={item['uuid']} className={styles['item']}>
+          <div key={item['code']} className={styles['item']}>
             <Item {...item} />
           </div>
         );

@@ -10,7 +10,7 @@ function Categories({ groupCode, items }: any) {
   return (
     <section className={styles['wrapper']}>
       {items.map((item: any) => (
-        <div key={item['uuid']} className={styles['item']}>
+        <div key={item['code']} className={styles['item']}>
           <Item groupCode={groupCode} {...item} />
         </div>
       ))}

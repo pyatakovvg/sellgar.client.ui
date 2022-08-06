@@ -10,16 +10,16 @@ import styles from './@media/index.module.scss';
 interface IProps {
   code: string;
   name: string;
-  description: string;
+  productsCount: number;
 }
 
 
-function Product({ code, name, description }: IProps) {
+function Product({ code, name, productsCount }: IProps) {
   return (
     <Link href={'/catalog/' + code}>
       <a className={styles['wrapper']}>
         <div className={styles['content']}>
-          <Text type={'strong'}>{ name }</Text>
+          <Text type={'strong'}>{ name } { productsCount } шт.</Text>
         </div>
       </a>
     </Link>

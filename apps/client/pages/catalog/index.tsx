@@ -39,7 +39,6 @@ export async function getServerSideProps() {
   return {
     props: {
       data: result['data'],
-      meta: result['meta'],
       env: {
         GATEWAY_SERVICE_API: process.env['GATEWAY_SERVICE_API'],
       },
