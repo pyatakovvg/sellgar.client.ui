@@ -6,7 +6,7 @@ import Default from './Default';
 
 interface IProps {
   type?: 'default';
-  src: Array<string>;
+  items: Array<string>;
 }
 
 
@@ -18,7 +18,7 @@ function Factory({ type, ...rest }: IProps) {
 
 Factory.defaultProps = {
   type: 'default',
-  src: null,
+  items: [],
 };
 
 export default Factory;

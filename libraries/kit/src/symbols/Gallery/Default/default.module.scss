@@ -5,29 +5,78 @@
 .wrapper {
 
   position: relative;
-  display: flex;
-  flex-direction: column;
-  flex: 1 0;
-  justify-content: center;
-  align-items: center;
-  background: $white;
-  overflow: hidden;
+  display: block;
+  width: 124px;
+  height: 124px;
+  z-index: 0;
 }
 
 .image {
 
-  display: block;
-  width: 100%;
+  display: none;
+  z-index: 10;
 }
 
-.height {
-
-  height: 100%;
-}
-
-.image img {
+.is-active {
 
   display: block;
-  width: 100%;
-  height: 100%;
+}
+
+.wrapper:hover .left,
+.wrapper:hover .right {
+
+  opacity: 1;
+}
+
+.left,
+.right {
+
+  position: absolute;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: $info-light;
+  background: rgba($gray-light, .4);
+  margin: -12px 0 0;
+  opacity: .4;
+  z-index: 20;
+  cursor: pointer;
+  transition: opacity 150ms, background-color 150ms;
+
+  &:hover {
+    background: rgba($gray-light, .8);
+  }
+}
+
+.left {
+
+  left: -12px;
+}
+
+.right {
+
+  right: -12px;
+}
+
+.loading {
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  justify-content: center;
+  align-items: center;
+  background: $white;
+  z-index: 30;
 }

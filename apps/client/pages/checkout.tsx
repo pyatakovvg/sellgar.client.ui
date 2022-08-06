@@ -14,7 +14,7 @@ interface IProps {
 }
 
 
-export default function Checkout(props: IProps): JSX.Element {
+export default function Checkout(props: IProps) {
 
   React.useEffect(() => {
     window.env = props['env'];

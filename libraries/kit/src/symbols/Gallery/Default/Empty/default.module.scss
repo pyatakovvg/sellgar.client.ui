@@ -1,0 +1,23 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border-radius: 6px;
+  background: $gray-light;
+}
+
+.icon {
+
+  display: block;
+  font-size: 48px;
+  color: $white;
+  text-shadow: 1px 1px 0 $gray;
+}

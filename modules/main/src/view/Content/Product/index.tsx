@@ -6,7 +6,7 @@ import Link from "next/link";
 import getConfig from 'next/config';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Image from './Image';
+import Gallery from './Gallery';
 import Common from './Common';
 import Controls from './Controls';
 
@@ -89,10 +89,11 @@ function Product({ externalId, gallery, ...props }: IProps): JSX.Element {
     <div className={styles['wrapper']}>
       <div className={styles['content']}>
         <div className={styles['image']}>
-          <Image
+          <Gallery
             externalId={externalId}
-            srcs={ gallery.map((src) => process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + src['uuid'] + '?size=124x124')}
-          />        </div>
+            srcs={ gallery.map((src) => process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + src['uuid']) }
+          />
+        </div>
         <div className={styles['common']}>
           <Common item={active} externalId={externalId} {...props} onChange={handleChange} />
         </div>

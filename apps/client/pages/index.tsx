@@ -16,7 +16,7 @@ interface IProps {
 }
 
 
-export default function Main(props: IProps): JSX.Element {
+export default function Main(props: IProps) {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
