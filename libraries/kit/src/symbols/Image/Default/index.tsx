@@ -1,8 +1,8 @@
 
-import { Spinner } from '@library/kit';
-
 import React from 'react';
 import Img from 'next/image';
+
+import Spinner from '../../Spinner';
 
 import styles from './default.module.scss';
 
