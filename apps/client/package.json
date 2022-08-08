@@ -11,6 +11,7 @@
     "@layout/default": "0.0.1",
     "@layout/no-cart": "0.0.1",
     "@library/kit": "0.0.1",
+    "@library/design": "0.0.1",
     "@library/store": "0.0.1",
     "@library/theme": "0.0.1",
     "@module/categories": "0.0.1",

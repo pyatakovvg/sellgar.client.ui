@@ -1,0 +1,29 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+}
+
+.content {
+
+  display: block;
+}
+
+.controls {
+
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  min-height: 48px;
+}
+
+.information {
+
+  display: block;
+  margin: 24px 0 0;
+}

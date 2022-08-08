@@ -1,0 +1,42 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: inline-flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid $gray-light;
+  cursor: pointer;
+  transition: border 150ms;
+
+  &:hover {
+
+    border-color: $info;
+  }
+}
+
+.content {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  padding: 6px 6px 6px 12px;
+}
+
+.value {
+
+  display: block;
+  margin: 2px 12px 0 8px;
+}
+
+.text {
+
+  display: block;
+  font-size: 14px;
+  font-weight: $font-weight-medium;
+  color: $dark;
+}

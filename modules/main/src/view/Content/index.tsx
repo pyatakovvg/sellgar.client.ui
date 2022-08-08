@@ -1,7 +1,9 @@
 
+import { Product } from '@library/design';
+
 import React from 'react';
 
-import Product from './Product';
+// import Product from './Product';
 
 import styles from './@media/index.module.scss';
 

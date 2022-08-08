@@ -4,11 +4,20 @@
 
 .wrapper {
 
+  display: block;
+}
+
+.content {
+
   position: relative;
   display: block;
-  width: 160px;
-  height: 160px;
-  z-index: 0;
+}
+
+.description {
+
+  display: block;
+  margin: 4px 0 0;
+  text-align: center;
 }
 
 .image {
@@ -20,12 +29,6 @@
 .is-active {
 
   display: block;
-}
-
-.wrapper:hover .left,
-.wrapper:hover .right {
-
-  opacity: 1;
 }
 
 .left,
@@ -45,10 +48,8 @@
   color: $info-light;
   background: rgba($gray-light, .4);
   margin: -12px 0 0;
-  opacity: .4;
   z-index: 20;
   cursor: pointer;
-  transition: opacity 150ms, background-color 150ms;
 
   &:hover {
     background: rgba($gray-light, .8);
@@ -63,20 +64,4 @@
 .right {
 
   right: -12px;
-}
-
-.loading {
-
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 auto;
-  justify-content: center;
-  align-items: center;
-  background: $white;
-  z-index: 30;
 }

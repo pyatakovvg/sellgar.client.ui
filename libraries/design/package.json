@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@library/kit",
+  "name": "@library/design",
   "version": "0.0.1",
   "license": "MIT",
   "main": "lib/index.esm.js",
@@ -11,16 +11,13 @@
     "main": "lib/index.js"
   },
   "scripts": {
-    "build": "cross-env NODE_ENV=production microbundle build --jsx React.createElement -f es --no-sourcemap --css-modules kit_[local]__[hash:base64:12]",
-    "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress --no-sourcemap --css-modules kit_[local]__[hash:base64:12]"
+    "build": "cross-env NODE_ENV=production microbundle build --jsx React.createElement -f es --no-sourcemap --css-modules design_[local]__[hash:base64:12]",
+    "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress --no-sourcemap --css-modules design_[local]__[hash:base64:12]"
   },
   "dependencies": {
-    "@package/numeral": "0.0.1",
+    "@library/kit": "0.0.1",
     "@library/theme": "0.0.1",
-    "@tiptap/react": "2.0.0-beta.114",
-    "@tiptap/starter-kit": "2.0.0-beta.190",
-    "react-error-boundary": "3.1.4",
-    "react-input-mask": "2.0.4",
+    "@widget/bucket": "0.0.1",
     "next": "12.2.3"
   },
   "peerDependencies": {

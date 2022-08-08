@@ -1,0 +1,21 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: inline-flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+}
+
+.rating {
+
+  display: block;
+}
+
+.comments {
+
+  display: block;
+  margin: 0 0 0 16px;
+}

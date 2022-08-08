@@ -44,7 +44,7 @@ function Gallery({ items }: IProps): JSX.Element {
     <div className={styles['wrapper']}>
       {items.map((src: string, index: number) => (
         <div key={index} className={cn(styles['image'], { [styles['is-active']]: index === active })}>
-          <Image src={src + '?size=124x124'} width={124} height={124} />
+          <Image src={src + '?size=160x160'} width={160} height={160} />
         </div>
       ))}
       {(items.length > 1) && (

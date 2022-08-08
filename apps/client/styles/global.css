@@ -3,6 +3,7 @@
 @import "./fonts/css/all.min.css";
 
 @import "~@library/kit";
+@import "~@library/design";
 
 @import "~@layout/default";
 @import "~@layout/no-cart";
