@@ -2,7 +2,6 @@
 import { addToCart, selectData } from '@widget/bucket';
 
 import React from 'react';
-import Link from "next/link";
 import getConfig from 'next/config';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -98,11 +97,6 @@ function Product({ externalId, gallery, ...props }: IProps): JSX.Element {
       </div>
       <div className={styles['controls']}>
         <Controls item={active} {...props} onAddToBucket={handleToBucket} />
-        <div className={styles['more']}>
-          <Link href={'/catalog/' + props['group']['code'] + '/' + props['category']['code'] + '/' + externalId}>
-            <a className={styles['more']}>подробнее...</a>
-          </Link>
-        </div>
       </div>
     </div>
   );
