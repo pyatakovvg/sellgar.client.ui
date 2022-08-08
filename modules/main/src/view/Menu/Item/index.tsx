@@ -1,4 +1,6 @@
 
+import { nounDeclension } from '@helper/utils';
+
 import React from 'react';
 import Link from 'next/link';
 
@@ -21,7 +23,7 @@ function Item({ code, icon, name, categories, productsCount }: any) {
           </div>
           <div className={styles['information']}>
             <span className={styles['name']}>{ name }</span>
-            <span className={styles['count']}>{ productsCount } тов.</span>
+            <span className={styles['count']}>{ productsCount } { nounDeclension(productsCount, ['товар', 'товара', 'товаров']) }</span>
           </div>
           <div className={styles['control']}>
             <span className={arrowClassName} />
