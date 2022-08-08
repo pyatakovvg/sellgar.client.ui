@@ -64,6 +64,10 @@ echo 'Виджет "bucket"'
 echo '------------------------------------'
 cd ./bucket && npx yarn build
 
+echo '------------------------------------'
+echo 'Библиотека "Design"'
+echo '------------------------------------'
+cd ../../libraries/design && npx yarn build
 
 echo '------------------------------------'
 echo '|        Сборка layouts            |'
