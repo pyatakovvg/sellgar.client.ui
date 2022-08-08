@@ -41,7 +41,7 @@ export async function getServerSideProps(props: any) {
   const params = props['params'];
 
   const category = await getCategoryRequest({
-    categoryCode: params['categoryCode'],
+    code: params['categoryCode'],
   });
   const brands = await getBrandsRequest({
     groupCode: params['groupCode'],
@@ -58,7 +58,6 @@ export async function getServerSideProps(props: any) {
     take: Number(process.env['TAKE_PRODUCTS']),
     skip: Number((query?.['page'] ?? 1) - 1) * Number(process.env['TAKE_PRODUCTS']),
   });
-
 
   return {
     props: {

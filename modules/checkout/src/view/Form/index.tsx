@@ -7,8 +7,6 @@ import Component from './Component';
 function validate(values: any) {
   const errors: any = {};
 
-  console.log(values['phone'])
-
   if ( ! values['phone']) {
     errors['phone'] = 'Необходимо заполнить';
   }

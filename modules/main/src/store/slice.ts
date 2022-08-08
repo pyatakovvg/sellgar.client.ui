@@ -41,7 +41,6 @@ const slice = createSlice({
       state['inProcess'] = false;
     },
     getProductsRequestSuccessAction(state: Draft<typeof initialState>, { payload }: PayloadAction<any>) {
-      console.log(payload['data'], payload['meta'])
       state['data'] = payload['data'];
       state['meta'] = payload['meta'];
       state['inProcess'] = false;
