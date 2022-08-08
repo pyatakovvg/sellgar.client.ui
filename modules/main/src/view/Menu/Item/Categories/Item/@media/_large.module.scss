@@ -5,17 +5,11 @@
 .wrapper {
 
   position: relative;
-  display: block;
-}
-
-.link {
-
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex: 1 0;
+  padding: 16px 24px;
   text-decoration: none;
-  padding: 16px;
-  align-items: center;
 }
 
 .content {
@@ -24,17 +18,17 @@
   flex-direction: column;
   flex: 1 0;
   font-size: 14px;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-medium;
   color: $dark;
 }
 
 .count {
 
   display: block;
-  margin: 0 0 0 16px;
+  margin: 6px 0 0;
   font-size: 10px;
   font-weight: $font-weight-bold;
-  color: $primary-dark;
+  color: $gray;
 }
 
 .wrapper:hover {

@@ -40,7 +40,7 @@ function ModeItem({ uuid, isActive, value, vendor, onChange }: IProps): JSX.Elem
       </div>
       <div className={styles['content']}>
         <Text>{ value }</Text>
-        <Text type={'description'}>&nbsp;&nbsp;[{ vendor }]</Text>
+        <Text type={'description'}>&nbsp;&nbsp;#{ vendor }</Text>
       </div>
       { !! count && (
         <div className={styles['bucket']}>

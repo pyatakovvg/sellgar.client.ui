@@ -5,14 +5,16 @@
 .wrapper {
 
   display: block;
+  width: 280px;
+  padding: 8px 0;
+  background: $white;
+  border-radius: 8px;
+  border: 1px solid $gray-light;
+  @include box-shadow('bottom');
+
 }
 
 .item {
 
   display: block;
-
-  & + & {
-
-    margin: 16px 0 0;
-  }
 }

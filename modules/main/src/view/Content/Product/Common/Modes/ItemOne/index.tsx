@@ -31,7 +31,7 @@ function ModeItem({ uuid, value, vendor }: IProps): JSX.Element {
     <div className={styles['wrapper']}>
       <div className={styles['content']}>
         <Text>{ value }</Text>
-        <Text type={'description'}>&nbsp;&nbsp;[{ vendor }]</Text>
+        <Text type={'description'}>&nbsp;&nbsp;#{ vendor }</Text>
       </div>
       { !! count && (
         <div className={styles['bucket']}>
