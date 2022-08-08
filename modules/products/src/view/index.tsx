@@ -11,7 +11,7 @@ import Filter from './Filter';
 import Content from './Content';
 import Paging from './Paging';
 
-import { getProductsRequestSuccessAction } from '../index';
+import { getProductsRequestSuccessAction } from '../store/slice';
 
 import styles from './@media/index.module.scss';
 
