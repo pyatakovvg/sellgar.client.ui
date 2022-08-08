@@ -29,7 +29,7 @@ function Groups({ data, meta }: IProps) {
   return (
     <section className={styles['wrapper']}>
       <div className={styles['breadcrumbs']}>
-        <Breadcrumbs data={data} />
+        <Breadcrumbs />
       </div>
       <div className={styles['header']}>
         <Header level={2}>Каталог товаров</Header>
