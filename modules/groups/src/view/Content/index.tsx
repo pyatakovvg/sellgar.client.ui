@@ -1,7 +1,8 @@
 
-import React from 'react';
+import { CatalogItem } from '@library/design';
 
-import Group from './Group';
+import React from 'react';
+import Link from 'next/link';
 
 import styles from './@media/index.module.scss';
 
@@ -15,9 +16,13 @@ function Content({ data }: IProps): JSX.Element {
   return (
     <section className={styles['wrapper']}>
       {data.map((group) => (
-        <div key={group['code']} className={styles['item']}>
-          <Group {...group} />
-        </div>
+          <div key={group['code']} className={styles['item']}>
+            <Link href={'/catalog/' + group['code']}>
+              <a className={styles['link']}>
+                <CatalogItem {...group} />
+              </a>
+            </Link>
+          </div>
       ))}
     </section>
   );

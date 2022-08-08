@@ -17,6 +17,7 @@
   "dependencies": {
     "@library/kit": "0.0.1",
     "@library/theme": "0.0.1",
+    "@helper/utils": "0.0.1",
     "@widget/bucket": "0.0.1",
     "next": "12.2.3"
   },

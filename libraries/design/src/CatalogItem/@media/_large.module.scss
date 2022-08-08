@@ -1,0 +1,43 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  padding: 40px 24px 32px;
+  border-radius: 8px;
+  background: $white;
+  @include box-shadow('bottom');
+}
+
+.image {
+
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  background: $gray-light;
+}
+
+.content {
+
+  display: block;
+  text-align: center;
+  margin: 32px 0 0;
+}
+
+.text {
+
+  display: block;
+  text-decoration: none;
+}
+
+.description {
+
+  display: block;
+  margin: 8px 0 0;
+  text-decoration: none;
+}
