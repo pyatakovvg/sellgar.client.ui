@@ -5,6 +5,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import Content from './Content';
+import Breadcrumbs from './Breadcrumbs';
 
 import { getCategoriesRequestSuccessAction } from '../store/slice';
 
@@ -28,6 +29,9 @@ function Categories({ group, data, meta }: IProps) {
 
   return (
     <section className={styles['wrapper']}>
+      <div className={styles['breadcrumbs']}>
+        <Breadcrumbs data={group} />
+      </div>
       <div className={styles['header']}>
         <Header level={2}>{ group['name'] }</Header>
       </div>

@@ -5,6 +5,7 @@ import { nounDeclension } from '@helper/utils';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
+import Breadcrumbs from './Breadcrumbs';
 import Menu from './Menu';
 import Filter from './Filter';
 import Content from './Content';
@@ -34,6 +35,9 @@ function Products({ category, brands, attributes, data, meta }: IProps) {
 
   return (
     <section className={styles['wrapper']}>
+      <div className={styles['breadcrumbs']}>
+        <Breadcrumbs data={category} />
+      </div>
       <div className={styles['header']}>
         <Header level={2}>{ category['name'] } { meta['totalRows'] } { nounDeclension(meta['totalRows'], ['товар', 'товара', 'товаров']) }</Header>
       </div>
