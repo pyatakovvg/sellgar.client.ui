@@ -1,9 +1,8 @@
 
-import { Logotype, Header, Text } from '@library/kit';
+import { Logotype, Header, Text, Link } from '@library/kit';
 import { Widget as BucketWidget } from '@widget/bucket';
 
 import React from 'react';
-import Link from 'next/link';
 
 import styles from './default.module.scss';
 
@@ -13,15 +12,15 @@ function HeaderComponent() {
     <section className={styles['wrapper']}>
       <div className={styles['logotype']}>
         <Link href={'/'}>
-          <a><Logotype /></a>
+          <Logotype />
         </Link>
       </div>
       <div className={styles['header']}>
         <Header level={4}>Сантехника</Header>
       </div>
       <div className={styles['content']}>
-        <Text>тел. <a href={'phone:+79999999999'}>+7 (999) 999-99-99</a></Text>
-        <Text>email. <a href={'mail:support@sellgar.ru'}>support@sellgar.ru</a></Text>
+        <Text>тел. <Link href={'phone:+79999999999'}>+7 (999) 999-99-99</Link></Text>
+        <Text>email. <Link href={'mail:support@sellgar.ru'}>support@sellgar.ru</Link></Text>
       </div>
       <div className={styles['controls']}>
         <BucketWidget />

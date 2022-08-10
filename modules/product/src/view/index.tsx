@@ -30,9 +30,11 @@ function Main({ data, comments }: IProps): JSX.Element {
       <section className={styles['content']}>
         <Content data={data} />
       </section>
-      <div className={styles['description']}>
-        <Description description={data['description']} />
-      </div>
+      { !! data['description'] && (
+        <div className={styles['description']}>
+          <Description description={data['description']} />
+        </div>
+      )}
       <div className={styles['attributes']}>
         <Attributes attributes={data['attributes']} />
       </div>

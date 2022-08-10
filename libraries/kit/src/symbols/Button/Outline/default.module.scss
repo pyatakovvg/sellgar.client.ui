@@ -72,4 +72,20 @@
       border-color: $success;
     }
   }
+
+  &--info {
+
+    border: 1px solid $info;
+    color: $info;
+
+    &:hover {
+      color: $info-dark;
+      border-color: $info-dark;
+    }
+
+    &:active {
+      color: $info;
+      border-color: $info;
+    }
+  }
 }

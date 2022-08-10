@@ -21,6 +21,23 @@
   display: flex;
   flex-direction: row;
   flex: 0 0 auto;
+  align-items: baseline;
+}
+
+.label {
+
+  display: block;
+  font-size: 12px;
+  font-weight: $font-weight-light;
+  color: $gray-dark;
+}
+
+.title {
+
+  display: block;
+  font-size: 14px;
+  font-weight: $font-weight-medium;
+  margin: 0 0 0 8px;
 }
 
 .bucket {

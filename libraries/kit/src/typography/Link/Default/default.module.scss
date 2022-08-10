@@ -1,0 +1,17 @@
+
+@import "~@library/theme";
+
+
+.link {
+
+  display: inline;
+  font-size: inherit;
+  font-weight: inherit;
+  color: $primary;
+  cursor: pointer;
+  transition: color 150ms;
+
+  &:hover {
+    color: $primary-dark;
+  }
+}

@@ -29,6 +29,8 @@ function updateProducts(before: Array<any>, product: any) {
       imageUuid: product?.['gallery']?.[0]?.['uuid'] ?? null,
       modeUuid: product['uuid'],
       externalId: product['externalId'],
+      groupCode: product['groupCode'],
+      categoryCode: product['categoryCode'],
       title: product['title'],
       originName: product['originName'] || null,
       vendor: product['vendor'],
@@ -39,6 +41,7 @@ function updateProducts(before: Array<any>, product: any) {
     });
   }
   else {
+    console.log(current)
     return current.map((item) => {
       if (item['productUuid'] === product['productUuid'] && item['modeUuid'] === product['uuid']) {
         return {
@@ -63,6 +66,8 @@ function Content({ data }: IProps): JSX.Element {
         productUuid: data['uuid'],
         gallery: data['gallery'],
         externalId: data['externalId'],
+        groupCode: data['group']['code'],
+        categoryCode: data['category']['code'],
         title: data['title'],
         originName: data['originName'],
         ...item,
@@ -73,9 +78,7 @@ function Content({ data }: IProps): JSX.Element {
   return (
     <section className={styles['wrapper']}>
       <div className={styles['gallery']}>
-        <Image
-          srcs={ data['gallery'].map((src: any) => process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + src['uuid']) }
-        />
+        <Image srcs={ data['gallery'].map((src: any) => process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + src['uuid']) } />
       </div>
       <div className={styles['content']}>
         <Product {...data} onToCart={handleToBucket} />

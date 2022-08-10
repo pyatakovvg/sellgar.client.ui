@@ -19,7 +19,7 @@ interface IProps {
 }
 
 
-function ModeItem({ uuid, isActive, value, vendor, onChange }: IProps): JSX.Element {
+function ModeItem({ uuid, isActive, value, onChange }: IProps): JSX.Element {
   const bucket = useSelector(selectData) as any;
 
   const markerClassName = React.useMemo(() => cn(styles['marker'], {
@@ -40,7 +40,6 @@ function ModeItem({ uuid, isActive, value, vendor, onChange }: IProps): JSX.Elem
       </div>
       <div className={styles['content']}>
         <Text>{ value }</Text>
-        <Text type={'description'}>&nbsp;&nbsp;[{ vendor }]</Text>
       </div>
       { !! count && (
         <div className={styles['bucket']}>

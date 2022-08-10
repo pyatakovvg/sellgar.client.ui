@@ -23,6 +23,7 @@ export { default as TextareaField } from './fields/Textarea';
 export { default as RadioField } from './fields/Radiobox';
 export { default as CheckboxField } from './fields/Checkbox';
 
+export { default as Link } from './typography/Link';
 export { default as Text } from './typography/Text';
 export { default as Label } from './typography/Label';
 export { default as Header } from './typography/Header';

@@ -16,7 +16,7 @@ interface IProps {
 }
 
 
-function ModeItem({ uuid, value, vendor }: IProps): JSX.Element {
+function ModeItem({ uuid, value }: IProps): JSX.Element {
   const bucket = useSelector(selectData) as any;
 
   const count = React.useMemo(() => {
@@ -30,13 +30,15 @@ function ModeItem({ uuid, value, vendor }: IProps): JSX.Element {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['content']}>
-        <Text>{ value }</Text>
-        <Text type={'description'}>&nbsp;&nbsp;[{ vendor }]</Text>
+        <span className={styles['label']}>Комплект:</span>
+        <p className={styles['title']}>{ value }</p>
       </div>
       { !! count && (
         <div className={styles['bucket']}>
           <Text type={'description'}>
-            <Link href={'/checkout'}><a className={styles['info']}>в корзине { count } шт.</a></Link>
+            <Link href={'/checkout'}>
+              <a className={styles['info']}>в корзине { count } шт.</a>
+            </Link>
           </Text>
         </div>
       )}

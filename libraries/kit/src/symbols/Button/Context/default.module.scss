@@ -63,4 +63,17 @@
       color: $success;
     }
   }
+
+  &--info {
+
+    color: $info;
+
+    &:hover {
+      color: $info-dark;
+    }
+
+    &:active {
+      color: $info;
+    }
+  }
 }

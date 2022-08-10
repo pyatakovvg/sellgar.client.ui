@@ -48,3 +48,16 @@
   text-align: right;
   margin: 0 0 0 24px;
 }
+
+.link {
+
+  text-decoration: underline;
+}
+
+.info {
+
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  align-items: baseline;
+}

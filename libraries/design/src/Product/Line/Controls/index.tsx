@@ -24,7 +24,7 @@ function Controls({ item, onAddToBucket }: IProps): JSX.Element {
         <Header level={4}>{ `${numeral(item?.['price'] ?? 0).format() } ${ item?.['currency']?.['displayName'] ?? ''}` }</Header>
       </div>
       <div className={styles['controls']}>
-        <Button onClick={handleAddToCart}>В корзину</Button>
+        <Button mode={'info'} onClick={handleAddToCart}>В корзину</Button>
       </div>
     </div>
   );

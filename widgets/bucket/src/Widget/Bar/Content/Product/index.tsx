@@ -12,7 +12,7 @@ import { changeOpen, addToCart } from '../../../../store/commands';
 import styles from './@media/index.module.scss';
 
 
-function Product({ externalId, productUuid, modeUuid, title, value, vendor, price, currency, count, imageUuid }: any) {
+function Product({ externalId, productUuid, groupCode, categoryCode, modeUuid, title, value, vendor, price, currency, count, imageUuid }: any) {
   const dispatch = useDispatch();
   const checkout = useSelector(selectData) as any;
 
@@ -41,17 +41,20 @@ function Product({ externalId, productUuid, modeUuid, title, value, vendor, pric
       </div>
       <div className={styles['common']}>
         <div className={styles['line']}>
-          <Link href={'/products/' + externalId}>
-            <a onClick={handleClose}>
+          <Link href={'/catalog/' + groupCode + '/' + categoryCode + '/' + externalId}>
+            <a className={styles['link']} onClick={handleClose}>
               <Text type={'strong'}>{ title }</Text>
             </a>
           </Link>
         </div>
         <div className={styles['line']}>
-          <Text>{ value }</Text>
+          <div className={styles['info']}>
+            <Text type={'description'}>Комплект:&nbsp;</Text>
+            <Text>{ value }</Text>
+          </div>
         </div>
         <div className={styles['line']}>
-          <Text type={'description'}>{ vendor }</Text>
+          <Text type={'description'}>#{ vendor }</Text>
         </div>
       </div>
       <div className={styles['controls']}>

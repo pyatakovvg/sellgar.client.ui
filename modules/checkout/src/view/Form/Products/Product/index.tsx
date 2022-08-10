@@ -17,7 +17,7 @@ const config = getConfig();
 const process = config['publicRuntimeConfig'];
 
 
-function Product({ externalId, productUuid, modeUuid, title, value, vendor, price, currency, count, imageUuid }: any) {
+function Product({ externalId, productUuid, groupCode, categoryCode, modeUuid, title, value, vendor, price, currency, count, imageUuid }: any) {
   const dispatch = useDispatch();
   const checkout = useSelector(selectData) as any;
   const inProcess = useSelector(selectInProcess) as boolean;
@@ -47,11 +47,11 @@ function Product({ externalId, productUuid, modeUuid, title, value, vendor, pric
   return (
     <div className={styles['wrapper']}>
       <div className={styles['gallery']}>
-        <Image width={124} height={124}  src={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + imageUuid + '?size=124x124'} />
+        <Image width={124} height={124} src={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + imageUuid + '?size=124x124'} />
       </div>
       <div className={styles['common']}>
         <div className={styles['line']}>
-          <Link href={'/products/' + externalId}>
+          <Link href={'/catalog/' + groupCode + '/' + categoryCode + '/' + externalId}>
             <a>
               <Header level={4}>{ title }</Header>
             </a>

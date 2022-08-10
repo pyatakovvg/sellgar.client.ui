@@ -8,7 +8,7 @@ import OutlineButton from "./Outline";
 
 type TForm = 'default' | 'context' | 'outline';
 type TType = 'submit' | 'button' | 'reset';
-type TMode = 'primary' | 'danger' | 'success';
+type TMode = 'primary' | 'danger' | 'success' | 'info';
 
 interface IProps {
   form?: TForm;
