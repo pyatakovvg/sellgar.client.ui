@@ -28,7 +28,7 @@ function Main({ data, comments }: IProps): JSX.Element {
         <Header level={2}>{ data['title'] }</Header>
       </header>
       <section className={styles['content']}>
-        <Content data={data} />
+        <Content data={data} comments={comments} />
       </section>
       { !! data['description'] && (
         <div className={styles['description']}>
@@ -39,7 +39,7 @@ function Main({ data, comments }: IProps): JSX.Element {
         <Attributes attributes={data['attributes']} />
       </div>
       <div className={styles['comments']}>
-        <Comments data={comments['data']} meta={comments['meta']} />
+        <Comments uuid={data['uuid']} data={comments['data']} meta={comments['meta']} />
       </div>
     </section>
   );

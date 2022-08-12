@@ -5,8 +5,6 @@
 .button {
 
   display: inline-block;
-  padding: 15px 32px 12px;
-  font-size: 14px;
   font-family: inherit;
   border-radius: 8px;
   cursor: pointer;
@@ -20,6 +18,27 @@
     border: 1px solid $gray;
     color: $gray;
     cursor: default;
+  }
+}
+
+.size {
+
+  &--small {
+
+    font-size: 11px;
+    padding: 10px 24px 9px;
+  }
+
+  &--middle {
+
+    font-size: 14px;
+    padding: 12px 32px 12px;
+  }
+
+  &--large {
+
+    font-size: 14px;
+    padding: 15px 32px 12px;
   }
 }
 

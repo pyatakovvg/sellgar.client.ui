@@ -24,11 +24,13 @@ function Widget() {
       if ( ! wrapperElement) {
         return void 0;
       }
-
-      if ( ! wrapperElement.contains(target)) {
-        dispatch(changeOpen(false));
+      else if ( ! wrapperElement.contains(target)) {
+        if (wrapperElement.getAttribute('aria-expanded') === 'true') {
+          dispatch(changeOpen(false));
+        }
       }
     }
+
     document.addEventListener('click', handleClose);
     return () => {
       document.removeEventListener('click', handleClose);
@@ -40,7 +42,7 @@ function Widget() {
   }
 
   return (
-    <div className={styles['wrapper']} ref={wrapperRef}>
+    <div className={styles['wrapper']} aria-expanded={isOpen} ref={wrapperRef}>
       <div className={styles['control']}>
         <Control onClick={() => handleOpen()} />
       </div>

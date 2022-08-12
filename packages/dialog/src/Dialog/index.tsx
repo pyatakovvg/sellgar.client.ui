@@ -14,7 +14,7 @@ import styles from './@media/index.module.scss';
 interface IProps {
   name: string;
   children: any;
-  onClose(name: string): void;
+  onClose?(name: string): void;
 }
 
 

@@ -10,12 +10,18 @@ import styles from './default.module.scss';
 
 interface IProps {
   value: number;
+  children?: string;
 }
 
 
-function Small({ value }: IProps) {
+function Small({ value, children }: IProps) {
   return (
     <div className={styles['wrapper']}>
+      {children && (
+        <div className={styles['label']}>
+          { children }
+        </div>
+      )}
       <div className={styles['content']}>
         <Point value={value} index={1} />
         <Point value={value} index={2} />

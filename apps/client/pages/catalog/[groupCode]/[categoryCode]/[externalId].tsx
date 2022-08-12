@@ -1,15 +1,15 @@
 
 import Layout from '@layout/default';
-import { getBucket } from '@widget/bucket';
 import Module, { getProduct } from '@module/product';
+import { getBucketRequest, getBucketSuccessRequestAction } from '@widget/bucket';
 
 import React from 'react';
 import Head from 'next/head';
-import { NextApiRequest } from 'next';
 import { useDispatch } from 'react-redux';
 
 
 interface IProps {
+  bucket: any;
   data: Array<any>;
   comments: any;
   env: any;
@@ -21,7 +21,7 @@ export default function ProductByExternalId(props: IProps): JSX.Element {
 
   React.useEffect(() => {
     window.env = props['env'];
-    dispatch(getBucket());
+    dispatch(getBucketSuccessRequestAction(props['bucket']));
   }, []);
 
   return (
@@ -34,12 +34,14 @@ export default function ProductByExternalId(props: IProps): JSX.Element {
   );
 }
 
-export async function getServerSideProps(req: NextApiRequest) {
-  const { externalId }: any = req['query'];
+export async function getServerSideProps(props: any) {
+  const { externalId }: any = props['query'];
+  const bucket = await getBucketRequest(props['req']['headers']);
   const result = await getProduct(externalId);
 
   return {
     props: {
+      bucket: bucket['data'],
       data: result['data']['product'],
       comments: result['data']['comments'],
       env: {

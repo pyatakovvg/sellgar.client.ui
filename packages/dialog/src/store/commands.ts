@@ -8,7 +8,7 @@ import {
 } from './slice';
 
 
-export function openDialog(name: string, data = null): any {
+export function openDialog(name: string, data: any = null): any {
   return function(dispatch: Dispatch): void {
     dispatch(openDialogAction({ name, data }));
   }

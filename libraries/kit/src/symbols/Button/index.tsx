@@ -6,6 +6,7 @@ import ContextButton from "./Context";
 import OutlineButton from "./Outline";
 
 
+type TSize = 'small' | 'middle' | 'large';
 type TForm = 'default' | 'context' | 'outline';
 type TType = 'submit' | 'button' | 'reset';
 type TMode = 'primary' | 'danger' | 'success' | 'info';
@@ -15,6 +16,7 @@ interface IProps {
   className?: string,
   type?: TType,
   mode?: TMode,
+  size?: TSize,
   children?: string | number | null,
   disabled?: boolean,
   onClick?(event: React.MouseEvent<HTMLButtonElement>): void,

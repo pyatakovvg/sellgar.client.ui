@@ -1,56 +1,39 @@
 
+import numeral from '@package/numeral';
+
 import React from 'react';
 
-import cn from 'classnames';
+import Point from './Point';
+
 import styles from './default.module.scss';
 
 
-type TType = 'submit' | 'button' | 'reset';
-type TMode = 'primary' | 'danger' | 'success';
-
 interface IProps {
-  className?: string,
-  type?: TType,
-  mode?: TMode,
-  children?: string | number | null,
-  disabled?: boolean,
-  onClick?(event: React.MouseEvent<HTMLButtonElement>): void,
+  value: number;
+  children?: string;
 }
 
 
-function OutlineButton({ className, type, mode, children, disabled, onClick }: IProps): JSX.Element | null {
-  const buttonClassName = React.useMemo(() => cn(styles['button'], className, {
-    [styles['mode--danger']]: mode === 'danger',
-    [styles['mode--primary']]: mode === 'primary',
-    [styles['mode--success']]: mode === 'success',
-  }), [className, mode, disabled]);
-
-  function handleClick(event: React.MouseEvent<HTMLButtonElement>): void {
-    if (disabled) {
-      return void 0;
-    }
-
-    if (onClick) {
-      onClick(event);
-    }
-  }
-
+function Large({ value, children }: IProps) {
   return (
-    <button
-      className={buttonClassName}
-      type={type}
-      disabled={disabled}
-      onClick={handleClick}
-    >{ children }</button>
+    <div className={styles['wrapper']}>
+      {children && (
+        <div className={styles['label']}>
+          { children }
+        </div>
+      )}
+      <div className={styles['content']}>
+        <Point value={value} index={1} />
+        <Point value={value} index={2} />
+        <Point value={value} index={3} />
+        <Point value={value} index={4} />
+        <Point value={value} index={5} />
+      </div>
+      <div className={styles['value']}>
+        <p className={styles['text']}>{ numeral(value).format('0.0') }</p>
+      </div>
+    </div>
   );
 }
 
-OutlineButton.defaultProps = {
-  className: null,
-  type: 'button',
-  mode: 'primary',
-  children: 'Button',
-  disabled: false,
-};
-
-export default OutlineButton;
+export default React.memo(Large);

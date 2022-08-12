@@ -17,6 +17,7 @@ const process = config['publicRuntimeConfig'];
 
 interface IProps {
   data: any;
+  comments: any;
 }
 
 
@@ -41,7 +42,6 @@ function updateProducts(before: Array<any>, product: any) {
     });
   }
   else {
-    console.log(current)
     return current.map((item) => {
       if (item['productUuid'] === product['productUuid'] && item['modeUuid'] === product['uuid']) {
         return {
@@ -56,7 +56,7 @@ function updateProducts(before: Array<any>, product: any) {
 }
 
 
-function Content({ data }: IProps): JSX.Element {
+function Content({ data, comments }: IProps): JSX.Element {
   const dispatch = useDispatch();
   const bucket = useSelector(selectData) as any;
 
@@ -81,7 +81,7 @@ function Content({ data }: IProps): JSX.Element {
         <Image srcs={ data['gallery'].map((src: any) => process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + src['uuid']) } />
       </div>
       <div className={styles['content']}>
-        <Product {...data} onToCart={handleToBucket} />
+        <Product {...data} comments={comments} onToCart={handleToBucket} />
       </div>
     </section>
   );

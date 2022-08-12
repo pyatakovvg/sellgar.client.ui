@@ -1,6 +1,6 @@
 
 import Layout from '@layout/default';
-import { getBucket } from '@widget/bucket';
+import { getBucketRequest, getBucketSuccessRequestAction } from '@widget/bucket';
 import Module, { getGroupRequest, getCategoriesRequest } from '@module/categories';
 
 import React from 'react';
@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 
 
 interface IProps {
+  bucket: any;
   group: any;
   data: Array<any>;
   meta: any;
@@ -21,7 +22,7 @@ export default function Categories(props: IProps) {
 
   React.useEffect(() => {
     window.env = props['env'];
-    dispatch(getBucket());
+    dispatch(getBucketSuccessRequestAction(props['bucket']));
   }, []);
 
   return (
@@ -36,6 +37,7 @@ export default function Categories(props: IProps) {
 
 export async function getServerSideProps(props: any) {
   const params = props['params'];
+  const bucket = await getBucketRequest(props['req']['headers']);
   const group = await getGroupRequest({
     code: params['groupCode'],
   });
@@ -45,6 +47,7 @@ export async function getServerSideProps(props: any) {
 
   return {
     props: {
+      bucket: bucket['data'],
       group: group['data'][0],
       data: result['data'],
       env: {

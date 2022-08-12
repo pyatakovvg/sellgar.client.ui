@@ -1,6 +1,6 @@
 
 import Layout from '@layout/default';
-import {getBucket} from '@widget/bucket';
+import { getBucketRequest, getBucketSuccessRequestAction } from '@widget/bucket';
 import Module, { getGroupsRequest, getProductsRequest } from '@module/main';
 
 import React from 'react';
@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 
 
 interface IProps {
+  bucket: any;
   groups: Array<any>;
   data: Array<any>;
   meta: any;
@@ -21,7 +22,7 @@ export default function Main(props: IProps) {
 
   React.useEffect(() => {
     window.env = props['env'];
-    dispatch(getBucket());
+    dispatch(getBucketSuccessRequestAction(props['bucket']));
   }, []);
 
   return (
@@ -34,7 +35,8 @@ export default function Main(props: IProps) {
   );
 }
 
-export async function getServerSideProps({ query }: any) {
+export async function getServerSideProps({ query, ...props }: any) {
+  const bucket = await getBucketRequest(props['req']['headers']);
   const groups = await getGroupsRequest();
   const result = await getProductsRequest({
     take: Number(process.env['TAKE_PRODUCTS']),
@@ -43,6 +45,7 @@ export async function getServerSideProps({ query }: any) {
 
   return {
     props: {
+      bucket: bucket['data'],
       groups: groups['data'],
       data: result['data'],
       meta: result['meta'],

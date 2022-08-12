@@ -2,6 +2,7 @@
 import React from 'react';
 
 import Small from "./Small";
+import Large from "./Large";
 
 
 type TType = 'small' | 'large';
@@ -9,17 +10,19 @@ type TType = 'small' | 'large';
 interface IProps {
   type?: TType,
   value: number;
+  children?: string;
 }
 
 
 function Factory({ type, ...rest }: IProps): JSX.Element | null {
   switch(type) {
-    default: return <Small {...rest} />
+    case 'large': return <Large {...rest} />;
+    default: return <Small {...rest} />;
   }
 }
 
 Factory.defaultProps = {
-  type: 'small',
+  type: 'large',
 };
 
 export default React.memo(Factory);

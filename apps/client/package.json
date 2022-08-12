@@ -10,8 +10,8 @@
   "dependencies": {
     "@layout/default": "0.0.1",
     "@layout/no-cart": "0.0.1",
-    "@library/kit": "0.0.1",
     "@library/design": "0.0.1",
+    "@library/kit": "0.0.1",
     "@library/store": "0.0.1",
     "@library/theme": "0.0.1",
     "@module/categories": "0.0.1",
@@ -21,11 +21,11 @@
     "@module/product": "0.0.1",
     "@module/products": "0.0.1",
     "@package/dialog": "0.0.1",
-    "@reduxjs/toolkit": "1.8.3",
+    "@reduxjs/toolkit": "1.8.4",
     "@widget/bucket": "0.0.1",
     "classnames": "2.3.1",
-    "next": "12.2.3",
-    "nodemailer": "6.7.6",
+    "next": "12.2.4",
+    "nodemailer": "6.7.8",
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -34,10 +34,10 @@
   },
   "devDependencies": {
     "@types/node": "16.11.7",
-    "@types/react": "18.0.14",
-    "@types/react-dom": "18.0.5",
-    "eslint": "8.18.0",
-    "eslint-config-next": "12.2.0",
+    "@types/react": "18.0.17",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.21.0",
+    "eslint-config-next": "12.2.4",
     "typescript": "4.7.4"
   }
 }

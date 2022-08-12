@@ -1,6 +1,6 @@
 
 import Layout from '@layout/default';
-import {getBucket} from '@widget/bucket';
+import { getBucketRequest, getBucketSuccessRequestAction } from '@widget/bucket';
 import Module, { getCategoryRequest, getBrandsRequest, getAttributesRequest, getProductsRequest } from '@module/products';
 
 import React from 'react';
@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 
 
 interface IProps {
+  bucket: any;
   category: any;
   brands: Array<any>;
   attributes: Array<any>;
@@ -23,7 +24,7 @@ export default function Main(props: IProps): JSX.Element {
 
   React.useEffect(() => {
     window.env = props['env'];
-    dispatch(getBucket());
+    dispatch(getBucketSuccessRequestAction(props['bucket']));
   }, []);
 
   return (
@@ -40,6 +41,7 @@ export async function getServerSideProps(props: any) {
   const query = props['query'];
   const params = props['params'];
 
+  const bucket = await getBucketRequest(props['req']['headers']);
   const category = await getCategoryRequest({
     code: params['categoryCode'],
   });
@@ -61,6 +63,7 @@ export async function getServerSideProps(props: any) {
 
   return {
     props: {
+      bucket: bucket['data'],
       category: category['data'][0],
       brands: brands['data'],
       attributes: attributes['data'],

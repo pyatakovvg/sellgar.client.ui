@@ -21,12 +21,12 @@
     "@module/products": "0.0.1",
     "@package/dialog": "0.0.1",
     "@widget/bucket": "0.0.1",
-    "next": "12.2.3",
+    "next": "12.2.4",
     "react-redux": "8.0.2",
     "redux-form": "8.3.8"
   },
   "peerDependencies": {
-    "@reduxjs/toolkit": "1.8.3"
+    "@reduxjs/toolkit": "1.8.4"
   },
   "devDependencies": {
     "@types/react-redux": "7.1.24",

@@ -1,6 +1,8 @@
 
 import React from 'react';
 
+import Item from './Item';
+
 import styles from './@media/index.module.scss';
 
 
@@ -15,11 +17,13 @@ function Comments({ data }: IProps) {
   }
 
   return (
-    <section className={styles['wrapper']}>
+    <div className={styles['wrapper']}>
       {data.map((item) => (
-        <div key={item['uuid']}>kjhkhkj</div>
+        <div key={item['uuid']} className={styles['item']}>
+          <Item {...item} />
+        </div>
       ))}
-    </section>
+    </div>
   );
 }
 

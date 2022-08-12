@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./lib",
+    "declaration": true,
+    "declarationDir": "./types",
+    "emitDeclarationOnly": false,
+  },
+  "include": [
+    "src",
+    "react-app-env.d.ts"
+  ]
+}

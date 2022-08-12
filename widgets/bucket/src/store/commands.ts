@@ -2,6 +2,7 @@
 import request from '@package/request';
 
 import { Dispatch } from 'redux';
+import getConfig from 'next/config';
 
 import {
   changeOpenAction,
@@ -19,6 +20,18 @@ import {
   destroyBucketSuccessRequestAction,
 } from './slice';
 
+
+const config = getConfig();
+const process = config['publicRuntimeConfig'];
+
+
+export async function getBucketRequest(headers: any): Promise<any> {
+  return await request({
+    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/checkouts',
+    method: 'get',
+    headers,
+  });
+}
 
 export function changeOpen(status: boolean): any {
   return function(dispatch: Dispatch): void {

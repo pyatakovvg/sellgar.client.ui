@@ -2,74 +2,51 @@
 @import "~@library/theme";
 
 
-.button {
+.wrapper {
 
-  display: inline-block;
-  padding: 15px 32px 12px;
-  font-size: 14px;
-  font-family: inherit;
-  border-radius: 8px;
+  display: inline-flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid $gray-light;
+  background: $white;
   cursor: pointer;
-  background: transparent;
-  transition: color 150ms, border-color 150ms;
+  padding: 6px 12px;
+  transition: border 150ms;
 
-  &:disabled,
-  &:disabled:hover,
-  &:disabled:active {
+  &:hover {
 
-    border: 1px solid $gray;
-    color: $gray;
-    cursor: default;
+    border-color: $info;
   }
 }
 
-.mode {
+.label {
 
-  &--primary {
+  display: block;
+  font-size: 14px;
+  font-weight: $font-weight-light;
+  color: $gray-dark;
+  margin: 2px 12px 0 0;
+}
 
-    border: 1px solid $primary;
-    color: $primary;
+.content {
 
-    &:hover {
-      color: $primary-dark;
-      border-color: $primary-dark;
-    }
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+}
 
-    &:active {
-      color: $primary;
-      border-color: $primary;
-    }
-  }
+.value {
 
-  &--danger {
+  display: block;
+  margin: 2px 0 0 12px;
+}
 
-    border: 1px solid $danger;
-    color: $danger;
+.text {
 
-    &:hover {
-      color: $danger-dark;
-      border-color: $danger-dark;
-    }
-
-    &:active {
-      color: $danger;
-      border-color: $danger;
-    }
-  }
-
-  &--success {
-
-    border: 1px solid $success;
-    color: $success;
-
-    &:hover {
-      color: $success-dark;
-      border-color: $success-dark;
-    }
-
-    &:active {
-      color: $success;
-      border-color: $success;
-    }
-  }
+  display: block;
+  font-size: 14px;
+  font-weight: $font-weight-medium;
+  color: $dark;
 }

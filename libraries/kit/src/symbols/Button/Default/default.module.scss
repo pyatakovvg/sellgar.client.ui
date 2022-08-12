@@ -25,6 +25,27 @@
   }
 }
 
+.size {
+
+  &--small {
+
+    font-size: 11px;
+    padding: 10px 24px 9px;
+  }
+
+  &--middle {
+
+    font-size: 14px;
+    padding: 12px 32px 12px;
+  }
+
+  &--large {
+
+    font-size: 14px;
+    padding: 15px 32px 12px;
+  }
+}
+
 .mode {
 
   &--primary {

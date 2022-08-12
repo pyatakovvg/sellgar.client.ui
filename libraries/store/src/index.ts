@@ -1,6 +1,7 @@
 
 import { configureStore } from '@reduxjs/toolkit';
 import { name as bucketReducerName, reducer as bucketReducer } from '@widget/bucket';
+import { name as dialogReducerName, reducer as dialogReducer } from '@package/dialog';
 import { name as mainModuleReducerName, reducer as mainModuleReducer } from '@module/main';
 import { name as groupsModuleReducerName, reducer as groupsModuleReducer } from '@module/groups';
 import { name as productModuleReducerName, reducer as productModuleReducer } from '@module/product';
@@ -16,6 +17,7 @@ const store = configureStore({
   reducer: {
     form: formReducer,
     [bucketReducerName]: bucketReducer,
+    [dialogReducerName]: dialogReducer,
     [mainModuleReducerName]: mainModuleReducer,
     [groupsModuleReducerName]: groupsModuleReducer,
     [productModuleReducerName]: productModuleReducer,
