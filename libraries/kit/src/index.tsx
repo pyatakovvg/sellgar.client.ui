@@ -3,6 +3,7 @@ export { default as BaseField } from './fields/BaseField';
 
 export { default as Editor } from './Editor';
 
+export { default as Like } from './symbols/Like';
 export { default as List } from './symbols/List';
 export { default as Input } from './symbols/Input';
 export { default as Image } from './symbols/Image';

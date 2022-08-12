@@ -1,0 +1,54 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: inline-flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  align-items: center;
+  opacity: .8;
+}
+
+.icon {
+
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.value {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  align-items: center;
+  margin: 2px 12px 0;
+}
+
+.text {
+
+  display: block;
+  font-size: 14px;
+  font-weight: $font-weight-bold;
+  color: $white;
+  background: $danger-light;
+  padding: 6px 8px;
+  border-radius: 6px 0 0 6px;
+
+  & + & {
+
+    background: $success-light;
+    border-radius: 0 6px 6px 0;
+  }
+}
+
+.danger {
+
+  color: $danger;
+}
+
+.success {
+
+  color: $success;
+}

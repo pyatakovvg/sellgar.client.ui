@@ -33,7 +33,7 @@ function Comments({ uuid, data, meta }: IProps): JSX.Element {
           <Header level={3}>Отзывы { meta['totalRows'] }</Header>
         </div>
         <div className={styles['controls']}>
-          <Button form={'outline'} size={'small'} onClick={handleOpinion}>Написать отзыв</Button>
+          <Button size={'small'} onClick={handleOpinion}>Написать отзыв</Button>
         </div>
       </div>
       <div className={styles['content']}>

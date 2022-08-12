@@ -34,7 +34,7 @@
 .rating {
 
   display: block;
-  margin: 0 0 0 12px;
+  margin: 0 0 0 24px;
 }
 
 .date {
@@ -46,4 +46,39 @@
 
   display: block;
   margin: 32px 12px 0;
+}
+
+.controls {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  align-items: center;
+  margin: 40px 0 0;
+}
+
+.comment {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+}
+
+.likes {
+
+  display: block;
+}
+
+.link {
+
+  display: inline-block;
+  font-size: 14px;
+  font-weight: $font-weight-medium;
+  color: $primary;
+  cursor: pointer;
+
+  &:hover {
+
+    text-decoration: underline;
+  }
 }
