@@ -36,7 +36,7 @@ cd ../numeral && npx yarn build
 echo '------------------------------------'
 echo 'Пакет "Moment"'
 echo '------------------------------------'
-cd ../moment && npx yarn build
+cd ../moment && ls && npx yarn build
 
 
 echo ''
