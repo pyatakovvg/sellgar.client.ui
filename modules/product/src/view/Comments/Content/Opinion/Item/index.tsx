@@ -1,20 +1,26 @@
 
-import { Text, Rating, Like } from '@library/kit';
 import moment from '@package/moment';
+import { Text, Rating, Like } from '@library/kit';
 
 import React from 'react';
+
+import Positive from './Positive';
+import Negative from './Negative';
 
 import styles from './@media/index.module.scss';
 
 
 interface IProps {
   author: string;
+  positive: string;
+  negative: string;
   description: string;
   createdAt: string;
+  onClick(): void;
 }
 
 
-function Item({ author, description, createdAt }: IProps) {
+function Item({ author, positive, negative, description, createdAt, onClick }: IProps) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['header']}>
@@ -27,15 +33,27 @@ function Item({ author, description, createdAt }: IProps) {
           </div>
         </div>
         <div className={styles['date']}>
-          <Text type={'description'}>{ moment(createdAt).format('DD.MM.YYYY') }</Text>
+          <Text type={'description'}>{ moment(createdAt).format('LL') }</Text>
         </div>
       </div>
       <div className={styles['content']}>
-        <Text>"{ description }"</Text>
+        <div className={styles['description']}>
+          <Text>"{ description }"</Text>
+        </div>
+        { !! positive && (
+          <div className={styles['line']}>
+            <Positive>{ positive }</Positive>
+          </div>
+        )}
+        { !! negative && (
+          <div className={styles['line']}>
+            <Negative>{ negative }</Negative>
+          </div>
+        )}
       </div>
       <div className={styles['controls']}>
         <div className={styles['comment']}>
-          <span className={styles['link']}>Комментировать</span>
+          <span className={styles['link']} onClick={onClick}>Комментировать</span>
         </div>
         <div className={styles['likes']}>
           <Like value={5} />

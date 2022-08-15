@@ -1,12 +1,13 @@
 
-import { Header, Button } from '@library/kit';
-import { Dialog, openDialog } from '@package/dialog';
+import { Header } from '@library/kit';
 
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import DialogOpinion from './Dialog';
 import Content from './Content';
+import AddOpinion from './AddOpinion';
+
+import { selectComments } from '../../store/slice';
 
 import styles from './@media/index.module.scss';
 
@@ -18,32 +19,22 @@ interface IProps {
 }
 
 function Comments({ uuid, data, meta }: IProps): JSX.Element {
-  const dispatch = useDispatch();
-
-  function handleOpinion() {
-    dispatch(openDialog('opinion', {
-      productUuid: uuid,
-    }));
-  }
+  const comments = useSelector(selectComments);
 
   return (
-    <section id={'opinion'} className={styles['wrapper']}>
+    <div id={'opinion'} className={styles['wrapper']}>
       <div className={styles['header']}>
         <div className={styles['title']}>
-          <Header level={3}>Отзывы { meta['totalRows'] }</Header>
+          <Header level={3}>Отзывы { !! comments['meta'] ? comments['meta']['totalRows'] : meta['totalRows'] }</Header>
         </div>
-        <div className={styles['controls']}>
-          <Button size={'small'} onClick={handleOpinion}>Написать отзыв</Button>
-        </div>
+      </div>
+      <div className={styles['controls']}>
+        <AddOpinion productUuid={uuid} />
       </div>
       <div className={styles['content']}>
-        <Content data={data} />
+        <Content productUuid={uuid} data={ !! comments['data'].length ? comments['data'] : data} />
       </div>
-
-      <Dialog name={'opinion'}>
-        <DialogOpinion onSubmit={(a: any) => console.log(a)} />
-      </Dialog>
-    </section>
+    </div>
   );
 }
 

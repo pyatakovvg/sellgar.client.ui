@@ -30,7 +30,7 @@ function Modes({ modes, onToCart }: IProps): JSX.Element {
           <div className={styles['amount']}>{ numeral(active['price']).format() } { active['currency']['displayName'] }</div>
         </div>
         <div className={styles['button']}>
-          <Button onClick={handleToBucket}>Купить</Button>
+          <Button mode={'info'} onClick={handleToBucket}>Купить</Button>
         </div>
       </div>
       <div className={styles['content']}>

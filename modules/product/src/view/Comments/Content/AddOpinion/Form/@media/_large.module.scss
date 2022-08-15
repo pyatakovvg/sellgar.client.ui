@@ -1,0 +1,30 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: block;
+  width: 600px;
+}
+
+.fields {
+
+  display: block;
+
+  & + & {
+
+    margin: 32px 0 0;
+  }
+}
+
+.field {
+
+  display: block;
+
+  & + & {
+
+    display: block;
+    margin: 16px 0 0;
+  }
+}

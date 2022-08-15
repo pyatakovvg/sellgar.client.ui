@@ -4,7 +4,26 @@
 
 .wrapper {
 
+  position: relative;
   display: block;
+  padding: 24px;
+  border-radius: 12px;
+  margin: 0 0 0 24px;
+  background: rgba($gray-light, .3);
+
+  &:after {
+
+    position: absolute;
+    top: 16px;
+    left: -24px;
+    display: block;
+    width: 0;
+    height: 0;
+    content: '';
+    border: 12px solid rgba($gray-light, .4);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+  }
 }
 
 .header {
@@ -21,9 +40,6 @@
   flex-direction: row;
   flex: 1 0;
   align-items: center;
-  padding: 6px 0 6px 10px;
-  border-radius: 6px;
-  background: linear-gradient(to right, rgba($info-light, .1), transparent);
 }
 
 .name {
@@ -45,7 +61,7 @@
 .content {
 
   display: block;
-  margin: 32px 12px 0;
+  margin: 32px 0 0;
 }
 
 .controls {
@@ -55,6 +71,8 @@
   flex: 1 0;
   align-items: center;
   margin: 40px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px dashed $gray;
 }
 
 .comment {

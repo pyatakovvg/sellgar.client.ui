@@ -1,0 +1,13 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: block;
+  margin: 24px 0 0 24px;
+  border-radius: 12px;
+  padding: 40px 48px 56px;
+  background: rgba($gray-light, .4);
+  @include box-shadow('bottom');
+}

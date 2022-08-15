@@ -17,6 +17,8 @@
   flex-direction: row;
   flex: 1 0;
   align-items: baseline;
+  padding: 0 0 24px;
+  border-bottom: 1px solid $gray-light;
 }
 
 .title {
@@ -26,10 +28,8 @@
 
 .controls {
 
-  display: flex;
-  flex-direction: column;
-  flex: 1 0;
-  align-items: flex-end;
+  display: block;
+  margin: 32px 0 0;
 }
 
 .content {

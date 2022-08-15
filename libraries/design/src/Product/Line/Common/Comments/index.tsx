@@ -1,5 +1,5 @@
 
-import { Rating } from '@library/kit';
+import { Rating, Link } from '@library/kit';
 
 import React from 'react';
 
@@ -9,18 +9,23 @@ import styles from './@media/index.module.scss';
 
 
 interface IProps {
-
+  group: any;
+  category: any;
+  commentsCount: number;
+  externalId: string;
 }
 
 
-function Comments({  }: IProps): JSX.Element {
+function Comments({ externalId, commentsCount, group, category }: IProps): JSX.Element {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['rating']}>
         <Rating value={4} />
       </div>
       <div className={styles['comments']}>
-        <Icon count={3} />
+        <Link href={'/catalog/' + group['code'] + '/' + category['code'] + '/' + externalId + '#opinion'}>
+          <Icon count={commentsCount} />
+        </Link>
       </div>
     </div>
   );

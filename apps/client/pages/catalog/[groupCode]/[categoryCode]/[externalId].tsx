@@ -1,6 +1,6 @@
 
 import Layout from '@layout/default';
-import Module, { getProduct } from '@module/product';
+import Module, { getProduct, getComments, addOpinionRequestSuccess } from '@module/product';
 import { getBucketRequest, getBucketSuccessRequestAction } from '@widget/bucket';
 
 import React from 'react';
@@ -16,12 +16,13 @@ interface IProps {
 }
 
 
-export default function ProductByExternalId(props: IProps): JSX.Element {
+export default function ProductByExternalId<NextPage>(props: IProps) {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     window.env = props['env'];
     dispatch(getBucketSuccessRequestAction(props['bucket']));
+    dispatch(addOpinionRequestSuccess(props['comments']));
   }, []);
 
   return (
@@ -37,13 +38,14 @@ export default function ProductByExternalId(props: IProps): JSX.Element {
 export async function getServerSideProps(props: any) {
   const { externalId }: any = props['query'];
   const bucket = await getBucketRequest(props['req']['headers']);
-  const result = await getProduct(externalId);
+  const product = await getProduct(externalId);
+  const comments = await getComments(product['data']['uuid']);
 
   return {
     props: {
       bucket: bucket['data'],
-      data: result['data']['product'],
-      comments: result['data']['comments'],
+      data: product['data'],
+      comments: comments,
       env: {
         GATEWAY_SERVICE_API: process.env['GATEWAY_SERVICE_API'],
       },

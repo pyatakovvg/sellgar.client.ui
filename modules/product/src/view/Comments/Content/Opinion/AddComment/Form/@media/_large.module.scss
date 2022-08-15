@@ -5,27 +5,22 @@
 .wrapper {
 
   display: block;
-  width: 420px;
-  padding: 40px 48px 56px;
-}
-
-.header {
-
-  display: block;
-  text-align: center;
+  width: 600px;
 }
 
 .content {
 
   display: block;
-  margin: 32px 0 0;
 }
 
-.controls {
+.fields {
 
   display: block;
-  text-align: center;
-  margin: 32px 0 0;
+
+  & + & {
+
+    margin: 32px 0 0;
+  }
 }
 
 .field {
@@ -37,4 +32,10 @@
     display: block;
     margin: 16px 0 0;
   }
+}
+
+.controls {
+
+  display: block;
+  margin: 40px 0 0;
 }

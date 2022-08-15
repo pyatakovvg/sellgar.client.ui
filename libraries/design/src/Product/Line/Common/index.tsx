@@ -15,12 +15,13 @@ interface IProps {
   category: any;
   brand: any;
   title: string;
+  commentsCount: number;
   modes: Array<any>;
   onChange(item: any): void;
 }
 
 
-function Common({ externalId, item, group, category, brand, title, modes, onChange }: IProps) {
+function Common({ externalId, item, group, category, commentsCount, brand, title, modes, onChange }: IProps) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['content']}>
@@ -30,7 +31,7 @@ function Common({ externalId, item, group, category, brand, title, modes, onChan
         <Modes item={item} modes={modes} onChange={onChange} />
       </div>
       <div className={styles['information']}>
-        <Comments />
+        <Comments commentsCount={commentsCount} group={group} category={category} externalId={externalId} />
       </div>
     </div>
   );

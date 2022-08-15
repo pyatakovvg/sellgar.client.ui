@@ -13,7 +13,7 @@
 
 .icon {
 
-  font-size: 18px;
+  font-size: 12px;
   cursor: pointer;
 }
 
@@ -31,15 +31,11 @@
   display: block;
   font-size: 14px;
   font-weight: $font-weight-bold;
-  color: $white;
-  background: $danger-light;
-  padding: 6px 8px;
-  border-radius: 6px 0 0 6px;
+  color: $danger-light;
 
-  & + & {
+  & ~ & {
 
-    background: $success-light;
-    border-radius: 0 6px 6px 0;
+    color: $success-light;
   }
 }
 
@@ -51,4 +47,12 @@
 .success {
 
   color: $success;
+}
+
+.delimiter {
+
+  display: inline-block;
+  border: 2px solid $gray-dark;
+  border-radius: 50%;
+  margin: 0 4px;
 }

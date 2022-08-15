@@ -19,7 +19,7 @@ interface IProps {
 }
 
 
-export default function Main(props: IProps): JSX.Element {
+export default function Main<NextPage>(props: IProps) {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -30,7 +30,7 @@ export default function Main(props: IProps): JSX.Element {
   return (
     <Layout>
       <Head>
-        <title>Категория товара</title>
+        <title>{ `${process.env['TITLE']} ${props['category']['name']}.` }</title>
       </Head>
       <Module {...props} />
     </Layout>

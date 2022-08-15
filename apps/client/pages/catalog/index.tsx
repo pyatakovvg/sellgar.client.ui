@@ -16,7 +16,7 @@ interface IProps {
 }
 
 
-export default function Groups(props: IProps) {
+export default function Groups<NextPage>(props: IProps) {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -27,7 +27,7 @@ export default function Groups(props: IProps) {
   return (
     <Layout>
       <Head>
-        <title>Sellgar - Каталог</title>
+        <title>{ `${process.env['TITLE'] } Каталог.` }</title>
       </Head>
       <Module {...props} />
     </Layout>

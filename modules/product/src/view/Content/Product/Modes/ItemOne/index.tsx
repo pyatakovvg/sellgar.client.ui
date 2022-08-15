@@ -1,9 +1,8 @@
 
-import { Text } from "@library/kit";
+import { Text, Link } from "@library/kit";
 import { selectData } from '@widget/bucket';
 
 import React from 'react';
-import Link from 'next/link';
 import { useSelector } from 'react-redux';
 
 import styles from './@media/index.module.scss';
@@ -36,9 +35,7 @@ function ModeItem({ uuid, value }: IProps): JSX.Element {
       { !! count && (
         <div className={styles['bucket']}>
           <Text type={'description'}>
-            <Link href={'/checkout'}>
-              <a className={styles['info']}>в корзине { count } шт.</a>
-            </Link>
+            <Link href={'/checkout'}>в корзине { count } шт.</Link>
           </Text>
         </div>
       )}

@@ -17,7 +17,7 @@ interface IProps {
 }
 
 
-export default function Categories(props: IProps) {
+export default function Categories<NextPage>(props: IProps) {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -28,7 +28,7 @@ export default function Categories(props: IProps) {
   return (
     <Layout>
       <Head>
-        <title>Sellgar - Каталог</title>
+        <title>{ `${process.env['TITLE']} ${props['group']['name']}.` }</title>
       </Head>
       <Module {...props} />
     </Layout>

@@ -1,0 +1,119 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  position: relative;
+  display: block;
+  padding: 24px;
+  border-radius: 12px;
+  margin: 0 0 0 24px;
+  background: rgba($gray-light, .4);
+
+  &:after {
+
+    position: absolute;
+    top: 16px;
+    left: -24px;
+    display: block;
+    width: 0;
+    height: 0;
+    content: '';
+    border: 12px solid rgba($gray-light, .4);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+  }
+}
+
+.header {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  align-items: baseline;
+}
+
+.author {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  align-items: center;
+}
+
+.name {
+
+  display: block;
+}
+
+.rating {
+
+  display: block;
+  margin: 0 0 0 24px;
+}
+
+.date {
+
+  display: block;
+}
+
+.content {
+
+  display: block;
+  margin: 32px 0 0;
+}
+
+.description {
+
+  display: block;
+  margin: 0 0 24px;
+  line-height: 1.4;
+}
+
+.line {
+
+  display: block;
+
+  & + & {
+
+    margin: 16px 0 0;
+  }
+}
+
+.controls {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  align-items: center;
+  margin: 40px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px dashed $gray;
+}
+
+.comment {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+}
+
+.likes {
+
+  display: block;
+}
+
+.link {
+
+  display: inline-block;
+  font-size: 14px;
+  font-weight: $font-weight-medium;
+  color: $primary;
+  cursor: pointer;
+
+  &:hover {
+
+    text-decoration: underline;
+  }
+}

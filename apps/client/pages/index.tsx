@@ -17,7 +17,7 @@ interface IProps {
 }
 
 
-export default function Main(props: IProps) {
+export default function Main<NextPage>(props: IProps) {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -28,7 +28,8 @@ export default function Main(props: IProps) {
   return (
     <Layout>
       <Head>
-        <title>Sellgar - интернет магазин</title>
+        <title>{ process.env['TITLE'] }</title>
+        <meta name="description" content="Sellgar - интернет магазин сантехники, плитки, ламината в Крыму. Доставка или самовывоз 24/7. Огромный выбор по лучшей цене. +7 999 999 99 99" />
       </Head>
       <Module {...props} />
     </Layout>

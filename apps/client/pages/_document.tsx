@@ -4,7 +4,7 @@ import Script from 'next/script';
 import { Html, Head, Main, NextScript } from 'next/document'
 
 
-function Document(): JSX.Element {
+function Document() {
   return (
     <Html>
       <Head>

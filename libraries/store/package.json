@@ -21,7 +21,7 @@
     "@module/products": "0.0.1",
     "@package/dialog": "0.0.1",
     "@widget/bucket": "0.0.1",
-    "next": "12.2.4",
+    "next": "12.2.5",
     "react-redux": "8.0.2",
     "redux-form": "8.3.8"
   },

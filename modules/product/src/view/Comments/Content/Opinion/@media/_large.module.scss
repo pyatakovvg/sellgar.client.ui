@@ -1,0 +1,29 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: block;
+}
+
+.item {
+
+  display: block;
+}
+
+.comments {
+
+  display: block;
+  margin: 16px 0 0 24px;
+}
+
+.comment {
+
+  display: block;
+
+  & + & {
+
+    margin: 16px 0 0;
+  }
+}

@@ -21,6 +21,7 @@ function Large({ value }: IProps) {
       <span className={downClassName} />
       <div className={styles['value']}>
         <p className={styles['text']}>{ numeral(value).format('0') }</p>
+        <span className={styles['delimiter']} />
         <p className={styles['text']}>{ numeral(value).format('0') }</p>
       </div>
       <span className={upClassName} />
