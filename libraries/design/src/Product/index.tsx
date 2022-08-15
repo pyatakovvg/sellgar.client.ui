@@ -17,6 +17,7 @@ interface IProps {
   category: any;
   brand: any;
   modes: Array<any>;
+  commentsCount: number;
 }
 
 
