@@ -1,10 +1,11 @@
 
 import React from 'react';
 
+import SimpleSelect from './Simple';
 import DefaultSelect from './Default';
 
 
-type TType = 'list' | 'select';
+type TType = 'list' | 'select' | 'simple';
 type TMode = 'default' | 'primary' | 'danger' | 'success';
 type TOption = {
   [key: string]: any;
@@ -27,8 +28,9 @@ interface IProps {
 }
 
 
-function Factory({ type, ...rest }: IProps): JSX.Element | null {
+function Factory({ type, ...rest }: IProps) {
   switch(type) {
+    case 'simple': return <SimpleSelect {...rest} />;
     default: return <DefaultSelect {...rest} />;
   }
 }

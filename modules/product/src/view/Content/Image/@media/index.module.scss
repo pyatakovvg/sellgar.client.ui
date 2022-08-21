@@ -1,5 +1,6 @@
 
-@import "~@library/theme";
-
-
 @import "./large.module";
+
+@media only screen and (max-width: 1200px) {
+  @import "./middle.module";
+}

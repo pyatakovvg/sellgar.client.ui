@@ -47,10 +47,22 @@
   display: block;
 }
 
+.ratings {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  margin: 16px 0 0;
+}
+
 .rating {
 
   display: block;
-  margin: 0 0 0 24px;
+
+  & + & {
+
+    margin: 0 0 0 8px;
+  }
 }
 
 .date {

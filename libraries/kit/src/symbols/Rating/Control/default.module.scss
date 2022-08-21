@@ -1,0 +1,36 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: inline-flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  border-radius: 6px;
+  border: 1px solid $gray-light;
+  background: $white;
+  padding: 12px 18px;
+  transition: border 150ms;
+
+  &:hover {
+
+    border-color: $info;
+  }
+}
+
+.label {
+
+  display: block;
+  font-size: 14px;
+  font-weight: $font-weight-light;
+  color: $gray-dark;
+}
+
+.content {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  margin: 12px 0 0;
+}

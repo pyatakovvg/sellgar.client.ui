@@ -3,6 +3,8 @@ import { Text } from '@library/kit';
 
 import React from 'react';
 
+import Sort from './Sort';
+
 import styles from './@media/index.module.scss';
 
 
@@ -11,7 +13,12 @@ function Filter({ meta }: any) {
 
   return (
     <div className={styles['wrapper']}>
-      <Text type={'strong'}>Всего { rows } товаров</Text>
+      <div className={styles['filter']}>
+        <Sort />
+      </div>
+      <div className={styles['count']}>
+        <Text type={'strong'}>Всего { rows } товаров</Text>
+      </div>
     </div>
   );
 }

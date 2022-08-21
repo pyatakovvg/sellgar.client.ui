@@ -10,7 +10,6 @@ function Attributes({ attributes }: any) {
   return (
     <div className={styles['wrapper']}>
       {attributes.map((item: any) => {
-        console.log(item)
         return (
           <div key={item['code']} className={styles['item']}>
             <Item {...item} />

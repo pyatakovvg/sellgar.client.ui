@@ -47,7 +47,7 @@ function Products({ category, brands, attributes, data, meta }: IProps) {
         </aside>
         <section className={styles['container']}>
           <div className={styles['filter']}>
-            <Filter />
+            <Filter category={category} />
           </div>
           <div className={styles['list']}>
             <Content data={data} />

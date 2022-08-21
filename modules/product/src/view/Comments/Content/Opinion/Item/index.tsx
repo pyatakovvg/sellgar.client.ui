@@ -1,6 +1,6 @@
 
 import moment from '@package/moment';
-import { Text, Rating, Like } from '@library/kit';
+import { Text, Rating } from '@library/kit';
 
 import React from 'react';
 
@@ -28,12 +28,20 @@ function Item({ author, positive, negative, description, createdAt, onClick }: I
           <div className={styles['name']}>
             <Text type={'strong'}>{ author }</Text>
           </div>
-          <div className={styles['rating']}>
-            <Rating type={'small'} value={2}>Общая оценка:</Rating>
-          </div>
         </div>
         <div className={styles['date']}>
           <Text type={'description'}>{ moment(createdAt).format('LL') }</Text>
+        </div>
+      </div>
+      <div className={styles['ratings']}>
+        <div className={styles['rating']}>
+          <Rating type={'small'} value={2}>Общая оценка:</Rating>
+        </div>
+        <div className={styles['rating']}>
+          <Rating type={'small'} value={2}>Внешний вид:</Rating>
+        </div>
+        <div className={styles['rating']}>
+          <Rating type={'small'} value={2}>Качество:</Rating>
         </div>
       </div>
       <div className={styles['content']}>
@@ -54,9 +62,6 @@ function Item({ author, positive, negative, description, createdAt, onClick }: I
       <div className={styles['controls']}>
         <div className={styles['comment']}>
           <span className={styles['link']} onClick={onClick}>Комментировать</span>
-        </div>
-        <div className={styles['likes']}>
-          <Like value={5} />
         </div>
       </div>
     </div>

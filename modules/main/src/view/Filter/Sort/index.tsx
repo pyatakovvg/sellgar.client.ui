@@ -7,13 +7,13 @@ import { useRouter } from 'next/router';
 import styles from './@media/index.module.scss';
 
 
-function Sort({ category }: any) {
+function Sort() {
   const router = useRouter();
   const query = router['query'];
 
   async function handleChangeDirection(value: number) {
     await router.push({
-      pathname: '/catalog/' + category['group']['code'] + '/' + category['code'],
+      pathname: '/',
       query: {
         sort: value
       }

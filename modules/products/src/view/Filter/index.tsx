@@ -6,11 +6,11 @@ import Sort from './Sort';
 import styles from './@media/index.module.scss';
 
 
-function Filter() {
+function Filter({ category }: any) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['block']}>
-        <Sort />
+        <Sort category={category} />
       </div>
     </div>
   );

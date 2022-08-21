@@ -81,22 +81,3 @@
   flex-direction: column;
   flex: 1 0;
 }
-
-.likes {
-
-  display: block;
-}
-
-.link {
-
-  display: inline-block;
-  font-size: 14px;
-  font-weight: $font-weight-medium;
-  color: $primary;
-  cursor: pointer;
-
-  &:hover {
-
-    text-decoration: underline;
-  }
-}

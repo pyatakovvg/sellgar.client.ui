@@ -56,6 +56,7 @@ export async function getServerSideProps(props: any) {
   });
   const result = await getProductsRequest({
     ...query,
+    sort: Number(query?.['sort'] || 1),
     brandCode: query?.['brand'] || undefined,
     take: Number(process.env['TAKE_PRODUCTS']),
     skip: Number((query?.['page'] ?? 1) - 1) * Number(process.env['TAKE_PRODUCTS']),

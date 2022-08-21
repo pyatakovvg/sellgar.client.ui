@@ -1,5 +1,5 @@
 
-import { Text, Like } from '@library/kit';
+import { Text } from '@library/kit';
 import moment from '@package/moment';
 
 import React from 'react';
@@ -29,12 +29,6 @@ function Item({ author, description, createdAt }: IProps) {
       </div>
       <div className={styles['content']}>
         <Text>"{ description }"</Text>
-      </div>
-      <div className={styles['controls']}>
-        <div className={styles['comment']} />
-        <div className={styles['likes']}>
-          <Like value={5} />
-        </div>
       </div>
     </div>
   );

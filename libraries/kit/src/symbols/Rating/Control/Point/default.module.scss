@@ -1,0 +1,32 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: block;
+  font-size: 0;
+
+  & + & {
+
+    margin: 0 0 0 8px;
+  }
+}
+
+.icon {
+
+  font-size: 18px;
+  color: $gray;
+  cursor: pointer;
+
+  &:hover {
+
+    color: $info-light;
+  }
+}
+
+.active,
+.active:hover {
+
+  color: $info;
+}

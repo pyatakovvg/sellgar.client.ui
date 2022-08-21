@@ -40,6 +40,7 @@ export async function getServerSideProps({ query, ...props }: any) {
   const bucket = await getBucketRequest(props['req']['headers']);
   const groups = await getGroupsRequest();
   const result = await getProductsRequest({
+    sort: Number(query?.['sort'] || 1),
     take: Number(process.env['TAKE_PRODUCTS']),
     skip: Number((query?.['page'] ?? 1) - 1) * Number(process.env['TAKE_PRODUCTS']),
   });

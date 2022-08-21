@@ -13,6 +13,17 @@ interface IProps {
 function Form({ handleSubmit }: IProps) {
   return (
     <form className={styles['wrapper']} onSubmit={handleSubmit}>
+      {/*<div className={styles['fields']}>*/}
+      {/*  <div className={styles['col']}>*/}
+      {/*    <Rating value={0} type={'control'}>Общяя оценка:</Rating>*/}
+      {/*  </div>*/}
+      {/*  <div className={styles['col']}>*/}
+      {/*    <Rating value={0} type={'control'}>Общяя оценка:</Rating>*/}
+      {/*  </div>*/}
+      {/*  <div className={styles['col']}>*/}
+      {/*    <Rating value={0} type={'control'}>Общяя оценка:</Rating>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
       <div className={styles['fields']}>
         <div className={styles['field']}>
           <InputField name={'positive'} placeholder={'Достоинства'} />
