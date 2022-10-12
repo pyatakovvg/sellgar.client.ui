@@ -14,9 +14,20 @@
   text-align: right;
 }
 
+.amount {
+
+  font-size: 18px;
+  font-weight: $font-weight-medium;
+}
+
 .controls {
 
   display: block;
-  text-align: right;
   margin: 16px 0 0;
+}
+
+.bucket {
+
+  display: block;
+  margin: 8px 0 0;
 }

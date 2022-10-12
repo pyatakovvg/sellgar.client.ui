@@ -7,11 +7,11 @@ import styles from './default.module.scss';
 
 interface IProps {
   className?: string;
-  children: JSX.Element | React.ReactNode | string;
+  children: any;
 }
 
 
-function DescriptionText({ className, children }: IProps): JSX.Element | null {
+function DescriptionText({ className, children }: IProps) {
   const contentClassName = React.useMemo(() => cn(styles['content'], className), [className]);
 
   return (

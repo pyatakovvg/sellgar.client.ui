@@ -11,7 +11,7 @@ interface IProps {
 
 
 function DefaultText({ className }: IProps) {
-  const contentClassName = React.useMemo(() => cn(styles['content'], className), [className]);
+  const contentClassName = React.useMemo(() => cn(styles['logotype'], className), [className]);
 
   return (
     <span className={contentClassName} />

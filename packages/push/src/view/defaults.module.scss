@@ -1,0 +1,18 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  z-index: 900000;
+}
+
+.content {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}

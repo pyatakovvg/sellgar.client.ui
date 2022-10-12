@@ -3,24 +3,21 @@ import { CatalogItem } from '@library/design';
 
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import styles from './@media/index.module.scss';
 
 
 interface IProps {
-  data: Array<any>;
+  data: any;
 }
 
 
 function Content({ data }: IProps) {
-  const router = useRouter();
-
   return (
     <section className={styles['wrapper']}>
-      {data.map((category) => (
+      {data['categories'].map((category: any) => (
         <div key={category['code']} className={styles['item']}>
-          <Link href={'/catalog/' + router['query']['groupCode'] + '/' + category['code']}>
+          <Link href={'/catalog/' + data['code'] + '/' + category['code']}>
             <a className={styles['link']}>
               <CatalogItem {...category} />
             </a>

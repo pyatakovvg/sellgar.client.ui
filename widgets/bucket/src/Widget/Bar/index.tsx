@@ -16,7 +16,7 @@ function Bar() {
   const bucket = useSelector(selectData) as any;
 
   React.useEffect(() => {
-    dispatch(getBucket());
+    dispatch<any>(getBucket());
   }, []);
 
 

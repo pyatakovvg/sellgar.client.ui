@@ -6,11 +6,11 @@ import styles from './@media/index.module.scss';
 
 
 interface IProps {
-  count: number;
+  value: number;
 }
 
 
-function IconComments({ count }: IProps): JSX.Element {
+function IconComments({ value }: IProps): JSX.Element {
   const iconClassName = React.useMemo(() => cn(styles['icon'], 'fa-solid fa-message'), []);
 
   return (
@@ -19,7 +19,7 @@ function IconComments({ count }: IProps): JSX.Element {
         <span className={iconClassName} />
       </div>
       <div className={styles['value']}>
-        <span className={styles['text']}>{ count }</span>
+        <span className={styles['text']}>{ value }</span>
       </div>
     </div>
   );

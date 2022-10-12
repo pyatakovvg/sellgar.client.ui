@@ -25,6 +25,10 @@
 .icon {
 
   display: block;
+  width: 32px;
+  height: 32px;
+  background: $gray-light;
+  border-radius: $border-radius-small;
 }
 
 .thumb {
@@ -46,14 +50,14 @@
   display: block;
   font-size: 14px;
   font-weight: $font-weight-medium;
-  color: $dark;
+  color: $black;
   transition: color 150ms;
 }
 
 .count {
 
   display: block;
-  color: $gray-dark;
+  color: $dark;
   font-size: 10px;
   margin: 6px 0 0;
 }
@@ -81,7 +85,7 @@
 
 .wrapper:hover {
 
-  background: rgba($gray-light, .4);
+  background: rgba($gray-light, .6);
 }
 
 .wrapper:hover .category {

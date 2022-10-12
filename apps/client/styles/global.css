@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,600;0,700;1,300;1,600;1,700&display=swap');
+
 @import "./reset.css";
 @import "./fonts/css/all.min.css";
 
@@ -8,6 +10,7 @@
 @import "~@layout/default";
 @import "~@layout/no-cart";
 
+@import "~@package/push";
 @import "~@package/dialog";
 
 @import "~@widget/bucket";
@@ -27,7 +30,7 @@ body {
     width: 100%;
     height: 100%;
     font-family: 'Nunito Sans', sans-serif;
-    overflow: hidden;
+    overflow: auto;
 }
 
 #__next {
@@ -36,5 +39,21 @@ body {
     flex-direction: column;
     flex: 1 1 auto;
     height: 100%;
-    overflow: auto;
+    z-index: 0;
+}
+
+#push {
+
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    display: block;
+    z-index: 120;
+}
+
+#dialog {
+
+    position: relative;
+    display: block;
+    z-index: 100;
 }

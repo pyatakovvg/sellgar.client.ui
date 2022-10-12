@@ -1,17 +1,11 @@
 
 import { Header } from '@library/kit';
-import { nounDeclension } from '@helper/utils';
+import { Filter, Paging, Breadcrumbs } from '@library/design';
 
 import React from 'react';
-import { useDispatch } from 'react-redux';
 
-import Breadcrumbs from './Breadcrumbs';
 import Menu from './Menu';
-import Filter from './Filter';
 import Content from './Content';
-import Paging from './Paging';
-
-import { getProductsRequestSuccessAction } from '../store/slice';
 
 import styles from './@media/index.module.scss';
 
@@ -22,24 +16,21 @@ interface IProps {
   attributes: Array<any>;
   data: Array<any>;
   meta: any;
-  env: any;
 }
 
 
 function Products({ category, brands, attributes, data, meta }: IProps) {
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    dispatch(getProductsRequestSuccessAction({ data, meta }));
-  }, [data]);
-
   return (
     <section className={styles['wrapper']}>
       <div className={styles['breadcrumbs']}>
-        <Breadcrumbs data={category} />
+        <Breadcrumbs data={[
+          { href: '/catalog', name: 'Каталог' },
+          { href: '/catalog/' + category['group']['code'], name: category['group']['name'] },
+          { name: category['name'] },
+        ]} />
       </div>
       <div className={styles['header']}>
-        <Header level={2}>{ category['name'] } { meta['totalRows'] } { nounDeclension(meta['totalRows'], ['товар', 'товара', 'товаров']) }</Header>
+        <Header level={2}>{ category['name'] } ({ meta['totalRows'] })</Header>
       </div>
       <div className={styles['content']}>
         <aside className={styles['aside']}>
@@ -47,7 +38,7 @@ function Products({ category, brands, attributes, data, meta }: IProps) {
         </aside>
         <section className={styles['container']}>
           <div className={styles['filter']}>
-            <Filter category={category} />
+            <Filter meta={meta} />
           </div>
           <div className={styles['list']}>
             <Content data={data} />

@@ -21,7 +21,7 @@ interface IProps {
 
 
 function DefaultButton({ className, type, mode, size, children, disabled, onClick }: IProps): JSX.Element | null {
-  const buttonClassName = React.useMemo(() => cn(styles['button'], className, {
+  const buttonClassName = React.useMemo(() => cn(styles['button'], {
     [styles['mode--danger']]: mode === 'danger',
     [styles['mode--primary']]: mode === 'primary',
     [styles['mode--success']]: mode === 'success',
@@ -30,7 +30,7 @@ function DefaultButton({ className, type, mode, size, children, disabled, onClic
     [styles['size--small']]: size === 'small',
     [styles['size--middle']]: size === 'middle',
     [styles['size--large']]: size === 'large',
-  }), [className, mode, disabled]);
+  }, className), [className, mode, disabled]);
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>): void {
     if (disabled) {

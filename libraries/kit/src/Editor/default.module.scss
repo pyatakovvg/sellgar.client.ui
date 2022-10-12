@@ -9,30 +9,57 @@
 
 .content {
 
-  display: block;
+  h3 {
 
-  h1 {
+    display: block;
+    font-size: 20px;
+    font-weight: $font-weight-medium;
 
-    color: $dark;
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 24px;
-
-    & + p {
-
+    & + * {
       margin: 24px 0 0;
     }
   }
 
   p {
 
-    color: $dark;
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 16px;
+    display: block;
+    font-size: 14px;
     line-height: 1.4;
+    font-weight: $font-weight-light;
 
     & + p {
+      margin: 8px 0 0;
+    }
 
+    & + h3 {
+      margin: 24px 0 0;
+    }
+
+    & + ul {
       margin: 16px 0 0;
     }
+  }
+
+  ul {
+
+    display: block;
+    padding: 0 0 0 17px;
+  }
+
+  li {
+
+    list-style: disc;
+
+    & + li {
+      margin: 16px 0 0;
+    }
+  }
+
+  strong {
+    font-weight: $font-weight-medium;
+  }
+
+  em {
+    font-style: italic;
   }
 }

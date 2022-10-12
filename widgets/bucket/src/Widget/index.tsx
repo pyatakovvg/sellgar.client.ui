@@ -2,8 +2,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Control from './Control';
 import Bar from './Bar';
+import Control from './Control';
 
 import { selectIsOpen } from '../store/slice';
 import { changeOpen } from '../store/commands';

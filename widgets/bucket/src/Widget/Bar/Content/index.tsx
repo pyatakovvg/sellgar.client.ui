@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Product from './Product';
 
 import { selectData } from '../../../store/slice';
-import { destroyCart, changeOpen } from '../../../store/commands';
+import { cleanBucket, changeOpen } from '../../../store/commands';
 
 import styles from './@media/index.module.scss';
 
@@ -20,7 +20,7 @@ function Content() {
   const bucket = useSelector(selectData) as any;
 
   function handleDestroy() {
-    dispatch(destroyCart());
+    dispatch(cleanBucket());
     dispatch(changeOpen(false));
   }
 

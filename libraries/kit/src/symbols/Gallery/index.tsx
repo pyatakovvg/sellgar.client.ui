@@ -6,6 +6,8 @@ import Default from './Default';
 
 interface IProps {
   type?: 'default';
+  width: number;
+  height: number;
   items: Array<string>;
 }
 

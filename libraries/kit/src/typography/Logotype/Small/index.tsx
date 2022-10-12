@@ -20,8 +20,6 @@ function DefaultText({ className }: IProps): JSX.Element {
 
 DefaultText.defaultProps = {
   className: null,
-  href: '#',
-  children: null,
 };
 
 export default DefaultText;

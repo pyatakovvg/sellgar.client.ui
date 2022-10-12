@@ -1,30 +1,25 @@
 
 import Layout from '@layout/default';
-import { getBucketRequest, getBucketSuccessRequestAction } from '@widget/bucket';
-import Module, { getGroupsRequest, getProductsRequest } from '@module/main';
+import Module, { getGroups, getProducts } from '@module/main';
 
 import React from 'react';
 import Head from 'next/head';
-import { useDispatch } from 'react-redux';
+import type { GetServerSidePropsResult, GetServerSidePropsContext } from 'next';
 
 
-interface IProps {
-  bucket: any;
-  groups: Array<any>;
-  data: Array<any>;
+interface IPropsResult {
+  groups: any;
+  data: any;
   meta: any;
   env: any;
 }
 
+interface IContext extends GetServerSidePropsContext {
+  query: any;
+}
 
-export default function Main<NextPage>(props: IProps) {
-  const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    window.env = props['env'];
-    dispatch(getBucketSuccessRequestAction(props['bucket']));
-  }, []);
-
+export default function Main<NextPage>(props: IPropsResult) {
   return (
     <Layout>
       <Head>
@@ -36,18 +31,16 @@ export default function Main<NextPage>(props: IProps) {
   );
 }
 
-export async function getServerSideProps({ query, ...props }: any) {
-  const bucket = await getBucketRequest(props['req']['headers']);
-  const groups = await getGroupsRequest();
-  const result = await getProductsRequest({
-    sort: Number(query?.['sort'] || 1),
+export async function getServerSideProps(context: IContext): Promise<GetServerSidePropsResult<IPropsResult>> {
+  const groups = await getGroups();
+  const result = await getProducts({
+    // sort: Number(query?.['sort'] || 1),
     take: Number(process.env['TAKE_PRODUCTS']),
-    skip: Number((query?.['page'] ?? 1) - 1) * Number(process.env['TAKE_PRODUCTS']),
+    skip: Number((context['query']?.['page'] ?? 1) - 1) * Number(process.env['TAKE_PRODUCTS']),
   });
 
   return {
     props: {
-      bucket: bucket['data'],
       groups: groups['data'],
       data: result['data'],
       meta: result['meta'],

@@ -29,7 +29,21 @@
 .control {
 
   display: block;
-  border-top: 1px dotted $gray-light;
+  border-top: 1px solid $gray-light;
   padding: 24px;
   text-align: center;
+}
+
+.link {
+
+  display: inline-block;
+  font-size: 13px;
+  font-weight: $font-weight-medium;
+  color: $dark;
+  transition: color $transition-duration;
+
+  &:hover {
+
+    color: $info;
+  }
 }

@@ -16,7 +16,7 @@ interface IProps {
 }
 
 
-function Comments({ externalId, commentsCount, group, category }: IProps): JSX.Element {
+function Comments({ externalId, group, category }: IProps) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['rating']}>
@@ -24,7 +24,7 @@ function Comments({ externalId, commentsCount, group, category }: IProps): JSX.E
       </div>
       <div className={styles['comments']}>
         <Link href={'/catalog/' + group['code'] + '/' + category['code'] + '/' + externalId + '#opinion'}>
-          <Icon count={commentsCount} />
+          <Icon value={0} />
         </Link>
       </div>
     </div>

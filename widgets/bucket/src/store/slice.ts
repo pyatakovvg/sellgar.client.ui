@@ -39,7 +39,7 @@ const slice: Slice = createSlice({
     getBucketFailRequestAction(state: Draft<typeof initialState>) {
       state['inProcess'] = false;
     },
-    getBucketSuccessRequestAction(state: Draft<typeof initialState>, { payload }: PayloadAction<typeof initialState['data']>) {
+    getBucketSuccessRequestAction(state: Draft<typeof initialState>, { payload }: PayloadAction<any>) {
       state['data'] = payload;
       state['inProcess'] = false;
     },
@@ -50,7 +50,7 @@ const slice: Slice = createSlice({
     updateBucketFailRequestAction(state: Draft<typeof initialState>) {
       state['inProcess'] = false;
     },
-    updateBucketSuccessRequestAction(state: Draft<typeof initialState>, { payload }: PayloadAction<typeof initialState['data']>) {
+    updateBucketSuccessRequestAction(state: Draft<typeof initialState>, { payload }: PayloadAction<any>) {
       state['data'] = payload;
       state['inProcess'] = false;
     },
@@ -61,8 +61,8 @@ const slice: Slice = createSlice({
     destroyBucketFailRequestAction(state: Draft<typeof initialState>) {
       state['inProcess'] = false;
     },
-    destroyBucketSuccessRequestAction(state: Draft<typeof initialState>) {
-      state['data'] = null;
+    destroyBucketSuccessRequestAction(state: Draft<typeof initialState>, { payload }: PayloadAction<any>) {
+      state['data'] = payload;
       state['inProcess'] = false;
     },
   },
@@ -84,11 +84,11 @@ export const {
   destroyBucketRequestAction,
   destroyBucketFailRequestAction,
   destroyBucketSuccessRequestAction,
-} = slice['actions'];
+} = slice['actions'] as any;
 
-export const selectData = <T>(state: any): T => state[REDUCER_NAME]['data'];
-export const selectIsOpen = <T>(state: any): T => state[REDUCER_NAME]['isOpen'];
-export const selectInProcess = <T>(state: any): T => state[REDUCER_NAME]['inProcess'];
+export const selectData = (state: any): any => state[REDUCER_NAME]['data'];
+export const selectIsOpen = (state: any): boolean => state[REDUCER_NAME]['isOpen'];
+export const selectInProcess = (state: any): boolean => state[REDUCER_NAME]['inProcess'];
 
 export const name = slice['name'];
 export const reducer = slice['reducer'];

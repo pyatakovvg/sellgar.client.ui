@@ -1,9 +1,9 @@
 
 import { Header } from '@library/kit';
+import { Breadcrumbs } from '@library/design';
 
 import React from 'react';
 
-import Breadcrumbs from './Bradcrumbs';
 import Content from './Content';
 import Description from './Description';
 import Attributes from './Attributes';
@@ -18,11 +18,16 @@ interface IProps {
 }
 
 
-function Main({ data, comments }: IProps): JSX.Element {
+function Product({ data, comments }: IProps): JSX.Element {
   return (
     <section className={styles['wrapper']}>
       <aside className={styles['breadcrumbs']}>
-        <Breadcrumbs data={data} />
+        <Breadcrumbs data={[
+          { href: '/catalog', name: 'Каталог' },
+          { href: '/catalog/' + data['group']['code'], name: data['group']['name'] },
+          { href: '/catalog/' + data['group']['code'] + '/' + data['category']['code'], name: data['category']['name'] },
+          { name: data['title'] },
+        ]} />
       </aside>
       <header className={styles['title']}>
         <Header level={2}>{ data['title'] }</Header>
@@ -30,19 +35,23 @@ function Main({ data, comments }: IProps): JSX.Element {
       <section className={styles['content']}>
         <Content data={data} comments={comments} />
       </section>
+      { !! data['attributes'].length && (
+        <div className={styles['attributes']}>
+          <Attributes attributes={data['attributes']} />
+        </div>
+      )}
       { !! data['description'] && (
         <div className={styles['description']}>
           <Description description={data['description']} />
         </div>
       )}
-      <div className={styles['attributes']}>
-        <Attributes attributes={data['attributes']} />
-      </div>
-      <div className={styles['comments']}>
-        <Comments uuid={data['uuid']} data={comments['data']} meta={comments['meta']} />
-      </div>
+      { !! comments['data'].length && (
+        <div className={styles['comments']}>
+          <Comments uuid={data['uuid']} {...comments} />
+        </div>
+      )}
     </section>
   );
 }
 
-export default Main;
+export default Product;

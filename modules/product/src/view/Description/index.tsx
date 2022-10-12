@@ -1,5 +1,5 @@
 
-import { Header, Editor } from '@library/kit';
+import { Editor } from '@library/kit';
 
 import React from 'react';
 
@@ -13,9 +13,6 @@ interface IProps {
 function Description({ description }: IProps): JSX.Element {
   return (
     <section className={styles['wrapper']}>
-      <div className={styles['header']}>
-        <Header level={3}>Описание</Header>
-      </div>
       <div className={styles['content']}>
         <Editor value={description} />
       </div>

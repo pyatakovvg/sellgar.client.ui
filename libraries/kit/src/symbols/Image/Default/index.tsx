@@ -28,18 +28,18 @@ function Image({ src, width, height, onLoadingComplete }: IProps) {
 
   return (
     <div className={styles['wrapper']}>
-      <div className={styles['image']}>
+      <picture className={styles['image']}>
         <Img
           alt={''}
           src={src}
-          layout="fixed"
+          layout={'fixed'}
           width={width}
           height={height}
-          objectFit="cover"
+          objectFit={'contain'}
           loading={'lazy'}
           onLoadingComplete={() => setLoaded(true)}
         />
-      </div>
+      </picture>
       { ! isLoaded && (
         <div className={styles['loading']}>
           <Spinner />

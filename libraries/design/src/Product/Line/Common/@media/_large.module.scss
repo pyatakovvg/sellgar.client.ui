@@ -9,17 +9,15 @@
   flex: 1 0;
 }
 
-.content {
+.header {
 
   display: block;
 }
 
-.controls {
+.content {
 
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 auto;
-  min-height: 48px;
+  display: block;
+  height: 80px;
 }
 
 .information {

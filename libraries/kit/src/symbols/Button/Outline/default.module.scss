@@ -6,7 +6,7 @@
 
   display: inline-block;
   font-family: inherit;
-  border-radius: 8px;
+  border-radius: $border-radius-small;
   cursor: pointer;
   background: transparent;
   transition: color 150ms, border-color 150ms;

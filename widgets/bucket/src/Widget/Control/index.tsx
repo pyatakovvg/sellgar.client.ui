@@ -15,17 +15,14 @@ interface IProps {
 
 function Control({ onClick }: IProps) {
   const bucket = useSelector(selectData) as any;
-  const count = React.useMemo(() => bucket ? bucket['products'].reduce((accum: number, item: any) => {
-    return accum + item['count'];
-  }, 0) : 0, [bucket]);
 
   return (
     <div className={styles['wrapper']} onClick={onClick}>
       <div className={styles['logo']}>
         <span className={cn(styles['icon'], 'fa-solid fa-cart-shopping')} />
       </div>
-      { !! count && (
-        <span className={styles['count']}>{ count }</span>
+      { !! bucket?.['count'] && (
+        <span className={styles['count']}>{ bucket['count'] }</span>
       )}
     </div>
   );

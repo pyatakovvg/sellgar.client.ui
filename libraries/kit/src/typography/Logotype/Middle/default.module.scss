@@ -2,16 +2,11 @@
 @import "~@library/theme";
 
 
-.content {
+.logotype {
 
   display: inline-block;
-  font-size: 16px;
-  color: $primary-dark;
-  font-weight: $font-weight-medium;
-  cursor: pointer;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
+  width: 110px;
+  height: 22px;
+  background: url("./logotype.svg") no-repeat;
+  background-size: contain;
 }

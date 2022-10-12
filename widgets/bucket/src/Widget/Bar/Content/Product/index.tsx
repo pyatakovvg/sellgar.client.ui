@@ -4,68 +4,59 @@ import { Text, Image, Count } from '@library/kit';
 
 import React from 'react';
 import Link from 'next/link';
-import { useDispatch, useSelector } from 'react-redux';
+import getConfig from 'next/config';
+import { useDispatch } from 'react-redux';
 
-import { selectData } from '../../../../store/slice';
-import { changeOpen, addToCart } from '../../../../store/commands';
+import { changeOpen, addToBucket } from '../../../../store/commands';
 
 import styles from './@media/index.module.scss';
 
 
-function Product({ externalId, productUuid, groupCode, categoryCode, modeUuid, title, value, vendor, price, currency, count, imageUuid }: any) {
+const config = getConfig();
+const process = config['publicRuntimeConfig'];
+
+
+function Product({ uuid, count, fullPrice, product }: any) {
   const dispatch = useDispatch();
-  const checkout = useSelector(selectData) as any;
 
   function handleClose() {
     dispatch(changeOpen(false));
   }
 
   function handleChange(value: number) {
-    dispatch(addToCart({
-      products: checkout['products'].map((item: any) => {
-        if (item['productUuid'] === productUuid && item['modeUuid'] === modeUuid) {
-          return {
-            ...item,
-            count: value,
-          };
-        }
-        return item;
-      }),
+    dispatch(addToBucket({
+      uuid,
+      count: value,
+      productUuid: product['uuid'],
     }));
   }
 
   return (
     <div className={styles['wrapper']}>
       <div className={styles['gallery']}>
-        <Image width={96} height={96} src={window.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + imageUuid + '?size=96x96'} />
+        <Image width={96} height={96} src={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + product['image']['uuid'] + '?width=96'} />
       </div>
       <div className={styles['common']}>
         <div className={styles['line']}>
-          <Link href={'/catalog/' + groupCode + '/' + categoryCode + '/' + externalId}>
+          <Link href={'/catalog/' + product['groupCode'] + '/' + product['categoryCode'] + '/' + product['externalId']}>
             <a className={styles['link']} onClick={handleClose}>
-              <Text type={'strong'}>{ title }</Text>
+              <Text type={'strong'}>{ product['title'] }</Text>
             </a>
           </Link>
         </div>
         <div className={styles['line']}>
-          <div className={styles['info']}>
-            <Text type={'description'}>Комплект:&nbsp;</Text>
-            <Text>{ value }</Text>
-          </div>
-        </div>
-        <div className={styles['line']}>
-          <Text type={'description'}>#{ vendor }</Text>
+          <Text type={'description'}>#{ product['externalId'] }</Text>
         </div>
       </div>
       <div className={styles['controls']}>
-        <Count value={count} onChange={handleChange} minValue={1} maxValue={10} />
+        <Count value={count} onChange={handleChange} minValue={1} />
       </div>
       <div className={styles['price']}>
         <div className={styles['line']}>
-          <Text type={'description'}>{ count } x { numeral(price).format() } { currency['displayName'] }</Text>
+          <Text type={'description'}>{ count } x { numeral(product['price']).format() } { product['currency']['displayName'] }</Text>
         </div>
         <div className={styles['line']}>
-          <Text type={'strong'}>= { numeral(price * count).format() } { currency['displayName'] }</Text>
+          <Text type={'strong'}>= { numeral(fullPrice).format() } { product['currency']['displayName'] }</Text>
         </div>
       </div>
     </div>

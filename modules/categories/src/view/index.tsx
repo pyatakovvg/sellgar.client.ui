@@ -1,39 +1,30 @@
 
 import { Header } from '@library/kit';
+import { Breadcrumbs } from '@library/design';
 
 import React from 'react';
-import { useDispatch } from 'react-redux';
 
 import Content from './Content';
-import Breadcrumbs from './Breadcrumbs';
-
-import { getCategoriesRequestSuccessAction } from '../store/slice';
 
 import styles from './@media/index.module.scss';
 
 
 interface IProps {
-  group: any;
-  data: Array<any>;
-  meta: any;
-  env: any;
+  data: any;
 }
 
 
-function Categories({ group, data, meta }: IProps) {
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    dispatch(getCategoriesRequestSuccessAction({ data, meta }));
-  }, []);
-
+function Categories({ data }: IProps) {
   return (
     <section className={styles['wrapper']}>
       <div className={styles['breadcrumbs']}>
-        <Breadcrumbs data={group} />
+        <Breadcrumbs data={[
+          { href: '/catalog', name: 'Каталог' },
+          { name: data['name'] },
+        ]} />
       </div>
       <div className={styles['header']}>
-        <Header level={2}>{ group['name'] }</Header>
+        <Header level={2}>{ data['name'] }</Header>
       </div>
       <section className={styles['content']}>
         <Content data={data} />

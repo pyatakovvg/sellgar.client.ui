@@ -1,6 +1,4 @@
 
-import { Text } from '@library/kit';
-
 import React from 'react';
 import Link from 'next/link';
 
@@ -23,9 +21,7 @@ function Navigate({ groups }: any) {
       </div>
       <div className={styles['control']}>
         <Link href={'/catalog'}>
-          <a>
-            <Text>Перейти в каталог</Text>
-          </a>
+          <a className={styles['link']}>Перейти в каталог</a>
         </Link>
       </div>
     </menu>

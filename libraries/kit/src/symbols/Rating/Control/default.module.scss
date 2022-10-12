@@ -7,8 +7,8 @@
   display: inline-flex;
   flex-direction: column;
   flex: 0 0 auto;
-  border-radius: 6px;
-  border: 1px solid $gray-light;
+  border-radius: $border-radius-small;
+  border: 1px solid $gray;
   background: $white;
   padding: 12px 18px;
   transition: border 150ms;

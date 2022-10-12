@@ -1,0 +1,36 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  margin: 8px 0 8px;
+  align-items: center;
+}
+
+.content {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.email {
+
+  font-size: 12px;
+  font-weight: $font-weight-medium;
+  color: $primary-light;
+}
+
+.phone {
+
+  font-size: 11px;
+  font-weight: $font-weight-medium;
+  color: $primary-light;
+  margin: 0 0 0 16px;
+}

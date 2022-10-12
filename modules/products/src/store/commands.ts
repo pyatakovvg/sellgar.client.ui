@@ -3,60 +3,51 @@ import request from '@package/request';
 
 import getConfig from 'next/config';
 
-import {
-  getProductsRequestAction,
-  getProductsRequestFailAction,
-  getProductsRequestSuccessAction,
-} from './slice';
-
 
 const config = getConfig();
 const process = config['publicRuntimeConfig'];
 
 
-export async function getCategoryRequest(params: any) {
-  return await request({
-    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/categories',
+export async function getBrands(params: any) {
+  const result = await request({
+    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/products/brands',
     method: 'get',
-    params,
-  })
+    params: {
+      ...params,
+    },
+  });
+  return result['data'];
 }
 
-export async function getProductsRequest(params: any) {
+export async function getCategory(params: any) {
+  const result = await request({
+    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/products/categories',
+    method: 'get',
+    params: {
+      ...params,
+    },
+  });
+
+  return result['data'][0];
+}
+
+export async function getAttributes(params: any) {
+  const result = await request({
+    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/products/attributes',
+    method: 'get',
+    params: {
+      ...params,
+      exclude: ['products'],
+    },
+  });
+
+  return result['data'];
+}
+
+export async function getProducts(params: any) {
   return await request({
     url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/products',
     method: 'get',
     params,
   })
-}
-
-export async function getBrandsRequest(params: any) {
-  return await request({
-    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/products/brands',
-    method: 'get',
-    params,
-  });
-}
-
-export async function getAttributesRequest(params: any) {
-  return await request({
-    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/products/attributes',
-    method: 'get',
-    params,
-  })
-}
-
-export function getProducts(params: any) {
-  return async function(dispatch: any) {
-    try {
-      dispatch(getProductsRequestAction());
-
-      const result = await getProductsRequest(params);
-
-      dispatch(getProductsRequestSuccessAction(result));
-    }
-    catch(error) {
-      dispatch(getProductsRequestFailAction());
-    }
-  }
 }

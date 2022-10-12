@@ -1,4 +1,5 @@
 
+import { pushFail } from '@package/push';
 import request from '@package/request';
 
 import { Dispatch } from 'redux';
@@ -25,14 +26,6 @@ const config = getConfig();
 const process = config['publicRuntimeConfig'];
 
 
-export async function getBucketRequest(headers: any): Promise<any> {
-  return await request({
-    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/checkouts',
-    method: 'get',
-    headers,
-  });
-}
-
 export function changeOpen(status: boolean): any {
   return function(dispatch: Dispatch): void {
     dispatch(changeOpenAction(status));
@@ -40,50 +33,58 @@ export function changeOpen(status: boolean): any {
 }
 
 export function getBucket(): any {
-  return async function(dispatch: Dispatch): Promise<void> {
+  return async function(dispatch: Dispatch) {
     try {
-      dispatch(getBucketRequestAction(null));
+      dispatch(getBucketRequestAction());
 
       const result = await request({
-        url: window.env['GATEWAY_SERVICE_API'] + '/api/v1/checkouts',
+        url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/bucket',
         method: 'get',
       });
 
       dispatch(getBucketSuccessRequestAction(result['data']));
     }
     catch(error) {
-      console.log(error)
-      dispatch(getBucketFailRequestAction(null));
+      dispatch(getBucketFailRequestAction());
+      dispatch<any>(pushFail('Ошибка получения данных по счету'));
     }
   }
 }
 
-export function addToCart(data: any): any {
-  return async function(dispatch: Dispatch): Promise<void> {
+export function addToBucket(data: any): any {
+  return async function(dispatch: Dispatch) {
     try {
       dispatch(updateBucketRequestAction(null));
 
-      const result = await request({
-        url: window.env['GATEWAY_SERVICE_API'] + '/api/v1/checkouts',
+      await request({
+        url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/bucket',
         method: 'post',
-        data,
+        data: {
+          ...data,
+        },
+      });
+
+      const result = await request({
+        url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/bucket',
+        method: 'get',
       });
 
       dispatch(updateBucketSuccessRequestAction(result['data']));
     }
     catch(error) {
       dispatch(updateBucketFailRequestAction(null));
+      dispatch<any>(pushFail('Ошибка при обновлении данных'));
     }
   }
 }
 
-export function destroyCart(): any {
-  return async function(dispatch: Dispatch): Promise<void> {
+export function cleanBucket(): any {
+  return async function(dispatch: Dispatch) {
     try {
       dispatch(destroyBucketRequestAction(null));
 
       const result = await request({
-        url: window.env['GATEWAY_SERVICE_API'] + '/api/v1/checkouts',
+        url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/bucket',
         method: 'delete',
       });
 
@@ -91,6 +92,7 @@ export function destroyCart(): any {
     }
     catch(error) {
       dispatch(destroyBucketFailRequestAction(null));
+      dispatch<any>(pushFail('Ошибка при удалении данных'));
     }
   }
 }

@@ -7,11 +7,11 @@
   display: inline-flex;
   flex-direction: row;
   flex: 0 0 auto;
-  padding: 6px 12px;
+  padding: 3px 6px;
   border: 1px solid $gray-light;
-  border-radius: 6px;
+  border-radius: $border-radius-small;
   cursor: pointer;
-  transition: border 150ms;
+  transition: border $transition-duration;
 
   &:hover {
 
@@ -33,13 +33,13 @@
 .value {
 
   display: block;
-  margin: 0 0 0 12px;
+  margin: 0 0 0 8px;
 }
 
 .text {
 
   display: block;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: $font-weight-medium;
   color: $dark;
   margin: 2px 0 0;

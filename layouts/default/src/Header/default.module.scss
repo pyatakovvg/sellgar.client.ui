@@ -7,28 +7,22 @@
   display: flex;
   flex-direction: row;
   flex: 1 0;
-  margin: 24px 0;
+  margin: 16px 0;
   align-items: center;
 }
 
 .logotype {
 
   display: block;
-}
-
-.header {
-
-  display: block;
-  margin: 0 0 0 48px;
+  font-size: 0;
 }
 
 .content {
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex: 1 0;
-  margin: 0 0 0 24px;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .controls {

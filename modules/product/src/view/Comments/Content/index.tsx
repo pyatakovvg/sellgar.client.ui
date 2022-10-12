@@ -13,7 +13,6 @@ interface IProps {
 }
 
 function Comments({ productUuid, data }: IProps) {
-
   if ( ! data.length) {
     return (
       <Empty />

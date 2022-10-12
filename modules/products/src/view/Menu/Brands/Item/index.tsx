@@ -1,5 +1,5 @@
 
-import { Checkbox } from '@library/kit';
+import { Checkbox, Text } from '@library/kit';
 
 import React from 'react';
 import { useRouter } from 'next/router';
@@ -25,7 +25,7 @@ function getUpdatedQuery(query: Array<any>, value: string) {
 }
 
 
-function Item({ code, name, productsCount }: any) {
+function Item({ code, name, products }: any) {
   const router = useRouter();
   const query = getQuery(router['query']['brand']);
 
@@ -47,10 +47,11 @@ function Item({ code, name, productsCount }: any) {
     <div className={styles['wrapper']}>
       <div className={styles['link']}>
         <div className={styles['control']}>
-          <Checkbox value={query.some((item: string) => item === code)} onChange={() => handleSelect(code)} />
+          <Checkbox value={query.some((item: string) => item === code)} onChange={() => handleSelect(code)}>
+            <Text type={'strong'}>{ name }</Text>
+          </Checkbox>
         </div>
-        <span className={styles['content']}>{ name }</span>
-        <span className={styles['count']}>{ productsCount } тов.</span>
+        <span className={styles['count']}>({ products })</span>
       </div>
     </div>
   );

@@ -1,50 +1,35 @@
 
 import Layout from '@layout/default';
-import Module, { getGroupsRequest } from '@module/groups';
-import { getBucketRequest, getBucketSuccessRequestAction } from '@widget/bucket';
+import Module, { getGroups } from '@module/groups';
 
 import React from 'react';
 import Head from 'next/head';
-import { useDispatch } from 'react-redux';
 
 
 interface IProps {
-  bucket: any;
+  title: string;
   data: Array<any>;
-  meta: any;
-  env: any;
 }
 
 
-export default function Groups<NextPage>(props: IProps) {
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    window.env = props['env'];
-    dispatch(getBucketSuccessRequestAction(props['bucket']));
-  }, []);
-
+export default function Groups<NextPage>({ title, ...rest }: IProps) {
   return (
     <Layout>
       <Head>
-        <title>{ `${process.env['TITLE'] } Каталог.` }</title>
+        <title>{ title }</title>
       </Head>
-      <Module {...props} />
+      <Module {...rest} />
     </Layout>
   );
 }
 
-export async function getServerSideProps({ req }: any) {
-  const bucket = await getBucketRequest(req['headers']);
-  const result = await getGroupsRequest();
+export async function getServerSideProps() {
+  const groups = await getGroups();
 
   return {
     props: {
-      bucket: bucket['data'],
-      data: result['data'],
-      env: {
-        GATEWAY_SERVICE_API: process.env['GATEWAY_SERVICE_API'],
-      },
+      title: `${process.env['TITLE'] } Каталог.`,
+      data: groups,
     },
   };
 }

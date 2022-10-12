@@ -10,14 +10,13 @@ interface IProps {
   type?: TType,
   uuid: string;
   externalId: string;
-  gallery: Array<any>;
+  images: Array<any>;
   title: string;
-  originName: string;
   group: any;
   category: any;
   brand: any;
-  modes: Array<any>;
-  commentsCount: number;
+  price: number;
+  currency: any;
 }
 
 

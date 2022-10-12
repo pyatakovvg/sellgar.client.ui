@@ -46,11 +46,11 @@ function Image({ srcs }: IProps): JSX.Element {
             <div key={index} className={cn(styles['thumb'], {[styles['is-active']]: index === active })} onClick={() => setActive(index)}>
               <Img
                 alt={''}
-                src={src + '?size=64x64'}
+                src={src + '?width=64&height=64'}
                 layout="fixed"
                 width={64}
                 height={64}
-                objectFit="cover"
+                objectFit="contain"
                 loading={'lazy'}
               />
             </div>
@@ -66,7 +66,7 @@ function Image({ srcs }: IProps): JSX.Element {
               layout="fixed"
               width={500}
               height={500}
-              objectFit="cover"
+              objectFit="contain"
               loading={'lazy'}
             />
           </div>

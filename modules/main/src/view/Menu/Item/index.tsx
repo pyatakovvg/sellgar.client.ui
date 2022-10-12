@@ -10,7 +10,7 @@ import cn from 'classnames';
 import styles from './@media/index.module.scss';
 
 
-function Item({ code, icon, name, categories, productsCount }: any) {
+function Item({ code, icon, name, categories, products }: any) {
   const thumbClassName = React.useMemo(() => cn(styles['thumb'], icon), []);
   const arrowClassName = React.useMemo(() => cn(styles['arrow'], 'fa-solid fa-angle-right'), []);
 
@@ -23,7 +23,7 @@ function Item({ code, icon, name, categories, productsCount }: any) {
           </div>
           <div className={styles['information']}>
             <span className={styles['name']}>{ name }</span>
-            <span className={styles['count']}>{ productsCount } { nounDeclension(productsCount, ['товар', 'товара', 'товаров']) }</span>
+            <span className={styles['count']}>{ products } { nounDeclension(products, ['товар', 'товара', 'товаров']) }</span>
           </div>
           <div className={styles['control']}>
             <span className={arrowClassName} />

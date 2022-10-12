@@ -11,14 +11,14 @@ type TType = 'default' | 'strong' | 'description';
 interface IProps {
   type?: TType;
   className?: string;
-  children: JSX.Element | React.ReactNode | string;
+  children: any;
 }
 
 
-function Factory({ type, children, ...rest }: IProps): JSX.Element | null {
+function Factory({ type, children, ...rest }: IProps) {
   switch (type) {
-    case 'strong': return <Strong {...rest}>{ children }</Strong>
-    case 'description': return <Description {...rest}>{ children }</Description>
+    case 'strong': return <Strong {...rest}>{ children }</Strong>;
+    case 'description': return <Description {...rest}>{ children }</Description>;
     default: return <Default {...rest}>{ children }</Default>;
   }
 }

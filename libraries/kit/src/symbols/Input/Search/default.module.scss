@@ -9,7 +9,7 @@
   flex-direction: row;
   flex: 1 0;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: $border-radius-small;
   background: $white;
   overflow: hidden;
   vertical-align: middle;

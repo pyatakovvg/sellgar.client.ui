@@ -1,13 +1,11 @@
 
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import { Filter } from '@library/design';
 
-import Filter from './Filter';
+import React from 'react';
+
 import Menu from './Menu';
 import Content from './Content';
 import Paging from './Paging';
-
-import { getProductsRequestSuccessAction } from '../store/slice';
 
 import styles from './@media/index.module.scss';
 
@@ -16,17 +14,10 @@ interface IProps {
   groups: Array<any>;
   data: Array<any>;
   meta: any;
-  env: any;
 }
 
 
 function Main({ groups, data, meta }: IProps) {
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    dispatch(getProductsRequestSuccessAction({ data, meta }));
-  }, [data]);
-
   return (
     <section className={styles['wrapper']}>
       <aside className={styles['aside']}>

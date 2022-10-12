@@ -1,9 +1,9 @@
 
 import React from 'react';
 
-import Big from './Big';
 import Small from './Small';
 import Middle from './Middle';
+import Big from './Big';
 
 
 type TType = 'small' | 'middle' | 'big';

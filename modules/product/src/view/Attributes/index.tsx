@@ -3,7 +3,7 @@ import {Header, Text} from '@library/kit';
 
 import React from 'react';
 
-import Item from './Item';
+import Group from './Group';
 
 import styles from './@media/index.module.scss';
 
@@ -22,8 +22,8 @@ function Attributes({ attributes }: IProps): JSX.Element {
         { ! attributes.length && (
           <Text type={'strong'}>У товара нет характеристик</Text>
         )}
-        {attributes.map((item, index) => (
-          <Item key={index} {...item} />
+        {attributes.map((item) => (
+          <Group key={item['uuid']} {...item} />
         ))}
       </div>
     </section>

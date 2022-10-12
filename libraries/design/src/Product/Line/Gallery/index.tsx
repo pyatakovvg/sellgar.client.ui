@@ -1,5 +1,5 @@
 
-import { Text, Gallery } from '@library/kit';
+import { Gallery } from '@library/kit';
 
 import React from 'react';
 
@@ -8,18 +8,14 @@ import styles from './@media/index.module.scss';
 
 interface IProps {
   items: Array<any>;
-  externalId: string;
 }
 
 
-function Image({ items, externalId }: IProps): JSX.Element {
+function Image({ items }: IProps) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['content']}>
-        <Gallery items={items} />
-      </div>
-      <div className={styles['description']}>
-        <Text type={'description'}>#{ externalId }</Text>
+        <Gallery width={160} height={160} items={items} />
       </div>
     </div>
   );

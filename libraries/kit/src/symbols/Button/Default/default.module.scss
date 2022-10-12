@@ -8,9 +8,9 @@
   padding: 15px 32px 12px;
   font-size: 13px;
   font-family: inherit;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-medium;
   color: $white;
-  border-radius: 8px;
+  border-radius: $border-radius-small;
   cursor: pointer;
   transition: background-color 150ms, border-color 150ms;
 
@@ -35,8 +35,8 @@
 
   &--middle {
 
-    font-size: 14px;
-    padding: 12px 32px 12px;
+    font-size: 13px;
+    padding: 10px 24px 10px;
   }
 
   &--large {

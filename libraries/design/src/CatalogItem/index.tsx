@@ -10,26 +10,27 @@ import styles from './@media/index.module.scss';
 
 interface IProps {
   name: string;
-  imageUuid: string;
-  productsCount: number;
+  image: any;
+  products: number;
 }
 
 const config = getConfig();
 const process = config['publicRuntimeConfig'];
 
 
-function CatalogItem({ name, imageUuid, productsCount }: IProps) {
+function CatalogItem({ name, image, products }: IProps) {
+  console.log(image)
   return (
     <div className={styles['wrapper']}>
       <div className={styles['image']}>
-        <Image src={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + imageUuid + '?size=160x160'} width={160} height={160} />
+        <Image src={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + image?.['uuid']} width={160} height={160} />
       </div>
       <div className={styles['content']}>
         <div className={styles['text']}>
           <Text type={'strong'}>{ name }</Text>
         </div>
         <div className={styles['description']}>
-          <Text type={'description'}>{ productsCount } { nounDeclension(productsCount, ['товар', 'товара', 'товаров']) }</Text>
+          <Text type={'description'}>{ products } { nounDeclension(products, ['товар', 'товара', 'товаров']) }</Text>
         </div>
       </div>
     </div>

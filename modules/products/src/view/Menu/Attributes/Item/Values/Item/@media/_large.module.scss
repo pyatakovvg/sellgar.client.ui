@@ -4,40 +4,7 @@
 
 .wrapper {
 
-  position: relative;
-  display: block;
-}
-
-.link {
-
-  display: flex;
-  flex-direction: row;
-  flex: 1 0;
-  text-decoration: none;
-  align-items: center;
-}
-
-.control {
-
-  display: block;
-}
-
-.content {
-
   display: flex;
   flex-direction: column;
   flex: 1 0;
-  font-size: 14px;
-  font-weight: $font-weight-bold;
-  color: $dark;
-  margin: 0 0 0 8px;
-}
-
-.count {
-
-  display: block;
-  margin: 0 0 0 16px;
-  font-size: 10px;
-  font-weight: $font-weight-bold;
-  color: $primary-dark;
 }

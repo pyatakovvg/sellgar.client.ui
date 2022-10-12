@@ -3,6 +3,7 @@ import React from 'react';
 
 import Header from './Header';
 import Footer from './Footer';
+import Information from './Information';
 
 import styles from './@media/index.module.scss';
 
@@ -12,9 +13,14 @@ interface IProps {
 }
 
 
-function DefaultLayout({ children }: IProps): JSX.Element {
+function DefaultLayout({ children }: IProps) {
   return (
     <section className={styles['wrapper']}>
+      <div className={styles['line']}>
+        <div className={styles['container']}>
+          <Information />
+        </div>
+      </div>
       <header className={styles['header']}>
         <div className={styles['container']}>
           <Header />
@@ -36,4 +42,4 @@ function DefaultLayout({ children }: IProps): JSX.Element {
   );
 }
 
-export default React.memo(DefaultLayout);
+export default DefaultLayout;

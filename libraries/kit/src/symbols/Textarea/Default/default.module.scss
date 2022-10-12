@@ -8,7 +8,8 @@
   display: block;
   background: $white;
   border: 1px solid $gray;
-  border-radius: 5px;  overflow: hidden;
+  border-radius: $border-radius-small;
+  overflow: hidden;
   transition: border 150ms;
   box-sizing: border-box;
 

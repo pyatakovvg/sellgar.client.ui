@@ -6,10 +6,34 @@
 
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex: 1 0;
+  align-items: center;
   padding: 16px 24px;
   text-decoration: none;
+}
+
+.icon {
+
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: $gray-light;
+  border-radius: $border-radius-small;
+}
+
+.thumb {
+
+  color: $info;
+  font-size: 24px;
+}
+
+.information {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  margin: 0 0 0 16px;
 }
 
 .content {
@@ -19,7 +43,7 @@
   flex: 1 0;
   font-size: 14px;
   font-weight: $font-weight-medium;
-  color: $dark;
+  color: $black;
 }
 
 .count {
@@ -28,13 +52,13 @@
   margin: 6px 0 0;
   font-size: 10px;
   font-weight: $font-weight-bold;
-  color: $gray;
+  color: $dark;
 }
 
 .wrapper:hover {
 
   color: $info;
-  background: rgba($gray-light, .4);
+  background: rgba($gray-light, .6);
 }
 
 .wrapper:hover .content {

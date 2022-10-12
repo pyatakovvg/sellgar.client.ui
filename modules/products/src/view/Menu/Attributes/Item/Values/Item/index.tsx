@@ -1,5 +1,5 @@
 
-import { Checkbox } from '@library/kit';
+import { Checkbox, Text } from '@library/kit';
 
 import React from 'react';
 import { useRouter } from 'next/router';
@@ -25,7 +25,7 @@ function getUpdatedQuery(query: Array<any>, value: string) {
 }
 
 
-function AttributeValue({ code, value, unitName }: any) {
+function AttributeValue({ code, value, unit }: any) {
   const router = useRouter();
   const query = router['query'];
 
@@ -45,12 +45,9 @@ function AttributeValue({ code, value, unitName }: any) {
 
   return (
     <div className={styles['wrapper']}>
-      <div className={styles['link']}>
-        <div className={styles['control']}>
-          <Checkbox value={normalizeQuery(query['attr[' + code + ']']).some((item) => item === value)} onChange={() => handleSelect(value)} />
-        </div>
-        <span className={styles['content']}>{ value } { unitName || '' }</span>
-      </div>
+      <Checkbox value={normalizeQuery(query['attr[' + code + ']']).some((item) => item === value)} onChange={() => handleSelect(value)}>
+        <Text>{ value } { unit?.['name'] || '' }</Text>
+      </Checkbox>
     </div>
   );
 }

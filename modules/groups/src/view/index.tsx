@@ -1,35 +1,26 @@
 
 import { Header } from '@library/kit';
+import { Breadcrumbs } from '@library/design';
 
 import React from 'react';
-import { useDispatch } from 'react-redux';
 
 import Content from './Content';
-import Breadcrumbs from './Breadcrumbs';
-
-import { getGroupsRequestSuccessAction } from '../store/slice';
 
 import styles from './@media/index.module.scss';
 
 
 interface IProps {
   data: Array<any>;
-  meta: any;
-  env: any;
 }
 
 
-function Groups({ data, meta }: IProps) {
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    dispatch(getGroupsRequestSuccessAction({ data, meta }));
-  }, []);
-
+function Groups({ data }: IProps) {
   return (
     <section className={styles['wrapper']}>
       <div className={styles['breadcrumbs']}>
-        <Breadcrumbs />
+        <Breadcrumbs data={[
+          { name: 'Каталог' }
+        ]} />
       </div>
       <div className={styles['header']}>
         <Header level={2}>Каталог товаров</Header>

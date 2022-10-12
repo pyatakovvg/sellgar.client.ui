@@ -1,11 +1,9 @@
 
 import Layout from '@layout/default';
-import Module, { getProduct, getComments, addOpinionRequestSuccess } from '@module/product';
-import { getBucketRequest, getBucketSuccessRequestAction } from '@widget/bucket';
+import Module, { getProduct, getComments } from '@module/product';
 
 import React from 'react';
 import Head from 'next/head';
-import { useDispatch } from 'react-redux';
 
 
 interface IProps {
@@ -17,14 +15,6 @@ interface IProps {
 
 
 export default function ProductByExternalId<NextPage>(props: IProps) {
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    window.env = props['env'];
-    dispatch(getBucketSuccessRequestAction(props['bucket']));
-    dispatch(addOpinionRequestSuccess(props['comments']));
-  }, []);
-
   return (
     <Layout>
       <Head>
@@ -37,15 +27,13 @@ export default function ProductByExternalId<NextPage>(props: IProps) {
 
 export async function getServerSideProps(props: any) {
   const { externalId }: any = props['query'];
-  const bucket = await getBucketRequest(props['req']['headers']);
   const product = await getProduct(externalId);
   const comments = await getComments(product['data']['uuid']);
 
   return {
     props: {
-      bucket: bucket['data'],
       data: product['data'],
-      comments: comments,
+      comments: { data: comments['data'], meta: { totalRows: comments['meta']['totalRows'] }},
       env: {
         GATEWAY_SERVICE_API: process.env['GATEWAY_SERVICE_API'],
       },

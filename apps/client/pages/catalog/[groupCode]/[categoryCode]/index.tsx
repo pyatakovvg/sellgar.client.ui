@@ -1,38 +1,28 @@
 
 import Layout from '@layout/default';
-import { getBucketRequest, getBucketSuccessRequestAction } from '@widget/bucket';
-import Module, { getCategoryRequest, getBrandsRequest, getAttributesRequest, getProductsRequest } from '@module/products';
+import Module, { getCategory, getBrands, getAttributes, getProducts } from '@module/products';
 
 import React from 'react';
 import Head from 'next/head';
-import { useDispatch } from 'react-redux';
 
 
 interface IProps {
-  bucket: any;
+  title: string;
   category: any;
   brands: Array<any>;
   attributes: Array<any>;
   data: Array<any>;
   meta: any;
-  env: any;
 }
 
 
-export default function Main<NextPage>(props: IProps) {
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    window.env = props['env'];
-    dispatch(getBucketSuccessRequestAction(props['bucket']));
-  }, []);
-
+export default function Main<NextPage>({ title, ...rest }: IProps) {
   return (
     <Layout>
       <Head>
-        <title>{ `${process.env['TITLE']} ${props['category']['name']}.` }</title>
+        <title>{ title }</title>
       </Head>
-      <Module {...props} />
+      <Module {...rest} />
     </Layout>
   );
 }
@@ -41,22 +31,21 @@ export async function getServerSideProps(props: any) {
   const query = props['query'];
   const params = props['params'];
 
-  const bucket = await getBucketRequest(props['req']['headers']);
-  const category = await getCategoryRequest({
+  const category = await getCategory({
     code: params['categoryCode'],
   });
-  const brands = await getBrandsRequest({
+  const brands = await getBrands({
     groupCode: params['groupCode'],
     categoryCode: params['categoryCode'],
   });
-  const attributes = await getAttributesRequest({
+  const attributes = await getAttributes({
     groupCode: params['groupCode'],
     categoryCode: params['categoryCode'],
     brandCode: query?.['brand'] || undefined,
   });
-  const result = await getProductsRequest({
+  const result = await getProducts({
     ...query,
-    sort: Number(query?.['sort'] || 1),
+    // sort: Number(query?.['sort'] || 1),
     brandCode: query?.['brand'] || undefined,
     take: Number(process.env['TAKE_PRODUCTS']),
     skip: Number((query?.['page'] ?? 1) - 1) * Number(process.env['TAKE_PRODUCTS']),
@@ -64,16 +53,12 @@ export async function getServerSideProps(props: any) {
 
   return {
     props: {
-      bucket: bucket['data'],
-      category: category['data'][0],
-      brands: brands['data'],
-      attributes: attributes['data'],
+      title: `${process.env['TITLE']} ${category['name']}.`,
+      category,
+      brands,
+      attributes,
       data: result['data'],
       meta: result['meta'],
-      env: {
-        TAKE_PRODUCTS: Number(process.env['TAKE_PRODUCTS']),
-        GATEWAY_SERVICE_API: process.env['GATEWAY_SERVICE_API'],
-      },
     },
   };
 }

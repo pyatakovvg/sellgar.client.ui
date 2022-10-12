@@ -1,37 +1,37 @@
 
-import { Header } from '@library/kit';
-
 import React from 'react';
 
-import Modes from './Modes';
+import Title from './Title';
+import Price from './Price';
 import Comments from './Comments';
 
 import styles from './@media/index.module.scss';
 
 
 interface IProps {
+  uuid: string;
   externalId: string;
   group: any;
+  price: number;
+  currency: any;
   category: any;
   title: string;
   brand: any;
-  modes: Array<any>;
   comments: any;
-  onToCart(item: any): void;
 }
 
 
-function Product({ title, brand, modes, comments, onToCart, externalId, group, category }: IProps): JSX.Element {
+function Product({ uuid, title, brand, comments, price, currency, externalId, group, category }: IProps) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['name']}>
-        <Header level={3}>{ brand['name'] } { title }</Header>
+        <Title title={title} brand={brand} />
+      </div>
+      <div className={styles['price']}>
+        <Price uuid={uuid} price={price} currency={currency} />
       </div>
       <div className={styles['rating']}>
         <Comments comments={comments} externalId={externalId} group={group} category={category} />
-      </div>
-      <div className={styles['modes']}>
-        <Modes modes={modes} onToCart={onToCart} />
       </div>
     </div>
   );
