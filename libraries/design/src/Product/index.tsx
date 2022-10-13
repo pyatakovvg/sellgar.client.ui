@@ -17,6 +17,8 @@ interface IProps {
   brand: any;
   price: number;
   currency: any;
+  vendor: string;
+  commentsCount: number;
 }
 
 

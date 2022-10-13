@@ -20,7 +20,8 @@ interface IProps {
   price: number;
   currency: any;
   vendor: string;
-  commentsCount: number;}
+  commentsCount: number;
+}
 
 
 const config = getConfig();

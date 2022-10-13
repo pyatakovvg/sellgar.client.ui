@@ -11,8 +11,8 @@ import styles from './@media/index.module.scss';
 interface IProps {
   group: any;
   category: any;
-  commentsCount: number;
   externalId: string;
+  commentsCount: number;
 }
 
 
