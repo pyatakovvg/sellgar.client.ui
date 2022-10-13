@@ -45,6 +45,7 @@ function Image({ srcs }: IProps): JSX.Element {
           {srcs.map((src: string, index: number) => (
             <div key={index} className={cn(styles['thumb'], {[styles['is-active']]: index === active })} onClick={() => setActive(index)}>
               <Img
+                loader={({ src }: any) => src}
                 alt={''}
                 src={src + '?width=64&height=64'}
                 layout="fixed"
@@ -61,6 +62,7 @@ function Image({ srcs }: IProps): JSX.Element {
         {srcs.map((src: string, index: number) => (
           <div key={index} className={cn(styles['image'], { [styles['is-active']]: index === active })}>
             <Img
+              loader={({ src }: any) => src}
               alt={''}
               src={src + '?size=500x500'}
               layout="fixed"
