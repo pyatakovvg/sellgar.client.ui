@@ -15,7 +15,7 @@ interface IProps {
 }
 
 
-function Gallery({ width, height, items }: IProps): JSX.Element {
+function Gallery({ width, height, items }: IProps) {
   const [active, setActive] = React.useState<number>(0);
 
   function handlePrev() {
@@ -46,7 +46,7 @@ function Gallery({ width, height, items }: IProps): JSX.Element {
     <div className={styles['wrapper']}>
       {items.map((src: string, index: number) => (
         <div key={index} className={cn(styles['image'], { [styles['is-active']]: index === active })}>
-          <Image src={src + '?size=' + width + 'x' + height} width={width} height={height} />
+          <Image src={src} width={width} height={height} />
         </div>
       ))}
       {(items.length > 1) && (

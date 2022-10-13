@@ -26,12 +26,22 @@ function Image({ src, width, height, onLoadingComplete }: IProps) {
     }
   }, [isLoaded]);
 
+  const params = React.useMemo(() => {
+    if (width && ! height) {
+      return '?width=' + width;
+    }
+    else if ( ! width && height) {
+      return '?height=' + width;
+    }
+    return '?width=' + width + '&height=' + height;
+  }, [width, height]);
+
   return (
     <div className={styles['wrapper']}>
       <picture className={styles['image']}>
         <Img
           alt={''}
-          src={src}
+          src={src + params}
           layout={'fixed'}
           width={width}
           height={height}
