@@ -97,7 +97,8 @@ export default async function(options: object) {
     });
 
     instance.interceptors.request.use(function (config: AxiosRequestConfig) {
-      config.paramsSerializer = (params) => {
+      // @ts-ignore
+      config.paramsSerializer = (params: any): string => {
         return qs.stringify(params, { arrayFormat: 'repeat' })
       }
       return config;
