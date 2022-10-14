@@ -12,8 +12,11 @@ module.exports = {
     env: {
       PHONE_CONTACT: process.env['PHONE_CONTACT'],
       EMAIL_CONTACT: process.env['EMAIL_CONTACT'],
-      TAKE_PRODUCTS: process['env']['TAKE_PRODUCTS'],
-      GATEWAY_SERVICE_API: process['env']['GATEWAY_SERVICE_API']
+
+      WEBSITE_URL: process['env']['WEBSITE_URL'],
+      GATEWAY_SERVICE_API: process['env']['GATEWAY_SERVICE_API'],
+
+      TAKE_PRODUCTS: process['env']['TAKE_PRODUCTS']
     }
   }
 }

@@ -4,6 +4,11 @@ import Module, { getProduct, getComments } from '@module/product';
 
 import React from 'react';
 import Head from 'next/head';
+import getConfig from "next/config";
+
+
+const config = getConfig();
+const process = config['publicRuntimeConfig'];
 
 
 interface IProps {
@@ -17,6 +22,19 @@ export default function ProductByExternalId<NextPage>(props: IProps) {
     <Layout>
       <Head>
         <title>{ props['data']['title'] }</title>
+
+        <meta name={'og:title'} content={props['data']['title']} />
+        <meta name={'og:type'} content={'website'} />
+        {props['data']['images'][0] && (
+          <meta name={'og:image'} content={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + props['data']['images'][0]['uuid'] + '?width=124'} />
+        )}
+        <meta name={'og:url'} content={
+          process.env['WEBSITE_URL'] +
+          '/catalog/' +
+          props['data']['group']['code'] + '/' +
+          props['data']['category']['code'] + '/' +
+          props['data']['externalId']
+        } />
       </Head>
       <Module {...props} />
     </Layout>
