@@ -9,11 +9,12 @@ import styles from './@media/index.module.scss';
 
 
 interface IProps {
+  withoutBucket?: boolean;
   children: any;
 }
 
 
-function DefaultLayout({ children }: IProps) {
+function DefaultLayout({ children, withoutBucket }: IProps) {
   return (
     <section className={styles['wrapper']}>
       <div className={styles['line']}>
@@ -23,7 +24,7 @@ function DefaultLayout({ children }: IProps) {
       </div>
       <header className={styles['header']}>
         <div className={styles['container']}>
-          <Header />
+          <Header withoutBucket={withoutBucket || false} />
         </div>
       </header>
       <section className={styles['content']}>

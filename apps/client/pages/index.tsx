@@ -11,7 +11,6 @@ interface IPropsResult {
   groups: any;
   data: any;
   meta: any;
-  env: any;
 }
 
 interface IContext extends GetServerSidePropsContext {
@@ -24,7 +23,7 @@ export default function Main<NextPage>(props: IPropsResult) {
     <Layout>
       <Head>
         <title>{ process.env['TITLE'] }</title>
-        <meta name="description" content="Sellgar - интернет магазин сантехники, плитки, ламината в Крыму. Доставка или самовывоз 24/7. Огромный выбор по лучшей цене. +7 999 999 99 99" />
+        <meta name="description" content="интернет магазин" />
       </Head>
       <Module {...props} />
     </Layout>
@@ -44,10 +43,6 @@ export async function getServerSideProps(context: IContext): Promise<GetServerSi
       groups: groups['data'],
       data: result['data'],
       meta: result['meta'],
-      env: {
-        TAKE_PRODUCTS: Number(process.env['TAKE_PRODUCTS']),
-        GATEWAY_SERVICE_API: process.env['GATEWAY_SERVICE_API'],
-      },
     },
   };
 }

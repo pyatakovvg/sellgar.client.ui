@@ -7,18 +7,17 @@ import Head from 'next/head';
 
 
 interface IProps {
-  title: string;
   data: Array<any>;
 }
 
 
-export default function Groups<NextPage>({ title, ...rest }: IProps) {
+export default function Groups<NextPage>(props: IProps) {
   return (
     <Layout>
       <Head>
-        <title>{ title }</title>
+        <title>Каталог товаров</title>
       </Head>
-      <Module {...rest} />
+      <Module {...props} />
     </Layout>
   );
 }
@@ -28,7 +27,6 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      title: `${process.env['TITLE'] } Каталог.`,
       data: groups,
     },
   };

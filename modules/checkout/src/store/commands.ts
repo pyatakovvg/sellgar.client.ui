@@ -4,10 +4,10 @@ import request from '@package/request';
 import { Dispatch } from "redux";
 
 import {
-  updateCheckoutRequest,
-  updateCheckoutFailRequest,
-  updateCheckoutSuccessRequest,
-} from "./slice";
+  createCheckoutRequest,
+  createCheckoutFailRequest,
+  createCheckoutSuccessRequest,
+} from './slice';
 
 
 export async function getCheckout(props: any) {
@@ -18,6 +18,13 @@ export async function getCheckout(props: any) {
   })
 }
 
+export async function getPayment() {
+  return await request({
+    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/payments',
+    method: 'get',
+  });
+}
+
 export async function getDelivery() {
   return await request({
     url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/delivery',
@@ -25,17 +32,10 @@ export async function getDelivery() {
   })
 }
 
-export async function getPayments() {
-  return await request({
-    url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/payments',
-    method: 'get',
-  })
-}
-
-export function updateCart(data: any): any {
-  return async function(dispatch: Dispatch): Promise<void> {
+export function createCheckout(data: any): any {
+  return async function(dispatch: Dispatch): Promise<any> {
     try {
-      dispatch(updateCheckoutRequest());
+      dispatch(createCheckoutRequest());
 
       const result = await request({
         url: window.env['GATEWAY_SERVICE_API'] + '/api/v1/checkouts',
@@ -43,11 +43,10 @@ export function updateCart(data: any): any {
         data,
       });
 
-      dispatch(updateCheckoutSuccessRequest(result['data']));
+      dispatch(createCheckoutSuccessRequest(result['data']));
     }
     catch(error) {
-      console.log(error)
-      dispatch(updateCheckoutFailRequest());
+      dispatch(createCheckoutFailRequest());
     }
   }
 }

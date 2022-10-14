@@ -16,13 +16,13 @@ interface IProps {
 }
 
 
-export default function Main<NextPage>({ title, ...rest }: IProps) {
+export default function Main<NextPage>(props: IProps) {
   return (
     <Layout>
       <Head>
-        <title>{ title }</title>
+        <title>Купить { props['category']['name'] }</title>
       </Head>
-      <Module {...rest} />
+      <Module {...props} />
     </Layout>
   );
 }
@@ -53,7 +53,6 @@ export async function getServerSideProps(props: any) {
 
   return {
     props: {
-      title: `${process.env['TITLE']} ${category['name']}.`,
       category,
       brands,
       attributes,

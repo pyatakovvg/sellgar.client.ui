@@ -1,13 +1,12 @@
 
 import numeral from '@package/numeral';
 import { Text, Image, Count } from '@library/kit';
+import { changeOpen, addToBucket } from '@widget/bucket';
 
 import React from 'react';
 import Link from 'next/link';
 import getConfig from 'next/config';
 import { useDispatch } from 'react-redux';
-
-import { changeOpen, addToBucket } from '../../../../store/commands';
 
 import styles from './@media/index.module.scss';
 
@@ -49,7 +48,7 @@ function Product({ uuid, count, fullPrice, product }: any) {
         </div>
       </div>
       <div className={styles['controls']}>
-        <Count value={count} onChange={handleChange} minValue={1} />
+        <Count value={count} minValue={1} onChange={handleChange} />
       </div>
       <div className={styles['price']}>
         <div className={styles['line']}>

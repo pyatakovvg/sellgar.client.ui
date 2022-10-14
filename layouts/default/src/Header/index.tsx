@@ -8,7 +8,12 @@ import Link from 'next/link';
 import styles from './default.module.scss';
 
 
-function HeaderComponent() {
+interface IProps {
+  withoutBucket: boolean;
+}
+
+
+function HeaderComponent({ withoutBucket }: IProps) {
   return (
     <section className={styles['wrapper']}>
       <div className={styles['content']}>
@@ -21,7 +26,9 @@ function HeaderComponent() {
         </div>
       </div>
       <div className={styles['controls']}>
-        <BucketWidget />
+        { ! withoutBucket && (
+          <BucketWidget />
+        )}
       </div>
     </section>
   );

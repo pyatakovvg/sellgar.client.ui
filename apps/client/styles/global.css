@@ -6,7 +6,6 @@
 @import "~@library/design";
 
 @import "~@layout/default";
-@import "~@layout/no-cart";
 
 @import "~@package/push";
 @import "~@package/dialog";

@@ -3,35 +3,30 @@ import { Text, Button } from '@library/kit';
 
 import React from 'react';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
 
 import Customer from './Customer';
 import Delivery from './Delivery';
 import Payment from './Payment';
 import Products from './Products';
 
-import { selectData } from '../../store/slice';
-
 import styles from './@media/index.module.scss';
 
 
-function Content({ delivery, payments, handleSubmit, valid, pristine }: any): JSX.Element {
-  const checkout = useSelector(selectData) as any;
-
+function Form({ delivery, payments, handleSubmit, valid, pristine }: any) {
   return (
     <form className={styles['wrapper']} onSubmit={handleSubmit}>
       <div className={styles['content']}>
+        {/*<div className={styles['block']}>*/}
+        {/*  <Customer />*/}
+        {/*</div>*/}
+      {/*  <div className={styles['block']}>*/}
+      {/*    <Delivery data={delivery} />*/}
+      {/*  </div>*/}
+      {/*  <div className={styles['block']}>*/}
+      {/*    <Payment data={payments} />*/}
+      {/*  </div>*/}
         <div className={styles['block']}>
-          <Customer />
-        </div>
-        <div className={styles['block']}>
-          <Delivery data={delivery} />
-        </div>
-        <div className={styles['block']}>
-          <Payment data={payments} />
-        </div>
-        <div className={styles['block']}>
-          <Products {...checkout} />
+          <Products />
         </div>
       </div>
       <div className={styles['controls']}>
@@ -46,4 +41,4 @@ function Content({ delivery, payments, handleSubmit, valid, pristine }: any): JS
   );
 }
 
-export default Content;
+export default Form;

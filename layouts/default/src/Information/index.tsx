@@ -1,19 +1,24 @@
 
 import React from 'react';
 import Link from 'next/link';
+import getConfig from "next/config";
 
 import styles from './default.module.scss';
+
+
+const config = getConfig();
+const process = config['publicRuntimeConfig'];
 
 
 function Information() {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['content']}>
-        <Link href={'mail:support@sellgar.ru'}>
-          <a className={styles['email']}>support@sellgar.ru</a>
+        <Link href={'phone:' + process.env['PHONE_CONTACT']}>
+          <a className={styles['phone']}>{ process.env['PHONE_CONTACT'] }</a>
         </Link>
-        <Link href={'phone:+79999999999'}>
-          <a className={styles['phone']}>+7 999 999 99 99</a>
+        <Link href={'mail:' + process.env['EMAIL_CONTACT']}>
+          <a className={styles['email']}>{ process.env['EMAIL_CONTACT'] }</a>
         </Link>
       </div>
     </div>

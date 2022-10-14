@@ -6,8 +6,6 @@ const REDUCER_NAME = 'module/checkout';
 
 
 const initialState = {
-  data: null,
-  delivery: [],
   inProcess: false,
 };
 
@@ -17,25 +15,16 @@ const slice = createSlice({
   initialState,
   reducers: {
     resetStateAction(state) {
-      state['data'] = null;
-      state['delivery'] = [];
       state['inProcess'] = false;
     },
 
-    getCheckoutRequest() {},
-    getCheckoutFailRequest() {},
-    getCheckoutSuccessRequest(state, { payload }) {
-      state['data'] = payload;
-    },
-
-    updateCheckoutRequest(state) {
+    createCheckoutRequest(state) {
       state['inProcess'] = true;
     },
-    updateCheckoutFailRequest(state) {
+    createCheckoutFailRequest(state) {
       state['inProcess'] = false;
     },
-    updateCheckoutSuccessRequest(state, { payload }) {
-      state['data'] = payload;
+    createCheckoutSuccessRequest(state) {
       state['inProcess'] = false;
     },
   },
@@ -44,15 +33,12 @@ const slice = createSlice({
 export const {
   resetStateAction,
 
-  getCheckoutSuccessRequest,
+  createCheckoutRequest,
+  createCheckoutFailRequest,
+  createCheckoutSuccessRequest,
+} = slice['actions'] as any;
 
-  updateCheckoutRequest,
-  updateCheckoutFailRequest,
-  updateCheckoutSuccessRequest,
-} = slice['actions'];
-
-export const selectData = (state: any) => state[REDUCER_NAME]['data'];
-export const selectInProcess = (state: any) => state[REDUCER_NAME]['inProcess'];
+export const selectInProcess = (state: any): boolean => state[REDUCER_NAME]['inProcess'];
 
 export const name = slice['name'];
 export const reducer = slice['reducer'];

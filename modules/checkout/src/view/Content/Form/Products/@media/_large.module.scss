@@ -18,12 +18,9 @@
 
   display: block;
   margin: 16px 0 0;
-}
-
-.container {
-
-  display: flex;
-  flex-direction: column;
+  padding: 16px;
+  background: $white;
+  border-radius: $border-radius-small;
 }
 
 .item {

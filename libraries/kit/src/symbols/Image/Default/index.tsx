@@ -41,13 +41,12 @@ function Image({ src, width, height, onLoadingComplete }: IProps) {
       <picture className={styles['image']}>
         <Img
           loader={({ src }: any) => src}
-          alt={''}
+          alt={'No image'}
           src={src + params}
-          layout={'fixed'}
+          layout={'responsive'}
           width={width}
           height={height}
           objectFit={'contain'}
-          unoptimized={false}
           loading={'lazy'}
           onLoadingComplete={() => setLoaded(true)}
         />

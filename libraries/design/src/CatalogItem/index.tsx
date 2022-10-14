@@ -19,7 +19,6 @@ const process = config['publicRuntimeConfig'];
 
 
 function CatalogItem({ name, image, products }: IProps) {
-  console.log(image)
   return (
     <div className={styles['wrapper']}>
       <div className={styles['image']}>

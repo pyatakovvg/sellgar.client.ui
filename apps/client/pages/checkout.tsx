@@ -1,48 +1,36 @@
 
-import Layout from '@layout/no-cart';
-import Module, { getCheckout, getDelivery, getPayments } from '@module/checkout';
+import Layout from '@layout/default';
+import Module, { getDelivery, getPayment } from '@module/checkout';
 
 import React from 'react';
 import Head from 'next/head';
 
 
 interface IProps {
-  data: any;
+  payment: Array<any>;
   delivery: Array<any>;
-  payments: Array<any>;
-  env: any;
 }
 
 
 export default function Checkout(props: IProps) {
-
-  React.useEffect(() => {
-    window.env = props['env'];
-  }, []);
-
   return (
-    <Layout>
+    <Layout withoutBucket={true}>
       <Head>
-        <title>Sellgar - Оформление заказа</title>
+        <title>Оформление заказа { process.env['TITLE'] }</title>
       </Head>
       <Module {...props} />
     </Layout>
   );
 }
 
-export async function getServerSideProps({ req }: any) {
-  const checkout = await getCheckout({ headers: req['headers'] });
+export async function getServerSideProps() {
+  const payment = await getPayment();
   const delivery = await getDelivery();
-  const payments = await getPayments();
 
   return {
     props: {
-      data: checkout['data'],
+      payment: payment['data'],
       delivery: delivery['data'],
-      payments: payments['data'],
-      env: {
-        GATEWAY_SERVICE_API: process.env['GATEWAY_SERVICE_API'],
-      },
     },
   };
 }
