@@ -24,6 +24,15 @@ export default function Main<NextPage>(props: IPropsResult) {
       <Head>
         <title>{ process.env['TITLE'] }</title>
         <meta name="description" content="интернет магазин" />
+
+        <meta property={'og:title'} content={process.env['TITLE']} />
+        <meta property={'og:type'} content={'website'} />
+        <meta property={'og:image'} content={process.env['GATEWAY_SERVICE_API'] + '/favicon.svg'} />
+        <meta property="og:image:type" content="image/svg+xml" />
+        <meta property="og:image:width" content="124" />
+        <meta property="og:image:height" content="124" />
+        <meta property={'og:url'} content={process.env['WEBSITE_URL']} />
+
       </Head>
       <Module {...props} />
     </Layout>
