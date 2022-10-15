@@ -15,7 +15,7 @@ function Image({ items }: IProps) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['content']}>
-        <Gallery width={160} height={160} items={items} />
+        <Gallery items={items} />
       </div>
     </div>
   );

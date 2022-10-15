@@ -9,13 +9,11 @@ import styles from './default.module.scss';
 
 
 interface IProps {
-  width: number;
-  height: number;
   items: Array<string>;
 }
 
 
-function Gallery({ width, height, items }: IProps) {
+function Gallery({ items }: IProps) {
   const [active, setActive] = React.useState<number>(0);
 
   function handlePrev() {
@@ -46,7 +44,7 @@ function Gallery({ width, height, items }: IProps) {
     <div className={styles['wrapper']}>
       {items.map((src: string, index: number) => (
         <div key={index} className={cn(styles['image'], { [styles['is-active']]: index === active })}>
-          <Image src={src} width={width} height={height} />
+          <Image src={src} width={160} height={160} />
         </div>
       ))}
       {(items.length > 1) && (

@@ -1,0 +1,24 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  width: 500px;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  border-radius: $border-radius-small;
+  background: $gray-light;
+}
+
+.icon {
+
+  display: block;
+  font-size: 48px;
+  color: $white;
+  text-shadow: 1px 1px 0 $gray;
+}

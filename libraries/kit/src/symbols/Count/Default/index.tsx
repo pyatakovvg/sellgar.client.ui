@@ -68,7 +68,7 @@ function DefaultCount({ value, disabled, minValue, maxValue, onChange }: IProps)
 
 DefaultCount.defaultProps = {
   minValue: 1,
-  maxValue: 10,
+  maxValue: 0,
 };
 
 export default DefaultCount;

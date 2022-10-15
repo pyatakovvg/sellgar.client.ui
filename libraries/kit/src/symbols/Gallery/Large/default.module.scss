@@ -1,0 +1,42 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  z-index: 0;
+}
+
+.aside {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  align-items: center;
+  margin: 8px 0 0;
+}
+
+.content {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  width: 500px;
+  height: 500px;
+}
+
+
+.image {
+
+  display: none;
+  z-index: 10;
+}
+
+.is-active {
+
+  display: block;
+}
