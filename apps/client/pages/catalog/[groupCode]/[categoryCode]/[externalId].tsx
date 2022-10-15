@@ -26,7 +26,7 @@ export default function ProductByExternalId<NextPage>(props: IProps) {
         <meta property={'og:title'} content={props['data']['title']} />
         <meta property={'og:type'} content={'website'} />
         {props['data']['images'].map((img: any) => (
-          <meta property={'og:image'} content={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + img['uuid'] + '?width=124&height=124'} />
+          <meta key={img['uuid']} property={'og:image'} content={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + img['uuid'] + '?width=124&height=124'} />
         ))}
         <meta property="og:image:type" content="image/webp" />
         <meta property="og:image:width" content="124" />
