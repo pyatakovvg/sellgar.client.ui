@@ -4,7 +4,12 @@ import Module, { getGroups, getProducts } from '@module/main';
 
 import React from 'react';
 import Head from 'next/head';
+import getConfig from "next/config";
 import type { GetServerSidePropsResult, GetServerSidePropsContext } from 'next';
+
+
+const config = getConfig();
+const process = config['publicRuntimeConfig'];
 
 
 interface IPropsResult {

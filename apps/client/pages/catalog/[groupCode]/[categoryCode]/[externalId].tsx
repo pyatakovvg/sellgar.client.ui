@@ -28,7 +28,6 @@ export default function ProductByExternalId<NextPage>(props: IProps) {
         {props['data']['images'].map((img: any) => (
           <meta property={'og:image'} content={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + img['uuid'] + '?width=124&height=124'} />
         ))}
-
         <meta property="og:image:type" content="image/webp" />
         <meta property="og:image:width" content="124" />
         <meta property="og:image:height" content="124" />
