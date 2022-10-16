@@ -1,0 +1,66 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  align-items: center;
+  background: $white;
+  padding: 8px;
+  border-radius: $border-radius-small;
+}
+
+.line {
+
+  display: block;
+
+  & + & {
+
+    margin: 4px 0 0;
+  }
+}
+
+.gallery {
+
+  display: block;
+  width: 64px;
+  height: 64px;
+}
+
+.common {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  margin: 0 0 0 16px;
+}
+
+.controls {
+
+  display: block;
+  margin: 0 0 0 24px;
+}
+
+.price {
+
+  display: block;
+  width: 120px;
+  text-align: right;
+  margin: 0 0 0 24px;
+}
+
+.link {
+
+  text-decoration: none;
+}
+
+.info {
+
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  align-items: baseline;
+}

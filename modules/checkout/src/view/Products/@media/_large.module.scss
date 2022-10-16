@@ -7,13 +7,23 @@
   display: flex;
   flex-direction: column;
   flex: 1 0;
-  padding: 24px 0 88px;
+  width: 900px;
 }
 
 .content {
 
+  display: block;
+  margin: 24px 0 0;
+}
+
+.item {
+
   display: flex;
   flex-direction: column;
   flex: 1 0;
-  margin: 16px 0 0;
+
+  & + & {
+
+    margin: 8px 0 0;
+  }
 }

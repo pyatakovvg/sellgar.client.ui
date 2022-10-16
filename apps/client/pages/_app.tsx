@@ -27,18 +27,4 @@ function MyApp({ Component, pageProps }: IProps) {
   );
 }
 
-// Only uncomment this method if you have blocking data requirements for
-// every single page in your application. This disables the ability to
-// perform automatic static optimization, causing every page in your app to
-// be server-side rendered.
-
-
-// @ts-ignore
-// MyApp.getInitialProps = async (appContext: AppContext) => {
-//   // calls page's `getInitialProps` and fills `appProps.pageProps`
-//   const appProps = await App.getInitialProps(appContext);
-// console.log(111, appProps)
-//   return { ...appProps, a: 1 }
-// }
-
 export default MyApp;

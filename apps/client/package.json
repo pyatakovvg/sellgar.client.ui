@@ -14,6 +14,7 @@
     "@library/store": "0.0.1",
     "@library/theme": "0.0.1",
     "@module/categories": "0.0.1",
+    "@module/bucket": "0.0.1",
     "@module/checkout": "0.0.1",
     "@module/groups": "0.0.1",
     "@module/main": "0.0.1",

@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 
-const REDUCER_NAME = 'module/checkout';
+const REDUCER_NAME = 'module/bucket';
 
 
 const initialState = {
@@ -17,11 +17,25 @@ const slice = createSlice({
     resetStateAction(state) {
       state['inProcess'] = false;
     },
+
+    createCheckoutRequest(state) {
+      state['inProcess'] = true;
+    },
+    createCheckoutFailRequest(state) {
+      state['inProcess'] = false;
+    },
+    createCheckoutSuccessRequest(state) {
+      state['inProcess'] = false;
+    },
   },
 });
 
 export const {
   resetStateAction,
+
+  createCheckoutRequest,
+  createCheckoutFailRequest,
+  createCheckoutSuccessRequest,
 } = slice['actions'] as any;
 
 export const selectInProcess = (state: any): boolean => state[REDUCER_NAME]['inProcess'];

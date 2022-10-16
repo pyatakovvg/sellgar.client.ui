@@ -1,0 +1,39 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+}
+
+.header {
+
+  display: block;
+}
+
+.content {
+
+  display: block;
+  margin: 16px 0 0;
+  padding: 16px;
+  background: $white;
+  border-radius: $border-radius-small;
+  @include box-shadow('bottom');
+}
+
+.item {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+
+  & + & {
+
+    border-top: 1px solid $gray-light;
+    padding: 4px 0 0;
+    margin: 4px 0 0;
+  }
+}
