@@ -25,7 +25,7 @@ function getUpdatedQuery(query: Array<any>, value: string) {
 }
 
 
-function Item({ code, name, products }: any) {
+function Item({ code, name }: any) {
   const router = useRouter();
   const query = getQuery(router['query']['brand']);
 
@@ -51,7 +51,6 @@ function Item({ code, name, products }: any) {
             <Text type={'strong'}>{ name }</Text>
           </Checkbox>
         </div>
-        <span className={styles['count']}>({ products })</span>
       </div>
     </div>
   );

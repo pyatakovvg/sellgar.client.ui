@@ -9,7 +9,6 @@ import styles from './@media/index.module.scss';
 
 
 function Navigate({ brands, attributes }: any) {
-console.log(attributes)
   return (
     <menu className={styles['wrapper']}>
       <div className={styles['block']}>
