@@ -8,12 +8,10 @@ import styles from './@media/index.module.scss';
 
 
 interface IProps {
-  title: string;
+  name: string;
   group: any;
   category: any;
   externalId: string;
-  vendor: string;
-  commentsCount: number;
 }
 
 

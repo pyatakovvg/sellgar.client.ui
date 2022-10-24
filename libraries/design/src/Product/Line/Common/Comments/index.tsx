@@ -12,7 +12,6 @@ interface IProps {
   group: any;
   category: any;
   externalId: string;
-  commentsCount: number;
 }
 
 

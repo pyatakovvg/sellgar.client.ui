@@ -13,16 +13,16 @@ const process = config['publicRuntimeConfig'];
 
 
 interface IProps {
-  title: string;
+  name: string;
   brand: any;
 }
 
 
-function Product({ title, brand }: IProps) {
+function Product({ name, brand }: IProps) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['content']}>
-        <Header level={3}>{ title }</Header>
+        <Header level={3}>{ name }</Header>
       </div>
       {brand['image'] && (
         <div className={styles['image']}>

@@ -4,8 +4,17 @@
 
 .wrapper {
 
-  display: block;
-  text-align: right;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  align-items: flex-end;
+}
+
+.content {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
 }
 
 .price {
@@ -30,4 +39,10 @@
 
   display: block;
   margin: 8px 0 0;
+}
+
+.brand {
+
+  display: block;
+  height: 40px;
 }

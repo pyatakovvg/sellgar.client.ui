@@ -26,11 +26,11 @@ function Product({ data, comments }: IProps): JSX.Element {
           { href: '/catalog', name: 'Каталог' },
           { href: '/catalog/' + data['group']['code'], name: data['group']['name'] },
           { href: '/catalog/' + data['group']['code'] + '/' + data['category']['code'], name: data['category']['name'] },
-          { name: data['title'] },
+          { name: data['name'] },
         ]} />
       </aside>
       <header className={styles['title']}>
-        <Header level={2}>{ data['title'] }</Header>
+        <Header level={2}>{ data['name'] }</Header>
       </header>
       <section className={styles['content']}>
         <Content data={data} comments={comments} />
