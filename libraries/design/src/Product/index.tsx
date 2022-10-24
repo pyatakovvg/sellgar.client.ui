@@ -11,14 +11,10 @@ interface IProps {
   uuid: string;
   externalId: string;
   images: Array<any>;
-  title: string;
+  name: string;
   group: any;
   category: any;
-  brand: any;
-  price: number;
-  currency: any;
-  vendor: string;
-  commentsCount: number;
+  products: Array<any>;
 }
 
 
