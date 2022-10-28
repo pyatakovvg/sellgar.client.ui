@@ -20,7 +20,7 @@ function Content() {
   const bucket = useSelector(selectData) as any;
 
   function handleDestroy() {
-    dispatch(cleanBucket());
+    dispatch(cleanBucket({ bucketUuid: bucket['uuid'] }));
     dispatch(changeOpen(false));
   }
 
@@ -33,8 +33,8 @@ function Content() {
     <div className={styles['wrapper']}>
       <div className={styles['content']}>
         {bucket['products'].map((item: any) => (
-          <div key={item['uuid']} className={styles['item']}>
-            <Product {...item} />
+          <div key={item['product']['uuid']} className={styles['item']}>
+            <Product bucketUuid={bucket['uuid']} {...item} />
           </div>
         ))}
       </div>
@@ -51,4 +51,4 @@ function Content() {
   );
 }
 
-export default Content;
+export default React.memo(Content);

@@ -4,7 +4,10 @@
 
 .wrapper {
 
-  display: block;
+  display: inline-flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  align-items: center;
 }
 
 .content {
@@ -17,6 +20,12 @@
   display: block;
   margin: 2px 0 0;
   text-align: center;
+}
+
+.icon {
+
+  display: block;
+  margin: 0 0 0 6px;
 }
 
 .remove {

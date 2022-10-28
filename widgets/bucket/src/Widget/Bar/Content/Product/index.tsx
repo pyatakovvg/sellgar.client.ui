@@ -7,25 +7,34 @@ import Link from 'next/link';
 import getConfig from 'next/config';
 import { useDispatch } from 'react-redux';
 
-import { changeOpen, addToBucket } from '../../../../store/commands';
+import { changeOpen, addToBucket, cleanBucket } from '../../../../store/commands';
 
 import styles from './@media/index.module.scss';
+import cn from "classnames";
 
 
 const config = getConfig();
 const process = config['publicRuntimeConfig'];
 
 
-function Product({ uuid, count, fullPrice, product }: any) {
+function Product({ bucketUuid, count, fullPrice, product }: any) {
   const dispatch = useDispatch();
+  const removeClassName = React.useMemo(() => cn(styles['remove'], 'fa-solid fa-xmark'), []);
 
   function handleClose() {
     dispatch(changeOpen(false));
   }
 
+  function handleDelete() {
+    dispatch(cleanBucket({
+      bucketUuid,
+      productUuid: product['uuid'],
+    }));
+  }
+
   function handleChange(value: number) {
     dispatch(addToBucket({
-      uuid,
+      bucketUuid,
       count: value,
       productUuid: product['uuid'],
     }));
@@ -40,7 +49,10 @@ function Product({ uuid, count, fullPrice, product }: any) {
         <div className={styles['line']}>
           <Link href={'/catalog/' + product['groupCode'] + '/' + product['categoryCode'] + '/' + product['externalId']}>
             <a className={styles['link']} onClick={handleClose}>
-              <Text type={'strong'}>{ product['title'] }</Text>
+              <Text type={'strong'}>{ product['name'] }</Text>
+              {product['label'] && (
+                <Text>[{ product['label'] }]</Text>
+              )}
             </a>
           </Link>
         </div>
@@ -49,7 +61,12 @@ function Product({ uuid, count, fullPrice, product }: any) {
         </div>
       </div>
       <div className={styles['controls']}>
-        <Count value={count} onChange={handleChange} minValue={1} />
+        <div className={styles['count']}>
+          <Count value={count} onChange={handleChange} minValue={1} />
+        </div>
+        <div className={styles['icon']}>
+          <span className={removeClassName} onClick={handleDelete} />
+        </div>
       </div>
       <div className={styles['price']}>
         <div className={styles['line']}>

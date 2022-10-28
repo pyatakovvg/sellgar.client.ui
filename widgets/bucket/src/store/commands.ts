@@ -78,7 +78,7 @@ export function addToBucket(data: any): any {
   }
 }
 
-export function cleanBucket(): any {
+export function cleanBucket(params?: any): any {
   return async function(dispatch: Dispatch) {
     try {
       dispatch(destroyBucketRequestAction(null));
@@ -86,6 +86,9 @@ export function cleanBucket(): any {
       const result = await request({
         url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/bucket',
         method: 'delete',
+        params: {
+          ...params,
+        }
       });
 
       dispatch(destroyBucketSuccessRequestAction(result['data']));
@@ -96,3 +99,4 @@ export function cleanBucket(): any {
     }
   }
 }
+

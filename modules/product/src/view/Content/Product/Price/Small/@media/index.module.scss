@@ -13,16 +13,23 @@
 .price {
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex: 1 0;
+  align-items: center;
+}
+
+.label {
+
+  display: block;
+  margin: 3px 0 0 16px;
 }
 
 .amount {
 
   display: block;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: $font-weight-bold;
-  color: $black;
+  color: $dark;
 }
 
 .bucket {

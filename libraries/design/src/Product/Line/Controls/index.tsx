@@ -1,17 +1,12 @@
 
 import numeral from '@package/numeral';
-import { Button, Text, Image } from '@library/kit';
-// import { addToBucket, selectData } from '@widget/bucket';
+import { Button, Text } from '@library/kit';
+import { addToBucket, selectData } from '@widget/bucket';
 
 import React from 'react';
-import getConfig from "next/config";
-// import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import styles from './@media/index.module.scss';
-
-
-const config = getConfig();
-const process = config['publicRuntimeConfig'];
 
 
 interface IProps {
@@ -21,19 +16,18 @@ interface IProps {
 
 
 function Controls({ products }: IProps) {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
+  const bucket = useSelector(selectData) as any;
   const product = products.find((item) => item['isTarget']);
-
-  // const bucket = useSelector(selectData) as any;
-  // const product =  bucket ? bucket['products'].filter((item: any) => item['product']['uuid'] === uuid)[0] : null;
+  const productInBucket =  bucket ? bucket['products'].filter((item: any) => item['product']['uuid'] === product['product']['uuid'])[0] : null;
 
   function handleAddToCart() {
-    // dispatch(addToBucket({
-    //   productUuid: uuid,
-    //   uuid: product?.['uuid'] ?? null,
-    //   count: (product?.['count'] ?? 0) + 1,
-    // }));
+    dispatch(addToBucket({
+      bucketUuid: bucket?.['uuid'],
+      productUuid: product['product']['uuid'],
+      count: (productInBucket?.['count'] ?? 0) + 1,
+    }));
   }
 
   return (
@@ -45,14 +39,11 @@ function Controls({ products }: IProps) {
         <div className={styles['controls']}>
           <Button mode={'info'} size={'middle'} onClick={handleAddToCart}>В корзину</Button>
         </div>
-        {/*{ !! product && (*/}
-        {/*  <div className={styles['bucket']}>*/}
-        {/*    <Text type={'description'}>уже { product['count'] } в корзине</Text>*/}
-        {/*  </div>*/}
-        {/*)}*/}
-      </div>
-      <div className={styles['brand']}>
-        <Image width={40} height={40} src={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + product['product']['brand']['image']['uuid']} />
+        { !! productInBucket && (
+          <div className={styles['bucket']}>
+            <Text type={'description'}>уже { productInBucket['count'] } в корзине</Text>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -3,7 +3,6 @@ import React from 'react';
 
 import Title from './Title';
 import Price from './Price';
-import Products from './Products';
 import Comments from './Comments';
 
 import styles from './@media/index.module.scss';
@@ -21,7 +20,7 @@ interface IProps {
 
 
 function Product({ uuid, name, comments, products, externalId, group, category }: IProps) {
-  const [product, setProduct] = React.useState(() => {
+  const [product] = React.useState(() => {
     return products.find((item: any) => item['isTarget']);
   });
 
@@ -31,16 +30,17 @@ function Product({ uuid, name, comments, products, externalId, group, category }
         <Title name={name} brand={product['product']['brand']} />
       </div>
       <div className={styles['price']}>
-        <Price uuid={uuid} price={product['product']['price']} currency={product['product']['currency']} />
+        {products.map((product: any, index: number) => {
+          return (
+            <div key={product['product']['uuid']} className={styles['item']}>
+              <Price type={index === 0 ? 'large' : 'small'} uuid={uuid} product={product} />
+            </div>
+          );
+        })}
       </div>
       <div className={styles['rating']}>
         <Comments comments={comments} externalId={externalId} group={group} category={category} />
       </div>
-      {(products.length > 1) && (
-        <div className={styles['products']}>
-          <Products uuid={product['uuid']} products={products} onClick={setProduct} />
-        </div>
-      )}
     </div>
   );
 }

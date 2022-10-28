@@ -8,6 +8,7 @@ module.exports = {
   devIndicators: {
     buildActivityPosition: 'bottom-right'
   },
+  productionBrowserSourceMaps: true,
   publicRuntimeConfig: {
     env: {
       PHONE_CONTACT: process.env['PHONE_CONTACT'],

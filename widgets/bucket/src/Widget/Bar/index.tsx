@@ -35,4 +35,4 @@ function Bar() {
   );
 }
 
-export default Bar;
+export default React.memo(Bar);
