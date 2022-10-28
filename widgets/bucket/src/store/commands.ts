@@ -56,17 +56,12 @@ export function addToBucket(data: any): any {
     try {
       dispatch(updateBucketRequestAction(null));
 
-      await request({
+      const result = await request({
         url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/bucket',
         method: 'post',
         data: {
           ...data,
         },
-      });
-
-      const result = await request({
-        url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/bucket',
-        method: 'get',
       });
 
       dispatch(updateBucketSuccessRequestAction(result['data']));
