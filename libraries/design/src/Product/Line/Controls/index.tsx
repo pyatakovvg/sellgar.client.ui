@@ -20,7 +20,8 @@ function Controls({ products }: IProps) {
 
   const bucket = useSelector(selectData) as any;
   const product = products.find((item) => item['isTarget']);
-  const productInBucket =  bucket ? bucket['products'].filter((item: any) => item['product']['uuid'] === product['product']['uuid'])[0] : null;
+  const productInBucket =  bucket ? bucket['products'].find((item: any) => item['product']['uuid'] === product['product']['uuid']) : null;
+  const productsInBucket = bucket ? bucket['products'].filter((item: any) => products.some((buck: any) => buck['product']['uuid'] === item['product']['uuid'])) : null;
 
   function handleAddToCart() {
     dispatch(addToBucket({
@@ -39,9 +40,12 @@ function Controls({ products }: IProps) {
         <div className={styles['controls']}>
           <Button mode={'info'} size={'middle'} onClick={handleAddToCart}>В корзину</Button>
         </div>
-        { !! productInBucket && (
+        { !! productsInBucket?.length && (
           <div className={styles['bucket']}>
-            <Text type={'description'}>уже { productInBucket['count'] } в корзине</Text>
+            {productsInBucket.map((product: any) => {
+              console.log(product)
+              return <Text type={'description'}>{product['product']['label']} уже в корзине ({ product['count'] })</Text>
+            })}
           </div>
         )}
       </div>
