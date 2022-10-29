@@ -43,7 +43,6 @@ function Controls({ products }: IProps) {
         { !! productsInBucket?.length && (
           <div className={styles['bucket']}>
             {productsInBucket.map((product: any) => {
-              console.log(product)
               return <Text type={'description'}>{product['product']['label']} уже в корзине ({ product['count'] })</Text>
             })}
           </div>
