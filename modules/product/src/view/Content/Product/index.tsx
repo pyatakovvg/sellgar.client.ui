@@ -14,32 +14,22 @@ interface IProps {
   group: any;
   category: any;
   name: string;
-  products: Array<any>;
+  product: any;
   comments: any;
 }
 
 
-function Product({ uuid, name, comments, products, externalId, group, category }: IProps) {
-  const [product] = React.useState(() => {
-    return products.find((item: any) => item['isTarget']);
-  });
-
+function Product({ uuid, name, product, externalId, group, category }: IProps) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['name']}>
-        <Title name={name} brand={product['product']['brand']} />
+        <Title name={name} brand={product['brand']} vendor={product['vendor']} />
       </div>
       <div className={styles['price']}>
-        {products.map((product: any, index: number) => {
-          return (
-            <div key={product['product']['uuid']} className={styles['item']}>
-              <Price type={index === 0 ? 'large' : 'small'} uuid={uuid} product={product} />
-            </div>
-          );
-        })}
+        <Price uuid={uuid} product={product} />
       </div>
       <div className={styles['rating']}>
-        <Comments comments={comments} externalId={externalId} group={group} category={category} />
+        <Comments externalId={externalId} group={group} category={category} />
       </div>
     </div>
   );

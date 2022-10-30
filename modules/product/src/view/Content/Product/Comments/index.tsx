@@ -12,11 +12,10 @@ interface IProps {
   group: any;
   category: any;
   externalId: string;
-  comments: any;
 }
 
 
-function Comments({ comments, externalId, group, category }: IProps): JSX.Element {
+function Comments({ externalId, group, category }: IProps) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['rating']}>
@@ -24,7 +23,7 @@ function Comments({ comments, externalId, group, category }: IProps): JSX.Elemen
       </div>
       <div className={styles['comments']}>
         <Link href={'/catalog/' + group['code'] + '/' + category['code'] + '/' + externalId + '#opinion'}>
-          <Icon count={comments['meta']['totalRows']} />
+          <Icon value={0} />
         </Link>
       </div>
     </div>

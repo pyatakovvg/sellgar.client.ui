@@ -14,7 +14,6 @@ interface IProps {
 
 
 function HeaderComponent({ withoutBucket }: IProps) {
-  console.log(withoutBucket)
   return (
     <section className={styles['wrapper']}>
       <div className={styles['content']}>

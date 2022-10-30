@@ -14,7 +14,7 @@ interface IProps {
   name: string;
   group: any;
   category: any;
-  products: Array<any>;
+  product: any;
 }
 
 
