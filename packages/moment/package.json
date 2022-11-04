@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "@package/moment",
+  "type": "module",
   "version": "0.0.1",
   "main": "lib/index.esm.js",
   "types": "types",
@@ -14,11 +15,11 @@
   },
   "dependencies": {
     "moment": "2.29.4",
-    "moment-timezone": "0.5.37"
+    "moment-timezone": "0.5.38"
   },
   "devDependencies": {
-    "@types/node": "16.11.7",
     "@types/moment": "2.13.0",
-    "@types/moment-timezone": "0.5.30"
+    "@types/moment-timezone": "0.5.30",
+    "@types/node": "16.11.7"
   }
 }

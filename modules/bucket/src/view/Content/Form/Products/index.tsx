@@ -23,8 +23,8 @@ function Products() {
       <div className={styles['content']}>
         {bucket['products'].map((item: any) => {
           return (
-            <div key={item['uuid']} className={styles['item']}>
-              <Item {...item} />
+            <div key={item['product']['uuid']} className={styles['item']}>
+              <Item bucketUuid={bucket['uuid']} {...item} />
             </div>
           )
         })}

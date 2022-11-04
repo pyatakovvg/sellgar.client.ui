@@ -17,6 +17,7 @@ interface IProps {
   group: any;
   category: any;
   product: any;
+  allCommentCount: number;
 }
 
 

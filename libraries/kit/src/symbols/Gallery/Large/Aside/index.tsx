@@ -19,7 +19,9 @@ function Aside({ items, activeIndex, onChange }: IProps) {
     <div className={styles['wrapper']}>
       {items.map((url: string, index: number) => (
         <div key={url} className={cn(styles['image'], { [styles['is-active']]: index === activeIndex })} onClick={() => onChange(index)}>
-          <Image src={url} width={48} height={48} />
+          <div className={styles['container']}>
+            <Image src={url} width={46} height={46} />
+          </div>
         </div>
       ))}
     </div>

@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "@library/store",
+  "type": "module",
   "version": "0.0.1",
   "main": "lib/index.esm.js",
   "types": "types",
@@ -13,22 +14,22 @@
     "start:dev": "cross-env NODE_ENV=development microbundle watch -f es --no-compress"
   },
   "dependencies": {
-    "@module/categories": "0.0.1",
     "@module/bucket": "0.0.1",
+    "@module/categories": "0.0.1",
     "@module/checkout": "0.0.1",
     "@module/groups": "0.0.1",
     "@module/main": "0.0.1",
     "@module/product": "0.0.1",
     "@module/products": "0.0.1",
-    "@package/push": "0.0.1",
     "@package/dialog": "0.0.1",
+    "@package/push": "0.0.1",
     "@widget/bucket": "0.0.1",
-    "next": "12.3.1",
+    "next": "13.0.1",
     "react-redux": "8.0.4",
     "redux-form": "8.3.8"
   },
   "peerDependencies": {
-    "@reduxjs/toolkit": "1.8.5"
+    "@reduxjs/toolkit": "1.8.6"
   },
   "devDependencies": {
     "@types/react-redux": "7.1.24",

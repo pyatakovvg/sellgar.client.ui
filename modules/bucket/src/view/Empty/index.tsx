@@ -19,7 +19,7 @@ function Empty() {
           <Header level={2}>Корзина пуста</Header>
         </div>
         <div className={styles['description']}>
-          <Text>Посмотрите предложения на <Link href={'/'}><a className={styles['link']}>главной странице</a></Link>,<br/>воспользуйтесь каталогом или поиском</Text>
+          <Text>Посмотрите предложения на <Link className={styles['link']} href={'/'}>главной странице</Link>,<br/>воспользуйтесь каталогом или поиском</Text>
         </div>
         <div className={styles['controls']}>
           <Link href={'/'}>

@@ -14,11 +14,11 @@ function Information() {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['content']}>
-        <Link href={'phone:' + process.env['PHONE_CONTACT']}>
-          <a className={styles['phone']}>{ process.env['PHONE_CONTACT'] }</a>
+        <Link className={styles['phone']} href={'phone:' + process.env['PHONE_CONTACT']}>
+          { process.env['PHONE_CONTACT'] }
         </Link>
-        <Link href={'mail:' + process.env['EMAIL_CONTACT']}>
-          <a className={styles['email']}>{ process.env['EMAIL_CONTACT'] }</a>
+        <Link className={styles['email']} href={'mail:' + process.env['EMAIL_CONTACT']}>
+          { process.env['EMAIL_CONTACT'] }
         </Link>
       </div>
     </div>

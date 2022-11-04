@@ -17,10 +17,8 @@ function Content({ data }: IProps) {
     <section className={styles['wrapper']}>
       {data['categories'].map((category: any) => (
         <div key={category['code']} className={styles['item']}>
-          <Link href={'/catalog/' + data['code'] + '/' + category['code']}>
-            <a className={styles['link']}>
-              <CatalogItem {...category} />
-            </a>
+          <Link className={styles['link']} href={'/catalog/' + data['code'] + '/' + category['code']}>
+            <CatalogItem {...category} />
           </Link>
         </div>
       ))}

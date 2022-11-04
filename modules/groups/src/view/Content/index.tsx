@@ -17,10 +17,8 @@ function Content({ data }: IProps): JSX.Element {
     <section className={styles['wrapper']}>
       {data.map((group) => (
           <div key={group['code']} className={styles['item']}>
-            <Link href={'/catalog/' + group['code']}>
-              <a className={styles['link']}>
-                <CatalogItem {...group} />
-              </a>
+            <Link className={styles['link']} href={'/catalog/' + group['code']}>
+              <CatalogItem {...group} />
             </Link>
           </div>
       ))}

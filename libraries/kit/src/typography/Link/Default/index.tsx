@@ -17,8 +17,8 @@ function DefaultLink({ className, href, children }: IProps): JSX.Element | null 
   const linkClassName = React.useMemo(() => cn(styles['link'], className), [className]);
 
   return (
-    <Link href={href}>
-      <a className={linkClassName}>{ children }</a>
+    <Link className={linkClassName} href={href}>
+      { children }
     </Link>
   );
 }

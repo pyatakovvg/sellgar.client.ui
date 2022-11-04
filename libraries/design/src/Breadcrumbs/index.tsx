@@ -22,10 +22,8 @@ function Breadcrumbs({ data }: IProps) {
   return (
     <section className={styles['wrapper']}>
       <div className={styles['item']}>
-        <Link href={'/'}>
-          <a className={styles['link']}>
-            <span className={cn(styles['home'], 'fa-solid fa-house')} />
-          </a>
+        <Link className={styles['link']} href={'/'}>
+          <span className={cn(styles['home'], 'fa-solid fa-house')} />
         </Link>
       </div>
       {data.map((item, index) => {
@@ -38,10 +36,8 @@ function Breadcrumbs({ data }: IProps) {
         }
         return (
           <div key={index} className={styles['item']}>
-            <Link href={item['href']}>
-              <a className={styles['link']}>
-                <Text type={'strong'}>{ item['name'] }</Text>
-              </a>
+            <Link className={styles['link']} href={item['href']}>
+              <Text type={'strong'}>{ item['name'] }</Text>
             </Link>
           </div>
         );

@@ -14,9 +14,7 @@ interface IProps {
 function Image({ items }: IProps) {
   return (
     <div className={styles['wrapper']}>
-      <div className={styles['content']}>
-        <Gallery items={items} />
-      </div>
+      <Gallery items={items} />
     </div>
   );
 }

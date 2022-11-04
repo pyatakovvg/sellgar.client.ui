@@ -1,7 +1,7 @@
 
 import numeral from '@package/numeral';
 import { Text, Image, Count } from '@library/kit';
-import { changeOpen, addToBucket } from '@widget/bucket';
+import { addToBucket, cleanBucket } from '@widget/bucket';
 
 import React from 'react';
 import Link from 'next/link';
@@ -15,16 +15,19 @@ const config = getConfig();
 const process = config['publicRuntimeConfig'];
 
 
-function Product({ uuid, count, fullPrice, product }: any) {
+function Product({ bucketUuid, count, fullPrice, product }: any) {
   const dispatch = useDispatch();
 
-  function handleClose() {
-    dispatch(changeOpen(false));
+  function handleDelete() {
+    dispatch(cleanBucket({
+      bucketUuid,
+      productUuid: product['uuid'],
+    }));
   }
 
   function handleChange(value: number) {
     dispatch(addToBucket({
-      uuid,
+      bucketUuid,
       count: value,
       productUuid: product['uuid'],
     }));
@@ -37,10 +40,8 @@ function Product({ uuid, count, fullPrice, product }: any) {
       </div>
       <div className={styles['common']}>
         <div className={styles['line']}>
-          <Link href={'/catalog/' + product['groupCode'] + '/' + product['categoryCode'] + '/' + product['externalId']}>
-            <a className={styles['link']} onClick={handleClose}>
-              <Text type={'strong'}>{ product['title'] }</Text>
-            </a>
+          <Link className={styles['link']} href={'/catalog/' + product['groupCode'] + '/' + product['categoryCode'] + '/' + product['externalId']}>
+            <Text type={'strong'}>{ product['name'] }</Text>
           </Link>
         </div>
         <div className={styles['line']}>
@@ -62,4 +63,4 @@ function Product({ uuid, count, fullPrice, product }: any) {
   );
 }
 
-export default Product;
+export default React.memo(Product);

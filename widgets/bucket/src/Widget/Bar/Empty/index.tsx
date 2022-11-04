@@ -20,13 +20,11 @@ function Empty() {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['description']}>
-        <Text>Посмотрите предложения на <Link href={'/'}><a className={styles['link']} onClick={handleClose}>главной&nbsp;странице</a></Link> или воспользуйтесь поиском</Text>
+        <Text>Посмотрите предложения на <Link href={'/'} className={styles['link']} onClick={handleClose}>главной&nbsp;странице</Link> или воспользуйтесь поиском</Text>
       </div>
       <div className={styles['controls']}>
-        <Link href={'/'}>
-          <a onClick={handleClose}>
-            <Button form={'outline'}>На главную</Button>
-          </a>
+        <Link href={'/'} onClick={handleClose}>
+          <Button form={'outline'}>На главную</Button>
         </Link>
       </div>
     </div>

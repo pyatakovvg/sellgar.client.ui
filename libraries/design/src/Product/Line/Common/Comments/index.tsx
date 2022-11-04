@@ -12,10 +12,11 @@ interface IProps {
   group: any;
   category: any;
   externalId: string;
+  allCommentCount: number;
 }
 
 
-function Comments({ externalId, group, category }: IProps) {
+function Comments({ externalId, group, category, allCommentCount }: IProps) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['rating']}>
@@ -23,7 +24,7 @@ function Comments({ externalId, group, category }: IProps) {
       </div>
       <div className={styles['comments']}>
         <Link href={'/catalog/' + group['code'] + '/' + category['code'] + '/' + externalId + '#opinion'}>
-          <Icon value={0} />
+          <Icon value={allCommentCount} />
         </Link>
       </div>
     </div>

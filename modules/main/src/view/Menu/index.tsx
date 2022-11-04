@@ -20,9 +20,7 @@ function Navigate({ groups }: any) {
         })}
       </div>
       <div className={styles['control']}>
-        <Link href={'/catalog'}>
-          <a className={styles['link']}>Перейти в каталог</a>
-        </Link>
+        <Link className={styles['link']} href={'/catalog'}>Перейти в каталог</Link>
       </div>
     </menu>
   );

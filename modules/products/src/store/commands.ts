@@ -28,7 +28,7 @@ export async function getCategory(params: any) {
     },
   });
 
-  return result['data'][0];
+  return result['data']?.[0] ?? null;
 }
 
 export async function getAttributes(params: any) {

@@ -4,6 +4,7 @@ import { Header } from '@library/kit';
 import React from 'react';
 
 import Content from './Content';
+import AddOpinion from './AddOpinion';
 
 import styles from './@media/index.module.scss';
 
@@ -22,9 +23,9 @@ function Comments({ uuid, data, meta }: IProps): JSX.Element {
           <Header level={3}>Отзывы ({ meta['totalRows'] })</Header>
         </div>
       </div>
-      {/*<div className={styles['controls']}>*/}
-      {/*  <AddOpinion productUuid={uuid} />*/}
-      {/*</div>*/}
+      <div className={styles['controls']}>
+        <AddOpinion productUuid={uuid} />
+      </div>
       <div className={styles['content']}>
         <Content productUuid={uuid} data={data} />
       </div>

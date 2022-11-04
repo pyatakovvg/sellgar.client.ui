@@ -47,6 +47,11 @@ export default function ProductByExternalId<NextPage>(props: IProps) {
 export async function getServerSideProps(props: any) {
   const { externalId }: any = props['query'];
   const product = await getProduct(externalId);
+
+  if ( ! product['data']) {
+    return { notFound: true };
+  }
+
   const comments = await getComments(product['data']['uuid']);
 
   return {

@@ -19,6 +19,7 @@
 @import "~@module/bucket";
 @import "~@module/checkout";
 @import "~@module/categories";
+@import "~@module/not-found";
 
 
 html,

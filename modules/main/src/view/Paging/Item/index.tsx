@@ -18,10 +18,8 @@ function PagingItem({ page = 1 }: any) {
   }, [router['query']]);
 
   return (
-    <Link href={'/' + (page > 1 ? '?page=' + (page) : '')}>
-      <a className={itemClassName}>
-        <span className={styles['title']}>{ page }</span>
-      </a>
+    <Link className={itemClassName} href={'/' + (page > 1 ? '?page=' + (page) : '')}>
+      <span className={styles['title']}>{ page }</span>
     </Link>
   );
 }

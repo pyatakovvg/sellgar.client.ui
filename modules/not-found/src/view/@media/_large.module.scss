@@ -1,0 +1,48 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+
+  display: block;
+  text-align: center;
+  background: $white;
+  padding: 56px;
+  border-radius: $border-radius-middle;
+  @include box-shadow('bottom');
+}
+
+.code {
+
+  display: block;
+}
+
+.number {
+
+  display: block;
+  line-height: .76;
+  font-size: 160px;
+  font-weight: $font-weight-bold;
+  color: rgba($primary, .4);
+}
+
+.header {
+
+  display: block;
+  margin: 32px 0 0;
+}
+
+.description {
+
+  display: block;
+  margin: 16px 0 0;
+}

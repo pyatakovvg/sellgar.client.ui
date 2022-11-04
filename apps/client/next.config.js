@@ -1,5 +1,6 @@
 
 module.exports = {
+  output: 'standalone',
   images: {
     unoptimized: true,
     formats: ['image/webp'],

@@ -16,20 +16,8 @@ interface IProps {
 function Gallery({ items }: IProps) {
   const [active, setActive] = React.useState<number>(0);
 
-  function handlePrev() {
-    let nextIndex = active - 1;
-    if (nextIndex < 0) {
-      nextIndex = items.length - 1;
-    }
-    setActive(nextIndex);
-  }
-
-  function handleNext() {
-    let nextIndex = active + 1;
-    if (nextIndex > items.length - 1) {
-      nextIndex = 0;
-    }
-    setActive(nextIndex);
+  function handleChange(index: number) {
+    setActive(index);
   }
 
   if ( ! items.length) {
@@ -48,10 +36,11 @@ function Gallery({ items }: IProps) {
         </div>
       ))}
       {(items.length > 1) && (
-        <div className={cn(styles['left'], 'fa-solid fa-angle-left')} onClick={handlePrev} />
-      )}
-      {(items.length > 1) && (
-        <div className={cn(styles['right'], 'fa-solid fa-angle-right')} onClick={handleNext} />
+        <div className={styles['aside']}>
+          {items.map((src: any, index: number) => (
+            <div key={src} className={cn(styles['dot'], { [styles['is-active']]: index === active })} onClick={() => handleChange(index)} />
+          ))}
+        </div>
       )}
     </div>
   );

@@ -131,6 +131,11 @@ echo 'Модуль "Checkout"'
 echo '------------------------------------'
 cd ../checkout && npx yarn build
 
+echo '------------------------------------'
+echo 'Модуль "Not found"'
+echo '------------------------------------'
+cd ../not-found && npx yarn build
+
 
 echo '------------------------------------'
 echo 'Виджет "Store"'

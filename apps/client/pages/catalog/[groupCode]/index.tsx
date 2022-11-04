@@ -28,6 +28,10 @@ export async function getServerSideProps(props: any) {
     code: params['groupCode'],
   });
 
+  if ( ! group) {
+    return { notFound: true };
+  }
+
   return {
     props: {
       data: group,

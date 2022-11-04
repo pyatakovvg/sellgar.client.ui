@@ -30,16 +30,14 @@ function PagingItem({ page = 1 }: any) {
   }, [router['query']]);
 
   return (
-    <Link href={{
+    <Link className={itemClassName} href={{
       pathname: '/catalog/' + query['groupCode'] + '/' + query['categoryCode'],
       query: {
         ...getQuery(query),
         ...((page > 1) ? { page } : {})
       }
     }}>
-      <a className={itemClassName}>
-        <span className={styles['title']}>{ page }</span>
-      </a>
+      <span className={styles['title']}>{ page }</span>
     </Link>
   );
 }

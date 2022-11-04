@@ -11,7 +11,9 @@
 
 .image {
 
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
   width: 48px;
   height: 48px;
   border-radius: $border-radius-small;
@@ -32,4 +34,11 @@
 .is-active,
 .is-active:hover {
   border-color: $info;
+}
+
+.container {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
 }

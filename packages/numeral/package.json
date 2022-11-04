@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "@package/numeral",
+  "type": "module",
   "version": "0.0.1",
   "main": "lib/index.esm.js",
   "types": "types",

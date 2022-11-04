@@ -43,10 +43,8 @@ function Image({ src, width, height, onLoadingComplete }: IProps) {
           loader={({ src }: any) => src}
           alt={'No image'}
           src={src + params}
-          layout={'responsive'}
           width={width}
           height={height}
-          objectFit={'contain'}
           loading={'lazy'}
           onLoadingComplete={() => setLoaded(true)}
         />

@@ -12,6 +12,7 @@
 .code {
 
   display: block;
+  text-align: right;
 }
 
 .content {
@@ -33,5 +34,7 @@
 .image {
 
   display: block;
+  width: 64px;
+  height: 64px;
   margin: 0 0 0 32px;
 }

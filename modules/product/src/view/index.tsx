@@ -45,11 +45,9 @@ function Product({ data, comments }: IProps): JSX.Element {
           <Description description={data['description']} />
         </div>
       )}
-      { !! comments['data'].length && (
-        <div className={styles['comments']}>
-          <Comments uuid={data['uuid']} {...comments} />
-        </div>
-      )}
+      <div className={styles['comments']}>
+        <Comments uuid={data['uuid']} {...comments} />
+      </div>
     </section>
   );
 }

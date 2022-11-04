@@ -34,6 +34,11 @@ export async function getServerSideProps(props: any) {
   const category = await getCategory({
     code: params['categoryCode'],
   });
+
+  if ( ! category) {
+    return { notFound: true };
+  }
+
   const brands = await getBrands({
     groupCode: params['groupCode'],
     categoryCode: params['categoryCode'],

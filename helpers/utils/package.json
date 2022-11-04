@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "@helper/utils",
+  "type": "module",
   "description": "",
   "license": "ISC",
   "version": "0.0.1",

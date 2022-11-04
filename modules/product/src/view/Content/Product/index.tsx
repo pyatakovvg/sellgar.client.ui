@@ -16,20 +16,21 @@ interface IProps {
   name: string;
   product: any;
   comments: any;
+  allCommentCount: number;
 }
 
 
-function Product({ uuid, name, product, externalId, group, category }: IProps) {
+function Product(props: IProps) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['name']}>
-        <Title name={name} brand={product['brand']} vendor={product['vendor']} />
+        <Title name={props['name']} brand={props['product']['brand']} vendor={props['product']['vendor']} />
       </div>
       <div className={styles['price']}>
-        <Price uuid={uuid} product={product} />
+        <Price uuid={props['uuid']} product={props['product']} />
       </div>
       <div className={styles['rating']}>
-        <Comments externalId={externalId} group={group} category={category} />
+        <Comments {...props} />
       </div>
     </div>
   );

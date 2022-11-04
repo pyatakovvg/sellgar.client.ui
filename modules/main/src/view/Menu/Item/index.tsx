@@ -16,19 +16,17 @@ function Item({ code, icon, name, categories, products }: any) {
 
   return (
     <nav className={styles['wrapper']}>
-      <Link href={'/catalog/' + code}>
-        <a className={styles['content']}>
-          <div className={styles['icon']}>
-            <span className={thumbClassName}/>
-          </div>
-          <div className={styles['information']}>
-            <span className={styles['name']}>{ name }</span>
-            <span className={styles['count']}>{ products } { nounDeclension(products, ['товар', 'товара', 'товаров']) }</span>
-          </div>
-          <div className={styles['control']}>
-            <span className={arrowClassName} />
-          </div>
-        </a>
+      <Link className={styles['content']} href={'/catalog/' + code}>
+        <div className={styles['icon']}>
+          <span className={thumbClassName}/>
+        </div>
+        <div className={styles['information']}>
+          <span className={styles['name']}>{ name }</span>
+          <span className={styles['count']}>{ products } { nounDeclension(products, ['товар', 'товара', 'товаров']) }</span>
+        </div>
+        <div className={styles['control']}>
+          <span className={arrowClassName} />
+        </div>
       </Link>
       <div className={styles['category']}>
         <Categories groupCode={code} items={categories} />

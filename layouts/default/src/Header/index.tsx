@@ -19,9 +19,7 @@ function HeaderComponent({ withoutBucket }: IProps) {
       <div className={styles['content']}>
         <div className={styles['logotype']}>
           <Link href={'/'}>
-            <a>
-              <Logotype type={'middle'} />
-            </a>
+            <Logotype type={'middle'} />
           </Link>
         </div>
       </div>

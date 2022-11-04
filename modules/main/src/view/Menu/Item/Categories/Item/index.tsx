@@ -12,16 +12,14 @@ function Item({ groupCode, icon, code, name, products }: any) {
   const thumbClassName = React.useMemo(() => cn(styles['thumb'], icon), []);
 
   return (
-    <Link href={'/catalog/' + groupCode + '/' + code}>
-      <a className={styles['wrapper']}>
-        <div className={styles['icon']}>
-          <span className={thumbClassName}/>
-        </div>
-        <div className={styles['information']}>
-          <span className={styles['content']}>{ name }</span>
-          <span className={styles['count']}>{ products } { nounDeclension(products, ['товар', 'товара', 'товаров']) }</span>
-        </div>
-      </a>
+    <Link className={styles['wrapper']} href={'/catalog/' + groupCode + '/' + code}>
+      <div className={styles['icon']}>
+        <span className={thumbClassName}/>
+      </div>
+      <div className={styles['information']}>
+        <span className={styles['content']}>{ name }</span>
+        <span className={styles['count']}>{ products } { nounDeclension(products, ['товар', 'товара', 'товаров']) }</span>
+      </div>
     </Link>
   );
 }

@@ -1,9 +1,10 @@
 {
   "private": true,
   "name": "@layout/default",
+  "type": "module",
   "version": "0.0.1",
   "main": "lib/index.esm.js",
-  "style": "lib/index.css",
+  "style": "lib/index.esm.css",
   "types": "types",
   "publishConfig": {
     "source": "src/index.tsx",
@@ -17,15 +18,15 @@
     "@library/kit": "0.0.1",
     "@library/theme": "0.0.1",
     "@widget/bucket": "0.0.1",
-    "next": "12.3.1",
+    "next": "13.0.1",
     "react-redux": "8.0.4"
   },
   "devDependencies": {
     "@types/classnames": "2.3.1",
     "@types/node": "16.11.7",
-    "@types/react": "18.0.17",
-    "autoprefixer": "10.4.12",
-    "postcss": "8.4.17",
+    "@types/react": "18.0.24",
+    "autoprefixer": "10.4.13",
+    "postcss": "8.4.18",
     "postcss-copy": "7.1.0",
     "postcss-import": "15.0.0",
     "postcss-scss": "4.0.5",

@@ -25,6 +25,8 @@
   display: block;
   width: 96px;
   height: 96px;
+  border-radius: $border-radius-small;
+  overflow: hidden;
 }
 
 .common {

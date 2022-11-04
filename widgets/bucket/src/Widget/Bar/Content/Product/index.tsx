@@ -39,7 +39,7 @@ function Product({ bucketUuid, count, fullPrice, product }: any) {
       productUuid: product['uuid'],
     }));
   }
-console.log(product)
+
   return (
     <div className={styles['wrapper']}>
       <div className={styles['gallery']}>
@@ -47,10 +47,8 @@ console.log(product)
       </div>
       <div className={styles['common']}>
         <div className={styles['line']}>
-          <Link href={'/catalog/' + product['groupCode'] + '/' + product['categoryCode'] + '/' + product['externalId']}>
-            <a className={styles['link']} onClick={handleClose}>
-              <Text type={'strong'}>{ product['name'] }</Text>
-            </a>
+          <Link className={styles['link']} onClick={handleClose} href={'/catalog/' + product['groupCode'] + '/' + product['categoryCode'] + '/' + product['externalId']}>
+            <Text type={'strong'}>{ product['name'] }</Text>
           </Link>
         </div>
         <div className={styles['line']}>

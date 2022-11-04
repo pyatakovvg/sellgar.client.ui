@@ -1,8 +1,7 @@
 
-import { Header, Text } from '@library/kit';
+import { Header, Text, Image } from '@library/kit';
 
 import React from 'react';
-import Image from 'next/image';
 import getConfig from 'next/config';
 
 import styles from './@media/index.module.scss';
@@ -32,13 +31,9 @@ function Product({ name, brand, vendor }: IProps) {
         {brand['image'] && (
           <div className={styles['image']}>
             <Image
-              alt={''}
-              src={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + brand['image']['uuid'] + '?width=64'}
-              layout="fixed"
+              src={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + brand['image']['uuid']}
               width={64}
               height={64}
-              objectFit={'scale-down'}
-              loading={'lazy'}
             />
           </div>
         )}
