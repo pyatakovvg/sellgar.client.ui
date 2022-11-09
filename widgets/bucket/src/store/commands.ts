@@ -54,7 +54,7 @@ export function getBucket(): any {
 export function addToBucket(data: any): any {
   return async function(dispatch: Dispatch) {
     try {
-      dispatch(updateBucketRequestAction(null));
+      dispatch(updateBucketRequestAction(data['productUuid']));
 
       const result = await request({
         url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/bucket',
@@ -64,10 +64,13 @@ export function addToBucket(data: any): any {
         },
       });
 
-      dispatch(updateBucketSuccessRequestAction(result['data']));
+      dispatch(updateBucketSuccessRequestAction({
+        data: result['data'],
+        productUuid: data['productUuid'],
+      }));
     }
     catch(error) {
-      dispatch(updateBucketFailRequestAction(null));
+      dispatch(updateBucketFailRequestAction(data['productUuid']));
       dispatch<any>(pushFail('Ошибка при обновлении данных'));
     }
   }

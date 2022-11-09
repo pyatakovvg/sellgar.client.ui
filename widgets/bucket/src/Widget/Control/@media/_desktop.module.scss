@@ -7,7 +7,11 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  flex: 1 0;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
@@ -40,4 +44,21 @@
   font-weight: $font-weight-bold;
   color: $black;
   padding: 1px 0 0 1px;
+}
+
+
+.spine {
+  animation: ldx-cycle 1s infinite linear;
+}
+
+
+@keyframes ldx-cycle {
+  0% {
+    animation-timing-function: cubic-bezier(0.3333,0.3333,0.6667,0.6667);
+    transform: rotate(0)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
 }

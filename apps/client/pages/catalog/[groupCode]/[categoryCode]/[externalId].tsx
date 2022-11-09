@@ -23,17 +23,19 @@ export default function ProductByExternalId<NextPage>(props: IProps) {
       <Head>
         <title>{ props['data']['title'] }</title>
 
+        <meta property={'og:site_name'} content={'sellgar'} />
         <meta property={'og:title'} content={props['data']['title']} />
         <meta property={'og:type'} content={'website'} />
         {props['data']['images'].map((img: any) => (
-          <meta key={img['uuid']} property={'og:image'} content={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + img['uuid'] + '?width=510&height=228'} />
+          <>
+            <meta key={img['uuid']} property={'og:image:url'} content={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + img['uuid'] + '?width=510&height=510'} />
+            <meta property="og:image:type" content="image/webp" />
+            <meta property="og:image:width" content="510" />
+            <meta property="og:image:height" content="510" />
+          </>
         ))}
-        <meta property="og:image:type" content="image/webp" />
-        <meta property="og:image:width" content="510" />
-        <meta property="og:image:height" content="228" />
         <meta property={'og:url'} content={
-          process.env['WEBSITE_URL'] +
-          '/catalog/' +
+          process.env['WEBSITE_URL'] + '/catalog/' +
           props['data']['group']['code'] + '/' +
           props['data']['category']['code'] + '/' +
           props['data']['externalId']

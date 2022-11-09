@@ -7,7 +7,8 @@ interface IState {
   isOpen: boolean;
   data: any;
   inProcess: boolean;
-  inUpdateProcess: boolean;
+  inDeleteProcess: boolean;
+  inUpdateProcess: Array<string>;
 }
 
 
@@ -16,8 +17,9 @@ const REDUCER_NAME = 'widget/bucket';
 const initialState = {
   isOpen: false,
   data: null,
-  inProcess: true,
-  inUpdateProcess: false,
+  inProcess: false,
+  inUpdateProcess: [],
+  inDeleteProcess: false,
 } as IState;
 
 
@@ -29,7 +31,8 @@ const slice: Slice = createSlice({
       state['isOpen'] = false;
       state['data'] = null;
       state['inProcess'] = true;
-      state['inUpdateProcess'] = false;
+      state['inUpdateProcess'] = [];
+      state['inDeleteProcess'] = false;
     },
 
     changeOpenAction(state: IState, { payload }: PayloadAction<typeof initialState['isOpen']>) {
@@ -47,26 +50,26 @@ const slice: Slice = createSlice({
       state['inProcess'] = false;
     },
 
-    updateBucketRequestAction(state: Draft<typeof initialState>) {
-      state['inUpdateProcess'] = true;
+    updateBucketRequestAction(state: Draft<typeof initialState>, { payload }: PayloadAction<string>) {
+      state['inUpdateProcess'] = [...state['inUpdateProcess'], payload];
     },
-    updateBucketFailRequestAction(state: Draft<typeof initialState>) {
-      state['inUpdateProcess'] = false;
+    updateBucketFailRequestAction(state: Draft<typeof initialState>, { payload }: PayloadAction<string>) {
+      state['inUpdateProcess'] = state['inUpdateProcess'].filter((uuid: string) => uuid !== payload);
     },
     updateBucketSuccessRequestAction(state: Draft<typeof initialState>, { payload }: PayloadAction<any>) {
-      state['data'] = payload;
-      state['inUpdateProcess'] = false;
+      state['data'] = payload['data'];
+      state['inUpdateProcess'] = state['inUpdateProcess'].filter((uuid: string) => uuid !== payload['productUuid']);
     },
 
     destroyBucketRequestAction(state: Draft<typeof initialState>) {
-      state['inUpdateProcess'] = true;
+      state['inDeleteProcess'] = true;
     },
     destroyBucketFailRequestAction(state: Draft<typeof initialState>) {
-      state['inUpdateProcess'] = false;
+      state['inDeleteProcess'] = false;
     },
     destroyBucketSuccessRequestAction(state: Draft<typeof initialState>, { payload }: PayloadAction<any>) {
       state['data'] = payload;
-      state['inUpdateProcess'] = false;
+      state['inDeleteProcess'] = false;
     },
   },
 });
@@ -87,12 +90,15 @@ export const {
   destroyBucketRequestAction,
   destroyBucketFailRequestAction,
   destroyBucketSuccessRequestAction,
-} = slice['actions'] as any;
+} = slice['actions'] as {
+  [key: string]: any;
+};
 
 export const selectData = (state: any): any => state[REDUCER_NAME]['data'];
 export const selectIsOpen = (state: any): boolean => state[REDUCER_NAME]['isOpen'];
 export const selectInProcess = (state: any): boolean => state[REDUCER_NAME]['inProcess'];
-export const selectInUpdateProcess = (state: any): boolean => state[REDUCER_NAME]['inUpdateProcess'];
+export const selectInDeleteProcess = (state: any): boolean => state[REDUCER_NAME]['inDeleteProcess'];
+export const selectInUpdateProcess = (state: any): Array<string> => state[REDUCER_NAME]['inUpdateProcess'];
 
 export const name = slice['name'];
 export const reducer = slice['reducer'];

@@ -1,0 +1,42 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 auto;
+}
+
+.logo {
+
+  display: block;
+}
+
+.icon {
+
+  color: $dark;
+  font-size: 20px;
+}
+
+.count {
+
+  position: absolute;
+  top: 0;
+  right: -8px;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: $white;
+  font-size: 8px;
+  font-weight: $font-weight-bold;
+  color: $black;
+  padding: 1px 0 0 1px;
+}

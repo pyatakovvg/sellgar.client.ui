@@ -9,6 +9,7 @@ import getConfig from 'next/config';
 import { useDispatch } from 'react-redux';
 
 import styles from './@media/index.module.scss';
+import cn from "classnames";
 
 
 const config = getConfig();
@@ -17,6 +18,7 @@ const process = config['publicRuntimeConfig'];
 
 function Product({ bucketUuid, count, fullPrice, product }: any) {
   const dispatch = useDispatch();
+  const removeClassName = React.useMemo(() => cn(styles['remove'], 'fa-solid fa-xmark'), []);
 
   function handleDelete() {
     dispatch(cleanBucket({
@@ -49,7 +51,12 @@ function Product({ bucketUuid, count, fullPrice, product }: any) {
         </div>
       </div>
       <div className={styles['controls']}>
-        <Count value={count} minValue={1} onChange={handleChange} />
+        <div className={styles['count']}>
+          <Count value={count} onChange={handleChange} minValue={1} />
+        </div>
+        <div className={styles['icon']}>
+          <span className={removeClassName} onClick={handleDelete} />
+        </div>
       </div>
       <div className={styles['price']}>
         <div className={styles['line']}>

@@ -53,8 +53,8 @@
 
 .icon {
 
-  font-size: 18px;
-  color: $gray;
+  font-size: 16px;
+  color: $primary;
 }
 
 .placeholder {
@@ -75,7 +75,7 @@
 
   &--default {
 
-    border-color: $gray-light;
+    border-color: $gray;
 
     &:hover,
     &.in-focus {

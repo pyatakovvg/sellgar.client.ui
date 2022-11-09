@@ -1,0 +1,99 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  align-items: center;
+}
+
+.line {
+
+  display: block;
+
+  & + & {
+
+    margin: 4px 0 0;
+  }
+}
+
+.gallery {
+
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: $border-radius-small;
+  overflow: hidden;
+}
+
+.common {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  margin: 0 0 0 16px;
+}
+
+.controls {
+
+  display: inline-flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  align-items: center;
+  margin: 0 0 0 24px;
+}
+
+.count {
+  display: block;
+}
+
+.icon {
+
+  display: block;
+  margin: 0 0 0 6px;
+}
+
+.remove {
+
+  display: inline-block;
+  font-size: 12px;
+  color: $danger;
+  cursor: pointer;
+  transition: color $transition-duration;
+
+  &:hover {
+
+    color: $danger-dark;
+  }
+}
+
+.price {
+
+  display: block;
+  width: 120px;
+  text-align: right;
+  margin: 0 0 0 24px;
+}
+
+.link {
+
+  display: block;
+  text-decoration: none;
+  padding: 2px 8px 2px 4px;
+  border-radius: $border-radius-small;
+
+  &:hover {
+    background: $gray-light;
+  }
+}
+
+.info {
+
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  align-items: baseline;
+}

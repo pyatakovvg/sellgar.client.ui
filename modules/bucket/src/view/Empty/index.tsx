@@ -1,8 +1,7 @@
 
-import { Header, Text, Button } from '@library/kit';
+import { Header, Text, Button, Link } from '@library/kit';
 
 import React from 'react';
-import Link from 'next/link';
 
 import cn from 'classnames';
 import styles from './@media/index.module.scss';
@@ -10,8 +9,8 @@ import styles from './@media/index.module.scss';
 
 function Empty() {
   return (
-    <section className={styles['wrapper']}>
-      <section className={styles['content']}>
+    <div className={styles['wrapper']}>
+      <div className={styles['content']}>
         <div className={styles['promo']}>
           <span className={cn(styles['icon'], 'fa-solid fa-cart-shopping')} />
         </div>
@@ -19,17 +18,15 @@ function Empty() {
           <Header level={2}>Корзина пуста</Header>
         </div>
         <div className={styles['description']}>
-          <Text>Посмотрите предложения на <Link className={styles['link']} href={'/'}>главной странице</Link>,<br/>воспользуйтесь каталогом или поиском</Text>
+          <Text>Посмотрите предложения на <Link className={styles['link']} href={'/'}>главной странице</Link>,<br/>воспользуйтесь <Link href={'/catalog'}>каталогом</Link> или поиском</Text>
         </div>
         <div className={styles['controls']}>
           <Link href={'/'}>
-            <a>
-              <Button form={'outline'} mode={'primary'}>На главную</Button>
-            </a>
+            <Button form={'outline'} mode={'primary'}>На главную</Button>
           </Link>
         </div>
-      </section>
-    </section>
+      </div>
+    </div>
   );
 }
 

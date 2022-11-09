@@ -19,6 +19,7 @@ interface IProps {
   size?: TSize,
   children?: string | number | null,
   disabled?: boolean,
+  inProcess?: boolean,
   onClick?(event: React.MouseEvent<HTMLButtonElement>): void,
 }
 

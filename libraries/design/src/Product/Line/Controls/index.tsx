@@ -1,7 +1,7 @@
 
 import numeral from '@package/numeral';
 import { Button, Text } from '@library/kit';
-import { addToBucket, selectData } from '@widget/bucket';
+import { addToBucket, selectData, selectInUpdateProcess } from '@widget/bucket';
 
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -19,6 +19,7 @@ function Controls({ product }: IProps) {
   const dispatch = useDispatch();
 
   const bucket = useSelector(selectData) as any;
+  const inBucketProcess = useSelector(selectInUpdateProcess) as Array<string>;
   const productInBucket =  bucket ? bucket['products'].find((item: any) => {
     return item['product']['uuid'] === product['uuid']
   }) : null;
@@ -38,7 +39,12 @@ function Controls({ product }: IProps) {
           <Text className={styles['amount']}>{ `${numeral(product['price']).format() } ${ product['currency']['displayName'] }` }</Text>
         </div>
         <div className={styles['controls']}>
-          <Button mode={'info'} size={'middle'} onClick={handleAddToCart}>В корзину</Button>
+          <Button
+            mode={'info'}
+            size={'middle'}
+            onClick={handleAddToCart}
+            inProcess={ !!~ inBucketProcess.indexOf(product['uuid'])}
+          >В корзину</Button>
         </div>
         { !! productInBucket && (
           <div className={styles['bucket']}>

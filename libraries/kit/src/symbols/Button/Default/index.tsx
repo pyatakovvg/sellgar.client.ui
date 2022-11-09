@@ -16,11 +16,12 @@ interface IProps {
   size?: TSize,
   children?: string | number | null;
   disabled?: boolean;
+  inProcess?: boolean;
   onClick?(event: React.MouseEvent<HTMLButtonElement>): void;
 }
 
 
-function DefaultButton({ className, type, mode, size, children, disabled, onClick }: IProps): JSX.Element | null {
+function DefaultButton({ className, type, mode, size, children, disabled, inProcess, onClick }: IProps): JSX.Element | null {
   const buttonClassName = React.useMemo(() => cn(styles['button'], {
     [styles['mode--danger']]: mode === 'danger',
     [styles['mode--primary']]: mode === 'primary',
@@ -30,10 +31,14 @@ function DefaultButton({ className, type, mode, size, children, disabled, onClic
     [styles['size--small']]: size === 'small',
     [styles['size--middle']]: size === 'middle',
     [styles['size--large']]: size === 'large',
-  }, className), [className, mode, disabled]);
+  }, {
+    [styles['disabled']]: disabled,
+  }, {
+    [styles['in-process']]: inProcess,
+  }, className), [className, mode, disabled, inProcess]);
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>): void {
-    if (disabled) {
+    if (disabled || inProcess) {
       return void 0;
     }
 
@@ -46,7 +51,7 @@ function DefaultButton({ className, type, mode, size, children, disabled, onClic
     <button
       className={buttonClassName}
       type={type}
-      disabled={disabled}
+      disabled={disabled || inProcess}
       onClick={handleClick}
     >{ children }</button>
   );

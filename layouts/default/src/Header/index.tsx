@@ -1,6 +1,7 @@
 
 import { Logotype } from '@library/kit';
 import { Widget as BucketWidget } from '@widget/bucket';
+import { Widget as SearchWidget } from '@widget/search';
 
 import React from 'react';
 import Link from 'next/link';
@@ -22,6 +23,9 @@ function HeaderComponent({ withoutBucket }: IProps) {
             <Logotype type={'middle'} />
           </Link>
         </div>
+      </div>
+      <div className={styles['search']}>
+        <SearchWidget />
       </div>
       <div className={styles['controls']}>
         { ! withoutBucket && (

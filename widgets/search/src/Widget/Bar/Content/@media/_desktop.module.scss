@@ -1,0 +1,48 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  background: $white;
+  border-radius: $border-radius-small;
+  padding: 16px;
+  border: 1px solid $gray-light;
+  box-shadow: 0 2px 4px 0 rgba($dark, .3);
+}
+
+.item {
+
+  display: block;
+
+  & + & {
+
+    margin: 2px 0 0;
+  }
+}
+
+.controls {
+
+  display: flex;
+  flex-direction: row;
+  flex: 1 0;
+  margin: 16px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid $gray-light;
+  align-items: center;
+}
+
+.price {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+}
+
+.buttons {
+
+  display: block;
+}

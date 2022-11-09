@@ -1,0 +1,33 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  background: $white;
+  border-radius: 8px;
+  padding: 32px 40px;
+  border: 1px solid $gray-light;
+  box-shadow: 0 6px 10px 0 rgba($dark, .2);
+}
+
+.description {
+
+  display: block;
+  text-align: center;
+}
+
+.controls {
+
+  display: block;
+  text-align: center;
+  margin: 24px 0 0;
+}
+
+.link {
+
+  color: $primary-dark;
+}

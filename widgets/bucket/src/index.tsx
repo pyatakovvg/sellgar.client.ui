@@ -6,4 +6,4 @@ export * from './context';
 
 export { name, reducer } from './store/slice';
 export { getBucket, changeOpen, addToBucket, cleanBucket } from './store/commands';
-export { selectData, selectIsOpen, selectInProcess, selectInUpdateProcess } from './store/slice';
+export { selectData, selectIsOpen, selectInProcess, selectInUpdateProcess, selectInDeleteProcess } from './store/slice';

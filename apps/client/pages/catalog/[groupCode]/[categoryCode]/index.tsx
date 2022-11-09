@@ -46,12 +46,12 @@ export async function getServerSideProps(props: any) {
   const attributes = await getAttributes({
     groupCode: params['groupCode'],
     categoryCode: params['categoryCode'],
-    brandCode: query?.['brand'] || undefined,
+    brandCode: query?.['brand'] ?? undefined,
   });
   const result = await getProducts({
     ...query,
     // sort: Number(query?.['sort'] || 1),
-    brandCode: query?.['brand'] || undefined,
+    brandCode: query?.['brand'] ?? undefined,
     take: Number(process.env['TAKE_PRODUCTS']),
     skip: Number((query?.['page'] ?? 1) - 1) * Number(process.env['TAKE_PRODUCTS']),
   });

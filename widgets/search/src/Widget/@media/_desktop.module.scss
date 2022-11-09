@@ -1,0 +1,26 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  position: relative;
+  display: block;
+  max-width: 640px;
+}
+
+.control {
+
+  display: block;
+}
+
+.content {
+
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex: 1 0;
+  z-index: 10;
+}

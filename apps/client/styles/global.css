@@ -10,6 +10,7 @@
 @import "~@package/push";
 @import "~@package/dialog";
 
+@import "~@widget/search";
 @import "~@widget/bucket";
 
 @import "~@module/main";

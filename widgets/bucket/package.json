@@ -11,8 +11,8 @@
     "main": "lib/index.js"
   },
   "scripts": {
-    "build": "cross-env NODE_ENV=production microbundle build --jsx React.createElement -f es --css-modules bucket_[local]__[hash:base64:12]",
-    "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress --css-modules bucket_[local]__[hash:base64:12]"
+    "build": "cross-env NODE_ENV=production microbundle build --jsx React.createElement -f es --css-modules wgt_bucket_[local]__[hash:base64:12]",
+    "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress --css-modules wgt_bucket_[local]__[hash:base64:12]"
   },
   "dependencies": {
     "@library/kit": "0.0.1",

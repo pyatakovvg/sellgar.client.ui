@@ -1,5 +1,5 @@
 
-import { Header, Text, Link } from '@library/kit';
+import { Header, Text, Link, Button } from '@library/kit';
 
 import React from 'react';
 
@@ -10,14 +10,19 @@ function Page() {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['content']}>
-        <div className={styles['code']}>
+        <div className={styles['promo']}>
           <span className={styles['number']}>404</span>
         </div>
         <div className={styles['header']}>
           <Header level={2}>Страница не существует</Header>
         </div>
         <div className={styles['description']}>
-          <Text>Перейдите на <Link href={'/'}>главную</Link> страницу или воспользуйтесь <Link href={'/catalog'}>каталогом</Link>.</Text>
+          <Text>Посмотрите предложения на <Link className={styles['link']} href={'/'}>главной странице</Link>,<br/>воспользуйтесь <Link href={'/catalog'}>каталогом</Link> или поиском</Text>
+        </div>
+        <div className={styles['controls']}>
+          <Link href={'/'}>
+            <Button form={'outline'} mode={'primary'}>На главную</Button>
+          </Link>
         </div>
       </div>
     </div>
