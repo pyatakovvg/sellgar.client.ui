@@ -1,5 +1,5 @@
 {
-  "lerna": "6.0.1",
+  "lerna": "6.1.0",
   "version": "independent",
   "packages": [
     "libraries/*",

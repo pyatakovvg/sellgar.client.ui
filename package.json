@@ -9,29 +9,25 @@
     "audit-ci": "6.3.0",
     "cross-env": "7.0.3",
     "improved-yarn-audit": "3.0.0",
-    "lerna": "6.0.1",
+    "lerna": "6.1.0",
     "lerna-update-wizard": "1.1.2",
     "microbundle": "0.15.1",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "yarn": "1.22.19"
   },
   "workspaces": [
+    "libraries/theme",
     "helpers/utils",
-
     "packages/request",
     "packages/dialog",
     "packages/numeral",
     "packages/moment",
     "packages/push",
-
     "libraries/kit",
-
     "widgets/bucket",
     "widgets/search",
-
     "libraries/design",
-
     "layouts/default",
-
     "modules/main",
     "modules/groups",
     "modules/categories",
@@ -40,9 +36,7 @@
     "modules/bucket",
     "modules/checkout",
     "modules/not-found",
-
     "libraries/store",
-
     "apps/*"
   ]
 }
