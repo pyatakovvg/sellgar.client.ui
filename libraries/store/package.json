@@ -23,12 +23,12 @@
     "@module/products": "0.0.1",
     "@package/dialog": "0.0.1",
     "@package/push": "0.0.1",
+    "@reduxjs/toolkit": "1.9.1",
     "@widget/bucket": "0.0.1",
     "@widget/search": "0.0.1",
-    "@reduxjs/toolkit": "1.8.6",
-    "next": "13.0.1",
-    "react-redux": "8.0.4",
-    "redux-form": "8.3.8"
+    "next": "13.0.6",
+    "react-redux": "8.0.5",
+    "redux-form": "8.3.9"
   },
   "devDependencies": {
     "@types/react-redux": "7.1.24",
