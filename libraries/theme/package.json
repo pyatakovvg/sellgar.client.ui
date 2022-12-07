@@ -9,6 +9,7 @@
     "email": "viktor.pyatakov@pimpay.ru"
   },
   "scripts": {
+    "build": "echo 'theme'",
     "login": "npm login --registry=https://npm.kassa.pimpay.ru",
     "publish": "npm publish --registry=https://npm.kassa.pimpay.ru"
   }

@@ -2,7 +2,8 @@
   "name": "store.client",
   "private": true,
   "scripts": {
-    "audit": "npx improved-yarn-audit --min-severity moderate --ignore-dev-deps"
+    "audit": "npx improved-yarn-audit --min-severity moderate --ignore-dev-deps",
+    "build": "npx yarn workspaces run build"
   },
   "devDependencies": {
     "audit-ci": "6.3.0",
@@ -14,12 +15,34 @@
     "typescript": "4.8.4"
   },
   "workspaces": [
-    "libraries/*",
-    "packages/*",
-    "modules/*",
-    "helpers/*",
-    "layouts/*",
-    "widgets/*",
+    "helpers/utils",
+
+    "packages/request",
+    "packages/dialog",
+    "packages/numeral",
+    "packages/moment",
+    "packages/push",
+
+    "libraries/kit",
+
+    "widgets/bucket",
+    "widgets/search",
+
+    "libraries/design",
+
+    "layouts/default",
+
+    "modules/main",
+    "modules/groups",
+    "modules/categories",
+    "modules/products",
+    "modules/product",
+    "modules/bucket",
+    "modules/checkout",
+    "modules/not-found",
+
+    "libraries/store",
+
     "apps/*"
   ]
 }
