@@ -9,9 +9,9 @@ function Document() {
     <Html>
       <Head>
         <meta name="yandex-verification" content="8b18fc3d468352c3" />
-        <meta name={'Cache-Control'} content={'no-cache, no-store, max-age=0, must-revalidate'}/>
+        <meta name="Cache-Control" content="no-cache, no-store, max-age=0, must-revalidate" />
 
-        <link rel="icon" type="image/svg" sizes="32x32" href="/favicon.svg"/>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={'true'} />
