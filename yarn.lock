@@ -6498,6 +6498,11 @@ next-sitemap@3.1.43:
     "@corex/deepmerge" "^4.0.29"
     minimist "^1.2.7"
 
+next-yandex-metrika@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/next-yandex-metrika/-/next-yandex-metrika-1.0.0.tgz#b0bfa6cdd9f9547e8b51b3ba32c13cae43ad01bf"
+  integrity sha512-LjXW3JhLH6YDy6yYjkgs94cUm6ybUYIBo6V4H/w3nAa79soA+UNVd1rIjXr5qaGfwQjto8X9fC3Afon1DSspHA==
+
 next@13.0.6:
   version "13.0.6"
   resolved "https://registry.yarnpkg.com/next/-/next-13.0.6.tgz#f9a2e9e2df9ad60e1b6b716488c9ad501a383621"
