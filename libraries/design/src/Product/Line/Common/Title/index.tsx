@@ -19,7 +19,7 @@ function Title({ name, group, category, externalId }: IProps) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['content']}>
-        <Link className={styles['link']} href={'/catalog/' + group['code'] + '/' + category['code'] + '/' + externalId}>
+        <Link className={styles['link']} href={'/catalog/' + group?.['code'] + '/' + category?.['code'] + '/' + externalId}>
           <Header className={styles['title']} level={4}>{ name }</Header>
         </Link>
       </div>

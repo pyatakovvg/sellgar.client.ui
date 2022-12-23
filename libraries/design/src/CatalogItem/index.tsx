@@ -22,7 +22,7 @@ function CatalogItem({ name, image, products }: IProps) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['image']}>
-        <Image src={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + image?.['uuid']} width={160} height={160} />
+        <Image src={image ? process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + image?.['uuid'] : undefined} width={160} height={160} />
       </div>
       <div className={styles['content']}>
         <div className={styles['text']}>

@@ -1,3 +1,4 @@
+/** @type {import('next-sitemap').IConfig} */
 
 module.exports = {
   output: 'standalone',
@@ -20,5 +21,5 @@ module.exports = {
 
       TAKE_PRODUCTS: process['env']['TAKE_PRODUCTS']
     }
-  }
+  },
 }

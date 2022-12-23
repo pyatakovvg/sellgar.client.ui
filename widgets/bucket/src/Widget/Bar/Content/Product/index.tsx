@@ -43,7 +43,7 @@ function Product({ bucketUuid, count, fullPrice, product }: any) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['gallery']}>
-        <Image width={96} height={96} src={process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + product['image']['uuid']} />
+        <Image width={96} height={96} src={product['image'] ? process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + product['image']['uuid'] : undefined} />
       </div>
       <div className={styles['common']}>
         <div className={styles['line']}>

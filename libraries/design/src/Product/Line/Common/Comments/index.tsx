@@ -23,7 +23,7 @@ function Comments({ externalId, group, category, allCommentCount }: IProps) {
         <Rating value={4} />
       </div>
       <div className={styles['comments']}>
-        <Link href={'/catalog/' + group['code'] + '/' + category['code'] + '/' + externalId + '#opinion'}>
+        <Link href={'/catalog/' + group?.['code'] + '/' + category?.['code'] + '/' + externalId + '#opinion'}>
           <Icon value={allCommentCount} />
         </Link>
       </div>

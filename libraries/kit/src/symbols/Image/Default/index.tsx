@@ -2,6 +2,7 @@
 import React from 'react';
 import Img from 'next/image';
 
+import Empty from './Empty';
 import Spinner from '../../Spinner';
 
 import styles from './default.module.scss';
@@ -35,6 +36,12 @@ function Image({ src, width, height, onLoadingComplete }: IProps) {
     }
     return '?width=' + width + '&height=' + height;
   }, [width, height]);
+
+  if ( ! src) {
+    return (
+      <Empty />
+    );
+  }
 
   return (
     <div className={styles['wrapper']}>

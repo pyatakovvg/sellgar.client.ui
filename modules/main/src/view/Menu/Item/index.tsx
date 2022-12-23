@@ -18,6 +18,7 @@ function Item({ code, icon, name, categories, products }: any) {
     <nav className={styles['wrapper']}>
       <Link className={styles['content']} href={'/catalog/' + code}>
         <div className={styles['icon']}>
+          {/*<Image width={32} height={32} src={image ? process.env['GATEWAY_SERVICE_API'] + '/api/v1/images/' + image['uuid'] : undefined} />*/}
           <span className={thumbClassName}/>
         </div>
         <div className={styles['information']}>

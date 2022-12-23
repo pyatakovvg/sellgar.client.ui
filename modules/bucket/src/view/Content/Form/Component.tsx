@@ -36,7 +36,9 @@ function Form({ delivery, payments, handleSubmit }: any) {
       </div>
       <div className={styles['controls']}>
         <div className={styles['buttons']}>
-          <Button type={'submit'} mode={'success'} size={'large'}>{`Подтвердить заказ на сумму ${ numeral(bucket['price']).format() } ${ bucket['currency']['displayName']}`}</Button>
+          <Button type={'submit'} mode={'success'} size={'large'}>
+            {`Оформить заказ на сумму ${ numeral(bucket['price']).format() } ${ bucket['currency']['displayName']}`}
+          </Button>
         </div>
         <div className={styles['description']}>
           <Text type={'description'}>Подтверждая заказ, Вы соглашаетесь с условиями политики <Link href={'/checkout/policy'} target={'_blank'} className={styles['link']}>конфиденциальности и правилами продажи.</Link></Text>

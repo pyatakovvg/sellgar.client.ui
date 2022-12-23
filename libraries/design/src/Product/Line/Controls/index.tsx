@@ -4,6 +4,7 @@ import { Button, Text } from '@library/kit';
 import { addToBucket, selectData, selectInUpdateProcess } from '@widget/bucket';
 
 import React from 'react';
+import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 
 import styles from './@media/index.module.scss';
@@ -47,9 +48,9 @@ function Controls({ product }: IProps) {
           >В корзину</Button>
         </div>
         { !! productInBucket && (
-          <div className={styles['bucket']}>
+          <Link className={styles['bucket']} href={'/checkout'}>
             <Text type={'description'}>уже { productInBucket['count'] } в корзине</Text>
-          </div>
+          </Link>
         )}
       </div>
     </div>
