@@ -7,7 +7,8 @@ import { Html, Head, Main, NextScript } from 'next/document'
 function Document() {
   return (
     <Html>
-      <Head title={'sellgar.ru'}>
+      <Head>
+        <meta name="yandex-verification" content="8b18fc3d468352c3" />
         <meta name={'Cache-Control'} content={'no-cache, no-store, max-age=0, must-revalidate'}/>
 
         <link rel="icon" type="image/svg" sizes="32x32" href="/favicon.svg"/>
