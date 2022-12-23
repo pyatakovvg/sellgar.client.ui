@@ -26,7 +26,7 @@
     "@reduxjs/toolkit": "1.9.1",
     "@widget/bucket": "0.0.1",
     "@widget/search": "0.0.1",
-    "next": "13.0.6",
+    "next": "13.1.0",
     "react-redux": "8.0.5",
     "redux-form": "8.3.9"
   },

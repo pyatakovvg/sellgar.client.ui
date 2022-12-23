@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@types/axios": "0.14.0",
-    "@types/node": "18.11.11",
+    "@types/node": "18.11.17",
     "@types/qs": "6.9.7"
   }
 }

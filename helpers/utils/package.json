@@ -20,6 +20,6 @@
     "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress"
   },
   "devDependencies": {
-    "@types/node": "18.11.11"
+    "@types/node": "18.11.17"
   }
 }

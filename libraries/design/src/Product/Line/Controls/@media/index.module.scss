@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   flex: 1 0;
-  text-align: right;
+  align-items: flex-end;
 }
 
 .price {
@@ -38,14 +38,29 @@
 
 .bucket {
 
-  display: block;
-  text-align: right;
+  display: inline-flex;
+  flex-direction: row;
+  flex: 0 0 auto;
   margin: 8px 0 0;
   text-decoration: none;
+  align-items: baseline;
+  color: $gray;
+  transition: color $transition-duration;
+
+  &:hover {
+    color: $gray-dark;
+  }
 }
 
 .brand {
 
   display: block;
   height: 40px;
+}
+
+.icon {
+
+  font-size: 12px;
+  margin: 0 0 0 4px;
+  color: inherit;
 }

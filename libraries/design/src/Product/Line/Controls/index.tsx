@@ -7,6 +7,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 
+import cn from 'classnames';
 import styles from './@media/index.module.scss';
 
 
@@ -24,6 +25,8 @@ function Controls({ product }: IProps) {
   const productInBucket =  bucket ? bucket['products'].find((item: any) => {
     return item['product']['uuid'] === product['uuid']
   }) : null;
+
+  const bucketLinkIconClassName = React.useMemo(() => cn(styles['icon'], 'fa-solid fa-arrow-up-right-from-square'), []);
 
   function handleAddToCart() {
     dispatch(addToBucket({
@@ -50,6 +53,7 @@ function Controls({ product }: IProps) {
         { !! productInBucket && (
           <Link className={styles['bucket']} href={'/checkout'}>
             <Text type={'description'}>уже { productInBucket['count'] } в корзине</Text>
+            <i className={bucketLinkIconClassName}></i>
           </Link>
         )}
       </div>
