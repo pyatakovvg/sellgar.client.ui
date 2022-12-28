@@ -1,9 +1,5 @@
 
-export { default as Widget } from './Widget';
-export { resetStateAction } from './store/slice';
+export { default } from './App';
 
-export * from './context';
-
-export { name, reducer } from './store/slice';
-export { getBucket, changeOpen, addToBucket, cleanBucket } from './store/commands';
-export { selectData, selectIsOpen, selectInProcess, selectInUpdateProcess, selectInDeleteProcess } from './store/slice';
+export { addToBucket, cleanBucket } from './App/store/commands';
+export { useBucketData, useBucketInUpdateProcess } from './App/store/slice';

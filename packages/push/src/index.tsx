@@ -1,8 +1,3 @@
 
-export { default } from './view';
-
-export { close, push, pushFail, pushSuccess } from './store/commands';
-
-export { selectNotifications } from './store/slice';
-
-export { name, reducer } from './store/slice';
+export { default } from './App';
+export { push, pushFail, pushSuccess } from './App/store/commands';

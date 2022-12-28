@@ -1,6 +1,6 @@
 
 import qs from "qs";
-import axios, { AxiosRequestConfig } from "axios";
+import axios, { AxiosRequestConfig,  ParamsSerializerOptions } from "axios";
 
 
 const defaultOptions = {};
@@ -98,7 +98,7 @@ export default async function(options: object) {
 
     instance.interceptors.request.use(function (config: AxiosRequestConfig) {
       // @ts-ignore
-      config.paramsSerializer = (params: any): string => {
+      config.paramsSerializer = (params:  ParamsSerializerOptions): string => {
         return qs.stringify(params, { arrayFormat: 'repeat' })
       }
       return config;

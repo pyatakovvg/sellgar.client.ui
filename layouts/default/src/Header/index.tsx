@@ -1,7 +1,8 @@
 
 import { Logotype } from '@library/kit';
-import { Widget as BucketWidget } from '@widget/bucket';
-import { Widget as SearchWidget } from '@widget/search';
+import BucketWidget from '@widget/bucket';
+import SearchWidget from '@widget/search';
+// import { Widget as ProfileWidget } from '@widget/profile';
 
 import React from 'react';
 import Link from 'next/link';
@@ -12,7 +13,7 @@ import styles from './default.module.scss';
 interface IProps {
   withoutBucket: boolean;
 }
-
+console.log(BucketWidget)
 
 function HeaderComponent({ withoutBucket }: IProps) {
   return (
@@ -28,8 +29,13 @@ function HeaderComponent({ withoutBucket }: IProps) {
         <SearchWidget />
       </div>
       <div className={styles['controls']}>
+        {/*<div className={styles['control']}>*/}
+        {/*  <ProfileWidget />*/}
+        {/*</div>*/}
         { ! withoutBucket && (
-          <BucketWidget />
+          <div className={styles['control']}>
+            <BucketWidget />
+          </div>
         )}
       </div>
     </section>

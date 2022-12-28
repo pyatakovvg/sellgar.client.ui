@@ -34,25 +34,15 @@ export function createCheckout(data: any): any {
     try {
       dispatch(createCheckoutRequest());
 
-      const checkoutDetails = [];
-
-      if (data['name']) {
-        checkoutDetails.push({ name: 'name', value: data['name'] });
-      }
-
-      if (data['phone']) {
-        checkoutDetails.push({ name: 'phone', value: data['phone'] });
-      }
-
-      if (data['email']) {
-        checkoutDetails.push({ name: 'email', value: data['email'] });
-      }
-
       const result = await request({
         url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/checkouts',
         method: 'post',
         data: {
-          details: checkoutDetails,
+          customer: {
+            name: data.name,
+            phone: data.phone,
+            email: data.email,
+          },
           paymentCode: data['paymentCode'],
           deliveryCode: data['deliveryCode'],
         },

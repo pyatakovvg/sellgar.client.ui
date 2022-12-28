@@ -1,40 +1,31 @@
 {
   "private": true,
   "name": "@package/dialog",
-  "type": "module",
   "version": "0.0.1",
-  "main": "lib/index.esm.js",
-  "style": "lib/index.esm.css",
+  "description": "users",
+  "author": "Viktor Pyatakov <pyatakov.viktor@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "types": "types",
-  "publishConfig": {
-    "source": "src/index.tsx",
-    "main": "lib/index.js"
-  },
   "scripts": {
-    "build": "cross-env NODE_ENV=production microbundle build --jsx React.createElement -f es --no-sourcemap --css-modules dialog_[local]__[hash:base64:12]",
-    "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress --no-sourcemap --css-modules dialog_[local]__[hash:base64:12]"
+    "types": "tsc",
+    "build": "cross-env NODE_ENV=production babel ./src --out-dir ./lib --extensions '.ts,.tsx' --copy-files --no-copy-ignored && npm run types",
+    "start": "cross-env NODE_ENV=development babel ./src --out-dir ./lib --extensions '.ts,.tsx' --copy-files --watch"
   },
   "dependencies": {
     "@library/store": "0.0.1",
     "@library/theme": "0.0.1",
     "classnames": "2.3.2",
-    "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "8.0.5"
   },
   "devDependencies": {
     "@types/classnames": "2.3.1",
-    "@types/node": "18.11.17",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
-    "@types/react-redux": "7.1.24",
-    "autoprefixer": "10.4.13",
-    "postcss": "8.4.20",
-    "postcss-copy": "7.1.0",
-    "postcss-import": "15.1.0",
-    "postcss-scss": "4.0.6",
-    "postcss-url": "10.1.3",
-    "sass": "1.57.1"
+    "@types/react-redux": "7.1.24"
   }
 }

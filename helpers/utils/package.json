@@ -1,25 +1,19 @@
 {
   "private": true,
   "name": "@helper/utils",
-  "type": "module",
-  "description": "",
-  "license": "ISC",
   "version": "0.0.1",
-  "main": "lib/index.esm.js",
+  "description": "users",
+  "author": "Viktor Pyatakov <pyatakov.viktor@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "types": "types",
-  "publishConfig": {
-    "source": "src/index.ts",
-    "main": "lib/index.js"
-  },
-  "author": {
-    "name": "Viktor Pyatakov",
-    "email": "viktor.pyatakov@pimpay.ru"
-  },
   "scripts": {
-    "build": "cross-env NODE_ENV=production microbundle build --jsx React.createElement -f es",
-    "start:dev": "cross-env NODE_ENV=development microbundle watch --jsx React.createElement -f es --no-compress"
+    "types": "tsc",
+    "build": "cross-env NODE_ENV=production babel ./src --out-dir ./lib --extensions '.ts,.tsx' --copy-files --no-copy-ignored && npm run types",
+    "start": "cross-env NODE_ENV=development babel ./src --out-dir ./lib --extensions '.ts,.tsx' --copy-files --watch"
   },
-  "devDependencies": {
-    "@types/node": "18.11.17"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }

@@ -1,3 +1,4 @@
+"use client";
 
 import React from "react";
 import StarterKit from '@tiptap/starter-kit';

@@ -1,32 +1,24 @@
 {
   "private": true,
   "name": "@library/store",
-  "type": "module",
   "version": "0.0.1",
-  "main": "lib/index.esm.js",
+  "description": "users",
+  "author": "Viktor Pyatakov <pyatakov.viktor@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "types": "types",
-  "publishConfig": {
-    "source": "src/index.ts",
-    "main": "lib/index.js"
-  },
   "scripts": {
-    "build": "cross-env NODE_ENV=production microbundle build -f es",
-    "start:dev": "cross-env NODE_ENV=development microbundle watch -f es --no-compress"
+    "types": "tsc",
+    "build": "cross-env NODE_ENV=production babel ./src --out-dir ./lib --extensions '.ts,.tsx' --copy-files --no-copy-ignored && npm run types",
+    "start": "cross-env NODE_ENV=development babel ./src --out-dir ./lib --extensions '.ts,.tsx' --copy-files --watch"
   },
   "dependencies": {
-    "@module/bucket": "0.0.1",
-    "@module/categories": "0.0.1",
     "@module/checkout": "0.0.1",
-    "@module/groups": "0.0.1",
-    "@module/main": "0.0.1",
-    "@module/product": "0.0.1",
-    "@module/products": "0.0.1",
-    "@package/dialog": "0.0.1",
-    "@package/push": "0.0.1",
-    "@reduxjs/toolkit": "1.9.1",
     "@widget/bucket": "0.0.1",
-    "@widget/search": "0.0.1",
-    "next": "13.1.0",
+    "@reduxjs/toolkit": "1.9.1",
+    "next": "13.1.1",
     "react-redux": "8.0.5",
     "redux-form": "8.3.9"
   },

@@ -1,7 +1,10 @@
 /** @type {import('next-sitemap').IConfig} */
 
 module.exports = {
-  output: 'standalone',
+  experimental: {
+    // appDir: true,
+    esmExternals: 'loose'
+  },
   images: {
     unoptimized: true,
     formats: ['image/webp'],

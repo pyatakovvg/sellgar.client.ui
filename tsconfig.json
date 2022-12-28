@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
-    "target": "es5",
+    "target": "ESNext",
     "lib": [
       "dom",
       "dom.iterable",
@@ -16,19 +16,16 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
-    "jsx": "react-jsx"
+    "jsx": "preserve"
   },
-  "include": [
-    "src",
-  ],
   "exclude": [
     "node_modules",
   ]

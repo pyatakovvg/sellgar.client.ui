@@ -3,10 +3,11 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./types",
+    "emitDeclarationOnly": true,
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "react-env.d.ts"
+    "react-app-env.d.ts"
   ]
 }

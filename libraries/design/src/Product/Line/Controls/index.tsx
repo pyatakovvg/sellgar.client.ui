@@ -1,11 +1,10 @@
 
 import numeral from '@package/numeral';
 import { Button, Text } from '@library/kit';
-import { addToBucket, selectData, selectInUpdateProcess } from '@widget/bucket';
+import { addToBucket, useBucketData, useBucketInUpdateProcess } from '@widget/bucket';
 
 import React from 'react';
 import Link from 'next/link';
-import { useSelector, useDispatch } from 'react-redux';
 
 import cn from 'classnames';
 import styles from './@media/index.module.scss';
@@ -18,22 +17,20 @@ interface IProps {
 
 
 function Controls({ product }: IProps) {
-  const dispatch = useDispatch();
-
-  const bucket = useSelector(selectData) as any;
-  const inBucketProcess = useSelector(selectInUpdateProcess) as Array<string>;
+  const bucket = useBucketData();
+  const inBucketProcess = useBucketInUpdateProcess();
   const productInBucket =  bucket ? bucket['products'].find((item: any) => {
     return item['product']['uuid'] === product['uuid']
   }) : null;
 
   const bucketLinkIconClassName = React.useMemo(() => cn(styles['icon'], 'fa-solid fa-arrow-up-right-from-square'), []);
 
-  function handleAddToCart() {
-    dispatch(addToBucket({
+  async function handleAddToCart() {
+    await addToBucket({
       bucketUuid: bucket?.['uuid'],
       productUuid: product['uuid'],
       count: (productInBucket?.['count'] ?? 0) + 1,
-    }));
+    });
   }
 
   return (

@@ -1,3 +1,4 @@
+"use client";
 
 export { default as BaseField } from './fields/BaseField';
 

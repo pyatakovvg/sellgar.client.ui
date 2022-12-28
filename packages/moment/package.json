@@ -1,17 +1,18 @@
 {
   "private": true,
   "name": "@package/moment",
-  "type": "module",
   "version": "0.0.1",
-  "main": "lib/index.esm.js",
+  "description": "users",
+  "author": "Viktor Pyatakov <pyatakov.viktor@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "types": "types",
-  "publishConfig": {
-    "source": "src/index.ts",
-    "main": "lib/index.js"
-  },
   "scripts": {
-    "build": "cross-env NODE_ENV=production microbundle build -f es",
-    "start:dev": "cross-env NODE_ENV=development microbundle watch -f es --no-compress"
+    "types": "tsc",
+    "build": "cross-env NODE_ENV=production babel ./src --out-dir ./lib --extensions '.ts,.tsx' --copy-files --no-copy-ignored && npm run types",
+    "start": "cross-env NODE_ENV=development babel ./src --out-dir ./lib --extensions '.ts,.tsx' --copy-files --watch"
   },
   "dependencies": {
     "moment": "2.29.4",
@@ -19,7 +20,6 @@
   },
   "devDependencies": {
     "@types/moment": "2.13.0",
-    "@types/moment-timezone": "0.5.30",
-    "@types/node": "18.11.17"
+    "@types/moment-timezone": "0.5.30"
   }
 }

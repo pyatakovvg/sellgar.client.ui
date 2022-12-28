@@ -34,7 +34,7 @@ export function addComment(data: any) {
       dispatch(addOpinionRequest());
 
       await request({
-        url: window.env['GATEWAY_SERVICE_API'] + '/api/v1/comments',
+        url: process.env['GATEWAY_SERVICE_API'] + '/api/v1/comments',
         method: 'post',
         data: {
           ...data,

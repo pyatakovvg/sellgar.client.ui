@@ -32,6 +32,17 @@
 
 .controls {
 
-  display: block;
+  display: inline-flex;
+  flex-direction: row;
+  flex: 0 0 auto;
   margin: 0 0 0 56px;
+}
+
+.control {
+
+  display: block;
+
+  & + & {
+    margin: 0 0 0 24px;
+  }
 }

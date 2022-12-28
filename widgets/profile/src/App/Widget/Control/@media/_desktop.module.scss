@@ -1,0 +1,43 @@
+
+@import "~@library/theme";
+
+
+.wrapper {
+
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.logo {
+
+  display: block;
+}
+
+.icon {
+
+  color: $dark;
+  font-size: 20px;
+}
+
+.spine {
+  animation: ldx-cycle 1s infinite linear;
+}
+
+
+@keyframes ldx-cycle {
+  0% {
+    animation-timing-function: cubic-bezier(0.3333,0.3333,0.6667,0.6667);
+    transform: rotate(0)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}

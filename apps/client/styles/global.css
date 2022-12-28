@@ -2,26 +2,6 @@
 @import "./reset.css";
 @import "./fonts/css/all.min.css";
 
-@import "~@library/kit";
-@import "~@library/design";
-
-@import "~@layout/default";
-
-@import "~@package/push";
-@import "~@package/dialog";
-
-@import "~@widget/search";
-@import "~@widget/bucket";
-
-@import "~@module/main";
-@import "~@module/groups";
-@import "~@module/product";
-@import "~@module/products";
-@import "~@module/bucket";
-@import "~@module/checkout";
-@import "~@module/categories";
-@import "~@module/not-found";
-
 
 html,
 body {
